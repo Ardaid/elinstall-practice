@@ -1755,3 +1755,222 @@ body.sb-resizing * {
   color: var(--muted);
   font-style: italic;
 }
+
+/* =====================
+   HAMBURGER GOMB (csak mobilon látható)
+   ===================== */
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.4rem;
+  padding: 6px 10px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* =====================
+   BOTTOM NAV (csak mobilon látható)
+   ===================== */
+.mobile-bottom-nav {
+  display: none;
+}
+
+/* =====================
+   BACKDROP (csak mobilon)
+   ===================== */
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 299;
+}
+
+.sidebar-backdrop.visible {
+  display: block;
+}
+
+/* =====================
+   MOBIL – 768px és alatta
+   ===================== */
+@media (max-width: 768px) {
+
+  /* --- HEADER --- */
+  #site-header {
+    height: 54px;
+    padding: 0 10px;
+    gap: 6px;
+  }
+
+  .hamburger-btn {
+    display: block;
+  }
+
+  .header-title {
+    display: none;
+  }
+
+  .logo-dot {
+    width: 26px;
+    height: 26px;
+  }
+
+  /* Mode tabbok elrejtve – bottom nav veszi át */
+  .mode-tabs {
+    display: none;
+  }
+
+  .lang-btn {
+    padding: 6px 8px;
+    font-size: 0.75rem;
+  }
+
+  #lang-btn-label {
+    display: none;
+  }
+
+  .color-btn {
+    padding: 6px 8px;
+    font-size: 0.75rem;
+  }
+
+  /* --- LAYOUT --- */
+  .main-layout {
+    position: relative;
+  }
+
+  /* --- SIDEBAR – csúszó overlay --- */
+  .sidebar {
+    position: fixed;
+    left: -105%;
+    top: 54px;
+    bottom: 60px;
+    width: 80%;
+    max-width: 300px;
+    z-index: 300;
+    transition: left 0.28s ease;
+    box-shadow: 4px 0 24px rgba(0,0,0,0.6);
+    border-right: 1px solid var(--border);
+  }
+
+  .sidebar.mobile-open {
+    left: 0;
+  }
+
+  /* Átméretező fogó mobilon rejtve */
+  .sidebar-resize-handle {
+    display: none;
+  }
+
+  /* --- SESSIONS SIDEBAR rejtve --- */
+  .sessions-sidebar {
+    display: none !important;
+  }
+
+  /* --- CONTENT --- */
+  .content {
+    padding: 20px 16px 80px;
+    width: 100%;
+  }
+
+  .question-view {
+    max-width: 100%;
+  }
+
+  .quiz-view {
+    max-width: 100%;
+  }
+
+  /* --- SZÖVEGMÉRETEK --- */
+  .q-text-sv {
+    font-size: 1.2rem;
+  }
+
+  .q-text-hu {
+    font-size: 0.92rem;
+    margin-bottom: 24px;
+  }
+
+  .answer-card {
+    padding: 18px 16px;
+  }
+
+  .quiz-q-sv {
+    font-size: 1.15rem;
+  }
+
+  .quiz-q-hu {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .opt {
+    padding: 13px 14px;
+    font-size: 0.92rem;
+  }
+
+  .big-score {
+    font-size: 3.8rem;
+  }
+
+  .results {
+    padding: 40px 12px;
+  }
+
+  /* --- REVIEW OVERLAY --- */
+  .review-inner {
+    padding: 20px 16px 60px;
+  }
+
+  /* --- DICT KÁRTYA --- */
+  .dict-card {
+    height: 180px;
+  }
+
+  /* --- NYÍL GOMBOK --- */
+  .arrow-btn {
+    padding: 10px 16px;
+    font-size: 0.8rem;
+  }
+
+  /* --- BOTTOM NAV --- */
+  .mobile-bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--sidebar-bg);
+    border-top: 1px solid var(--border);
+    z-index: 200;
+    transition: background 0.3s, border-color 0.3s;
+  }
+
+  .mobile-nav-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 0.62rem;
+    font-weight: 600;
+    padding: 6px 4px;
+    transition: color 0.15s;
+  }
+
+  .mobile-nav-btn.active {
+    color: var(--accent);
+  }
+
+  .mobile-nav-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+}

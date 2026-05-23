@@ -830,6 +830,7 @@ function jumpTo(i) {
 
 function goHome() {
   listQ = 0;
+  closeMobileSidebar();
   if (mode !== 'list') setMode('list');
   else renderList();
 }
@@ -1221,12 +1222,34 @@ function resetQuiz() {
 // =====================
 // MÓD VÁLTÁS
 // =====================
+function toggleMobileSidebar() {
+  var sidebar = document.getElementById('sidebar');
+  var backdrop = document.getElementById('sidebar-backdrop');
+  sidebar.classList.toggle('mobile-open');
+  backdrop.classList.toggle('visible');
+}
+
+function closeMobileSidebar() {
+  var sidebar = document.getElementById('sidebar');
+  var backdrop = document.getElementById('sidebar-backdrop');
+  sidebar.classList.remove('mobile-open');
+  backdrop.classList.remove('visible');
+}
+
 function setMode(m) {
   var prev = mode;
   mode = m;
   document.getElementById('tab-list').classList.toggle('active', m === 'list');
   document.getElementById('tab-quiz').classList.toggle('active', m === 'quiz');
   document.getElementById('tab-dict').classList.toggle('active', m === 'dict');
+  // Mobile bottom nav sync
+  var ml = document.getElementById('mobile-tab-list');
+  var mq = document.getElementById('mobile-tab-quiz');
+  var md = document.getElementById('mobile-tab-dict');
+  if (ml) ml.classList.toggle('active', m === 'list');
+  if (mq) mq.classList.toggle('active', m === 'quiz');
+  if (md) md.classList.toggle('active', m === 'dict');
+  closeMobileSidebar();
   document.getElementById('sessions-sidebar').classList.toggle('hidden', m !== 'quiz');
 
   if (m === 'dict') {
