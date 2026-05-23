@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elinstallationsregler – Kérdések 1–10</title>
+  <meta name="theme-color" content="#4f8ef7">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Elinstall">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="site-header">
+    <div class="header-left" onclick="goHome()" style="cursor:pointer">
+      <div class="logo-dot"></div>
+      <div class="header-titles">
+        <span class="header-title">Elinstallationsregler</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <!-- Mode tabs -->
+      <div class="mode-tabs">
+        <button class="mode-tab active" id="tab-list" onclick="setMode('list')">📋 List</button>
+        <button class="mode-tab" id="tab-quiz" onclick="setMode('quiz')">🎯 Quiz</button>
+        <button class="mode-tab" id="tab-dict" onclick="setMode('dict')">📖 Dictionary <span class="tab-beta">(Beta)</span></button>
+      </div>
+      <!-- Language picker -->
+      <div class="lang-picker-wrap">
+        <button class="lang-btn" id="lang-btn" onclick="toggleLangPicker()">
+          🌐 <span id="lang-btn-label">SV › HU</span>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown"></div>
+      </div>
+      <!-- Color picker -->
+      <div class="color-picker-wrap">
+        <button class="color-btn" onclick="togglePicker()">
+          🎨 <span class="color-dot-preview" id="preview-dot"></span>
+        </button>
+        <div class="color-dropdown" id="color-dropdown">
+          <button class="color-option" onclick="setColor('#00BCD4')">
+            <span class="color-swatch" style="background:#00BCD4"></span> Cián
+          </button>
+          <button class="color-option" onclick="setColor('#4CAF50')">
+            <span class="color-swatch" style="background:#4CAF50"></span> Élénk zöld
+          </button>
+          <button class="color-option" onclick="setColor('#29B6F6')">
+            <span class="color-swatch" style="background:#29B6F6"></span> Égkék
+          </button>
+          <button class="color-option" onclick="setColor('#CE93D8')">
+            <span class="color-swatch" style="background:#CE93D8"></span> Lila
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN LAYOUT -->
+  <div class="main-layout">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar" id="sidebar">
+      <p class="sidebar-label">Kérdések</p>
+      <!-- JS tölti fel -->
+    </nav>
+
+    <!-- CONTENT AREA -->
+    <main class="content" id="content">
+      <!-- JS tölti fel -->
+    </main>
+
+    <!-- SESSIONS SIDEBAR -->
+    <aside class="sessions-sidebar hidden" id="sessions-sidebar">
+      <p class="sidebar-label">Sessions</p>
+      <div id="sessions-list"></div>
+    </aside>
+
+  </div>
+
+  <!-- NEW SESSION MODAL -->
+  <div class="modal-overlay" id="session-modal">
+    <div class="modal-box" id="modal-box"></div>
+  </div>
+
+  <!-- REVIEW OVERLAY -->
+  <div class="review-overlay" id="review-overlay">
+    <div class="review-inner" id="review-inner"></div>
+  </div>
+
+  <script src="questions-sv.js"></script>
+  <script src="questions-hu.js"></script>
+  <script src="questions-en.js"></script>
+  <script src="questions-es.js"></script>
+  <script src="data.js"></script>
+  <script src="words.js"></script>
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js');
+    }
+  </script>
+</body>
+</html>
