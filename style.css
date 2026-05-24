@@ -1920,6 +1920,7 @@ body.sb-resizing * {
     display: flex;
     flex-direction: column;
     height: calc(100vh - 62px - 60px - env(safe-area-inset-bottom, 0px));
+    height: calc(100dvh - 62px - 60px);
     max-width: 100%;
     overflow: hidden;
   }
