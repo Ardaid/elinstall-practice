@@ -1220,13 +1220,17 @@ function renderQuiz() {
 
   c.innerHTML =
     '<div class="quiz-view">' +
-      '<div class="progress-wrap">' +
-        '<div class="progress-fill" style="width:' + prog + '%"></div>' +
+      '<div class="quiz-top">' +
+        '<div class="progress-wrap">' +
+          '<div class="progress-fill" style="width:' + prog + '%"></div>' +
+        '</div>' +
+        '<p class="quiz-q-num">Question ' + (quizI + 1) + ' / ' + tot + '</p>' +
+        '<h2 class="quiz-q-sv">' + pri.q + '</h2>' +
+        (langPrimary !== langSecondary ? '<p class="quiz-q-hu">' + sec.q + '</p>' : '') +
       '</div>' +
-      '<p class="quiz-q-num">Question ' + (quizI + 1) + ' / ' + tot + '</p>' +
-      '<h2 class="quiz-q-sv">' + pri.q + '</h2>' +
-      (langPrimary !== langSecondary ? '<p class="quiz-q-hu">' + sec.q + '</p>' : '') +
-      optsHtml +
+      '<div class="quiz-opts-scroll">' +
+        optsHtml +
+      '</div>' +
       '<div class="quiz-nav">' +
         '<div style="display:flex;align-items:center;gap:12px">' +
           '<span class="score-txt" id="score-txt">Score: ' + quizScore + ' / ' + quizAns + '</span>' +

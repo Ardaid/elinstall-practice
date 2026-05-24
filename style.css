@@ -1901,16 +1901,40 @@ body.sb-resizing * {
 
   /* --- CONTENT --- */
   .content {
-    padding: 20px 16px calc(160px + env(safe-area-inset-bottom, 0px));
+    padding: 20px 16px 80px;
     width: 100%;
+  }
+
+  /* Quiz módban a content ne paddingoljon — a quiz-view kezeli */
+  .content:has(.quiz-view) {
+    padding: 0;
+    overflow: hidden;
   }
 
   .question-view {
     max-width: 100%;
   }
 
+  /* Quiz: flex oszlop, tölti ki a képernyőt */
   .quiz-view {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 62px - 60px - env(safe-area-inset-bottom, 0px));
     max-width: 100%;
+    overflow: hidden;
+  }
+
+  .quiz-top {
+    padding: 16px 16px 0;
+    flex-shrink: 0;
+  }
+
+  /* Csak az opciók görgethetők */
+  .quiz-opts-scroll {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 8px 16px 16px;
   }
 
   /* --- SZÖVEGMÉRETEK --- */
@@ -1965,17 +1989,17 @@ body.sb-resizing * {
     font-size: 0.8rem;
   }
 
-  /* --- QUIZ NAV mobilon fix, mindig a bottom nav fölött --- */
+  /* --- QUIZ NAV: normál flow a flex végén, mindig látszik --- */
   .quiz-nav {
-    position: fixed !important;
-    bottom: calc(60px + env(safe-area-inset-bottom, 0px));
-    left: 0;
-    right: 0;
-    padding: 10px 16px 12px;
-    background: var(--bg) !important;
+    position: relative;
+    bottom: auto;
+    flex-shrink: 0;
+    padding: 10px 16px 14px;
+    background: var(--bg);
     border-top: 1px solid var(--border);
-    z-index: 150;
-    box-shadow: 0 -4px 16px rgba(0,0,0,0.4);
+    box-shadow: 0 -4px 16px rgba(0,0,0,0.35);
+    z-index: 10;
+    margin-top: 0;
   }
 
   /* --- BOTTOM NAV --- */
