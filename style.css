@@ -1967,12 +1967,15 @@ body.sb-resizing * {
 
   /* --- QUIZ NAV mobilon fix, mindig a bottom nav fölött --- */
   .quiz-nav {
-    position: fixed;
+    position: fixed !important;
     bottom: calc(60px + env(safe-area-inset-bottom, 0px));
     left: 0;
     right: 0;
     padding: 10px 16px 12px;
+    background: var(--bg) !important;
+    border-top: 1px solid var(--border);
     z-index: 150;
+    box-shadow: 0 -4px 16px rgba(0,0,0,0.4);
   }
 
   /* --- BOTTOM NAV --- */
