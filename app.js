@@ -866,15 +866,26 @@ function buildSidebar() {
         '<div class="sb-topic-body">';
 
     topic.parts.forEach(function(part, pi) {
+      var pKey = 'part-' + ti + '-' + pi;
+      var isFirst = (ti === 0 && pi === 0);
+      var partCollapsed = (sidebarCollapsed[pKey] === undefined) ? !isFirst : !!sidebarCollapsed[pKey];
       var isActive = (activeTopic === ti && activePart === pi);
-      html +=
-        '<button class="sb-part-btn' + (isActive ? ' active' : '') + '" onclick="selectPart(' + ti + ',' + pi + ')">' +
-          part.sv +
-          (!part.hasData ? '<span class="sb-soon">soon</span>' : '') +
-        '</button>';
 
-      // Show question groups only under the currently active data part
-      if (isActive && part.hasData) {
+      html +=
+        '<div class="sb-part' + (partCollapsed ? ' sb-part-collapsed' : '') + '" id="sbp-' + ti + '-' + pi + '">' +
+          '<div class="sb-part-header' + (isActive ? ' active' : '') + '">' +
+            '<button class="sb-part-toggle" onclick="togglePartCollapse(' + ti + ',' + pi + ')">' +
+              '<span class="sg-arrow">' + (partCollapsed ? '▸' : '▾') + '</span>' +
+            '</button>' +
+            '<button class="sb-part-name-btn" onclick="selectPart(' + ti + ',' + pi + ')">' +
+              part.sv +
+              (!part.hasData ? '<span class="sb-soon">soon</span>' : '') +
+            '</button>' +
+          '</div>' +
+          '<div class="sb-part-body">';
+
+      // Show question groups only when part is expanded + active + has data
+      if (!partCollapsed && isActive && part.hasData) {
         html += '<div class="sb-groups">';
         GROUPS.forEach(function(g, gi) {
           var groupQs = [];
@@ -909,6 +920,8 @@ function buildSidebar() {
         });
         html += '</div>'; // .sb-groups
       }
+
+      html += '</div></div>'; // .sb-part-body + .sb-part
     });
 
     html += '</div></div>'; // .sb-topic-body + .sb-topic
@@ -930,8 +943,27 @@ function toggleTopicCollapse(ti) {
   saveSidebarCollapsed();
 }
 
+function togglePartCollapse(ti, pi) {
+  var key = 'part-' + ti + '-' + pi;
+  var isFirst = (ti === 0 && pi === 0);
+  var current = (sidebarCollapsed[key] === undefined) ? !isFirst : !!sidebarCollapsed[key];
+  sidebarCollapsed[key] = !current;
+  var el = document.getElementById('sbp-' + ti + '-' + pi);
+  if (!el) return;
+  var collapsed = !current;
+  el.classList.toggle('sb-part-collapsed', collapsed);
+  var arrow = el.querySelector(':scope > .sb-part-header > .sb-part-toggle > .sg-arrow');
+  if (arrow) arrow.textContent = collapsed ? '▸' : '▾';
+  // If collapsing the active+data part, groups disappear — rebuild for correctness
+  if (activeTopic === ti && activePart === pi) buildSidebar();
+  saveSidebarCollapsed();
+}
+
 function selectPart(ti, pi) {
   var part = TOPICS[ti].parts[pi];
+  var pKey = 'part-' + ti + '-' + pi;
+  // Always expand the part we're navigating to
+  sidebarCollapsed[pKey] = false;
   activeTopic = ti;
   activePart  = pi;
   closeMobileSidebar();
@@ -939,8 +971,6 @@ function selectPart(ti, pi) {
 
   if (part.hasData) {
     listQ = 0;
-    // Sync mode tabs manually (setMode would skip buildSidebar when not coming from dict)
-    var prev = mode;
     mode = 'list';
     document.getElementById('tab-list').classList.add('active');
     document.getElementById('tab-quiz').classList.remove('active');

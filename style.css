@@ -639,27 +639,50 @@ button {
   display: none;
 }
 
-.sb-part-btn {
+/* Part (rész) — összecsukható sor a témán belül, kicsit beljebb */
+.sb-part {
+  margin-left: 10px;
+  border-left: 2px solid var(--border);
+}
+
+.sb-part-header {
+  display: flex;
+  align-items: stretch;
+  transition: background 0.1s;
+}
+.sb-part-header:hover { background: var(--surface); }
+.sb-part-header.active { border-left: 2px solid var(--accent); margin-left: -2px; }
+
+.sb-part-toggle {
+  flex-shrink: 0;
+  padding: 7px 5px 7px 8px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 0.6rem;
+  cursor: pointer;
+  line-height: 1;
+}
+.sb-part-toggle:hover { color: var(--text); }
+
+.sb-part-name-btn {
+  flex: 1;
   display: flex;
   align-items: center;
   gap: 6px;
-  width: 100%;
-  padding: 8px 12px 8px 22px;
+  padding: 7px 10px 7px 2px;
   background: none;
   border: none;
-  border-left: 2px solid transparent;
   color: var(--muted);
   font-size: 0.78rem;
   text-align: left;
   cursor: pointer;
-  transition: background 0.1s, color 0.1s, border-color 0.1s;
 }
-.sb-part-btn:hover { background: var(--surface); color: var(--text); }
-.sb-part-btn.active {
-  color: var(--accent);
-  border-left-color: var(--accent);
-  background: var(--surface);
-}
+.sb-part-name-btn:hover { color: var(--text); }
+.sb-part-header.active .sb-part-name-btn { color: var(--accent); font-weight: 600; }
+
+.sb-part-body { /* visible */ }
+.sb-part-collapsed .sb-part-body { display: none; }
 
 .sb-soon {
   font-size: 0.58rem;
@@ -673,7 +696,7 @@ button {
 }
 
 .sb-groups {
-  /* groups are nested under the active part */
+  /* groups sit inside the expanded part */
 }
 
 /* Átméretező fogó — position:fixed, pontosan a scrollbar fölé */
