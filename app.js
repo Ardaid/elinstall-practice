@@ -1363,43 +1363,57 @@ document.addEventListener('keydown', function(e) {
 // PULL TO REFRESH
 // =====================
 (function() {
-  var startY    = 0;
-  var pulling   = false;
-  var THRESHOLD = 75;
-  var ind       = document.getElementById('ptr-indicator');
+  var startY     = 0;
+  var pulling    = false;
+  var refreshing = false;
+  var THRESHOLD  = 75;
+  var ind        = document.getElementById('ptr-indicator');
+  var content    = document.getElementById('content');
+  if (!content || !ind) return;
 
-  document.addEventListener('touchstart', function(e) {
-    var content = document.getElementById('content');
-    if (content && content.scrollTop === 0) {
+  function hideIndicator() {
+    ind.style.transform = '';
+    ind.style.opacity   = '0';
+    ind.classList.remove('ptr-ready');
+  }
+
+  content.addEventListener('touchstart', function(e) {
+    if (refreshing) return;
+    if (content.scrollTop === 0) {
       startY  = e.touches[0].clientY;
       pulling = true;
     }
   }, { passive: true });
 
-  document.addEventListener('touchmove', function(e) {
-    if (!pulling) return;
+  content.addEventListener('touchmove', function(e) {
+    if (!pulling || refreshing) return;
     var dy = e.touches[0].clientY - startY;
-    if (dy <= 0) { pulling = false; return; }
-    var pull  = Math.min(dy * 0.45, 62);
+    if (dy <= 0) {
+      pulling = false;
+      hideIndicator();
+      return;
+    }
+    // Csak pull esetén blokkoljuk a natív scrollt
+    e.preventDefault();
+    var pull  = Math.min(dy * 0.4, 60);
     var alpha = Math.min(dy / THRESHOLD, 1);
     ind.style.transform = 'translateY(' + pull + 'px)';
     ind.style.opacity   = alpha;
     ind.textContent     = dy >= THRESHOLD ? '↻' : '↓';
     ind.classList.toggle('ptr-ready', dy >= THRESHOLD);
-  }, { passive: true });
+  }, { passive: false });
 
-  document.addEventListener('touchend', function(e) {
-    if (!pulling) return;
-    pulling   = false;
-    var dy    = e.changedTouches[0].clientY - startY;
+  content.addEventListener('touchend', function(e) {
+    if (!pulling || refreshing) return;
+    pulling = false;
+    var dy  = e.changedTouches[0].clientY - startY;
     if (dy >= THRESHOLD) {
+      refreshing = true;
       ind.classList.add('ptr-spinning');
       ind.textContent = '↻';
       setTimeout(function() { location.reload(); }, 400);
     } else {
-      ind.style.transform = '';
-      ind.style.opacity   = '0';
-      ind.classList.remove('ptr-ready');
+      hideIndicator();
     }
   }, { passive: true });
 })();
