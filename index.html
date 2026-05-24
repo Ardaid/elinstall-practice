@@ -128,5 +128,19 @@
       navigator.serviceWorker.register('./sw.js');
     }
   </script>
+  <!-- DEBUG: ideiglenesen mutatja a magasságokat -->
+  <div id="dbg" style="position:fixed;bottom:0;left:0;background:rgba(255,0,0,0.85);color:#fff;font-size:11px;padding:4px 8px;z-index:9999;pointer-events:none;line-height:1.5;"></div>
+  <script>
+    function updateDbg() {
+      var vvh = window.visualViewport ? Math.round(window.visualViewport.height) : '—';
+      var inh = Math.round(window.innerHeight);
+      var snh = Math.round(window.screen.height);
+      var hdr = document.getElementById('site-header') ? document.getElementById('site-header').offsetHeight : '—';
+      var bnv = document.getElementById('mobile-bottom-nav') ? document.getElementById('mobile-bottom-nav').offsetHeight : '—';
+      document.getElementById('dbg').innerHTML =
+        'screen:' + snh + ' inner:' + inh + ' vvp:' + vvh + '<br>hdr:' + hdr + ' bnav:' + bnv;
+    }
+    setInterval(updateDbg, 500);
+  </script>
 </body>
 </html>
