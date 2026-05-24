@@ -72,8 +72,7 @@ function setZoom(level) {
   currentZoom = level;
   document.documentElement.style.fontSize = ZOOM_SIZES[level];
   localStorage.setItem('app-zoom', level);
-  buildZoomMenu();
-  document.getElementById('zoom-menu').classList.remove('open');
+  buildDropdown();
   if (mode === 'quiz') requestAnimationFrame(applyQuizHeight);
 }
 
@@ -84,25 +83,6 @@ function loadZoom() {
     document.documentElement.style.fontSize = ZOOM_SIZES[saved];
   }
 }
-
-function toggleZoomMenu() {
-  document.getElementById('zoom-menu').classList.toggle('open');
-}
-
-function buildZoomMenu() {
-  document.querySelectorAll('.zoom-lvl-btn').forEach(function(btn, i) {
-    var lvl = 5 - i; // gombok sorrendje: 5,4,3,2,1
-    btn.classList.toggle('zoom-active', lvl === currentZoom);
-  });
-}
-
-// Kattintás kívülre → menü bezár
-document.addEventListener('click', function(e) {
-  var wrap = document.getElementById('zoom-fab-wrap');
-  if (wrap && !wrap.contains(e.target)) {
-    document.getElementById('zoom-menu').classList.remove('open');
-  }
-});
 
 function saveLangs() {
   localStorage.setItem('app-langs', JSON.stringify({ p: langPrimary, s: langSecondary }));
@@ -801,6 +781,21 @@ function buildDropdown() {
       '</button>';
   });
 
+  html += '<hr class="picker-divider">';
+
+  // --- TEXT SIZE szekció ---
+  html += '<span class="picker-section-label">Text size</span>';
+  html += '<div class="zoom-btn-group">';
+  var zoomLabels = ['XS', 'S', 'M', 'L', 'XL'];
+  for (var z = 1; z <= 5; z++) {
+    html +=
+      '<button class="zoom-step-btn' + (z === currentZoom ? ' zoom-step-active' : '') + '" ' +
+             'onclick="setZoom(' + z + ')">' +
+        zoomLabels[z - 1] +
+      '</button>';
+  }
+  html += '</div>';
+
   dd.innerHTML = html;
 }
 
@@ -1443,7 +1438,6 @@ loadZoom();
 loadSidebarCollapsed();
 buildDropdown();
 buildLangPicker();
-buildZoomMenu();
 setTheme('graphite');
 quizQuestions = QA.map(function(_, i) { return i; });
 
