@@ -1905,8 +1905,8 @@ body.sb-resizing * {
     width: 100%;
   }
 
-  /* Quiz módban a content ne paddingoljon — a quiz-view kezeli */
-  .content:has(.quiz-view) {
+  /* Quiz módban a content ne paddingoljon — JS adja hozzá a quiz-mode class-t */
+  .content.quiz-mode {
     padding: 0;
     overflow: hidden;
   }

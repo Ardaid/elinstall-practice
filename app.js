@@ -1062,6 +1062,7 @@ function toggleDictSection(skey) {
 // LISTA MÓD
 // =====================
 function renderList() {
+  clearQuizMode();
   if (!langHasData(langPrimary)) { renderComingSoon(langPrimary); updateSidebar(); saveState(); return; }
   var q   = QA[listQ];
   var pri = qLang(q, langPrimary);
@@ -1108,6 +1109,7 @@ function formatAnswer(text) {
 // SZÓTÁR MÓD
 // =====================
 function renderDict() {
+  clearQuizMode();
   var c = document.getElementById('content');
 
   if (!WORDS || WORDS.length === 0) {
@@ -1178,6 +1180,31 @@ function dictNext() {
 }
 
 // =====================
+// KVÍZ MAGASSÁG (JS alapú, Android-on megbízható)
+// =====================
+function applyQuizHeight() {
+  var c  = document.getElementById('content');
+  var qv = document.querySelector('.quiz-view');
+  if (!qv) return;
+  if (window.innerWidth > 768) {
+    // Asztali nézetben nem kell korlátozni
+    c.classList.remove('quiz-mode');
+    qv.style.height = '';
+    return;
+  }
+  c.classList.add('quiz-mode');
+  var headerH    = document.getElementById('site-header').offsetHeight || 62;
+  var bottomNavH = document.getElementById('mobile-bottom-nav').offsetHeight || 60;
+  var available  = window.innerHeight - headerH - bottomNavH;
+  qv.style.height = available + 'px';
+}
+
+function clearQuizMode() {
+  var c = document.getElementById('content');
+  if (c) c.classList.remove('quiz-mode');
+}
+
+// =====================
 // KVÍZ MÓD
 // =====================
 function renderQuiz() {
@@ -1242,6 +1269,9 @@ function renderQuiz() {
         '</div>' +
       '</div>' +
     '</div>';
+
+  // Quiz magasság beállítása JS-sel (CSS dvh/vh nem megbízható Android-on)
+  applyQuizHeight();
 
   // Ha már válaszolt erre a kérdésre, állítsuk vissza az állapotot
   if (quizAnswers.length > quizI) {
