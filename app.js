@@ -1366,10 +1366,11 @@ document.addEventListener('keydown', function(e) {
   var startY     = 0;
   var pulling    = false;
   var refreshing = false;
-  var THRESHOLD  = 75;
+  var THRESHOLD  = 70;
   var ind        = document.getElementById('ptr-indicator');
-  var content    = document.getElementById('content');
-  if (!content || !ind) return;
+  if (!ind) return;
+
+  function getContent() { return document.getElementById('content'); }
 
   function hideIndicator() {
     ind.style.transform = '';
@@ -1377,24 +1378,24 @@ document.addEventListener('keydown', function(e) {
     ind.classList.remove('ptr-ready');
   }
 
-  content.addEventListener('touchstart', function(e) {
+  window.addEventListener('touchstart', function(e) {
     if (refreshing) return;
-    pulling = false;
-    if (content.scrollTop < 2) {
-      startY  = e.touches[0].clientY;
-      pulling = true;
-    }
+    var c = getContent();
+    startY  = e.touches[0].clientY;
+    pulling = c ? c.scrollTop < 2 : false;
   }, { passive: true });
 
-  content.addEventListener('touchmove', function(e) {
+  window.addEventListener('touchmove', function(e) {
     if (!pulling || refreshing) return;
     var dy = e.touches[0].clientY - startY;
-    if (dy <= 0) {
+    var c  = getContent();
+
+    if (dy <= 0 || (c && c.scrollTop > 2)) {
       pulling = false;
       hideIndicator();
       return;
     }
-    // Csak pull esetén blokkoljuk a natív scrollt
+
     e.preventDefault();
     var pull  = Math.min(dy * 0.4, 60);
     var alpha = Math.min(dy / THRESHOLD, 1);
@@ -1404,7 +1405,7 @@ document.addEventListener('keydown', function(e) {
     ind.classList.toggle('ptr-ready', dy >= THRESHOLD);
   }, { passive: false });
 
-  content.addEventListener('touchend', function(e) {
+  window.addEventListener('touchend', function(e) {
     if (!pulling || refreshing) return;
     pulling = false;
     var dy  = e.changedTouches[0].clientY - startY;
