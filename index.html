@@ -127,6 +127,12 @@
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./sw.js');
+      // Ha az SW frissül, az oldal automatikusan újratöltődik → nincs kézi cache-törlés
+      navigator.serviceWorker.addEventListener('message', function(e) {
+        if (e.data && e.data.type === 'SW_UPDATED') {
+          window.location.reload();
+        }
+      });
     }
   </script>
 </body>
