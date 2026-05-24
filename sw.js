@@ -1,4 +1,4 @@
-const CACHE_NAME = 'elinstall-v1';
+const CACHE_NAME = 'elinstall-v2';
 const ASSETS = [
   './',
   './index.html',
