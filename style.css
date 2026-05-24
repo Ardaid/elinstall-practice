@@ -1327,6 +1327,12 @@ body.sb-resizing * {
   justify-content: space-between;
   align-items: center;
   margin-top: 24px;
+  position: sticky;
+  bottom: 0;
+  background: var(--bg);
+  padding: 12px 0 8px;
+  border-top: 1px solid var(--border);
+  transition: background 0.3s, border-color 0.3s;
 }
 
 .score-txt {
@@ -1953,6 +1959,12 @@ body.sb-resizing * {
   .arrow-btn {
     padding: 10px 16px;
     font-size: 0.8rem;
+  }
+
+  /* --- QUIZ NAV mobilon a bottom nav fölé sticky --- */
+  .quiz-nav {
+    bottom: 60px;
+    padding: 10px 0 10px;
   }
 
   /* --- BOTTOM NAV --- */

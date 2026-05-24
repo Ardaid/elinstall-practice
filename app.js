@@ -1204,15 +1204,15 @@ function renderQuiz() {
 
   var q    = QA[quizQuestions[quizI]];
   var pri  = qLang(q, langPrimary);
-  var sec  = qLang(q, langSecondary);
   var prog = Math.round(quizI / tot * 100);
   var optsHtml = '';
 
   pri.opts.forEach(function(o, i) {
+    // Csak az első mondatot mutatjuk az opciókban
+    var short = o.match(/^[^.!?]+[.!?]/) ? o.match(/^[^.!?]+[.!?]/)[0] : (o.length > 180 ? o.substring(0, 180).trim() + '…' : o);
     optsHtml +=
       '<button class="opt" id="qo-' + i + '" onclick="pick(' + i + ')">' +
-        o +
-        (langPrimary !== langSecondary ? '<span class="opt-hu">' + sec.opts[i] + '</span>' : '') +
+        short +
       '</button>';
   });
 
