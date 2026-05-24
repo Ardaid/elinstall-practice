@@ -1188,17 +1188,17 @@ function applyQuizHeight() {
   var c  = document.getElementById('content');
   var qv = document.querySelector('.quiz-view');
   if (!qv) return;
-  if (window.innerWidth > 768) {
-    c.classList.remove('quiz-mode');
-    qv.style.height = '';
-    return;
-  }
+
   c.classList.add('quiz-mode');
-  var headerH    = (document.getElementById('site-header')     || {}).offsetHeight || 62;
-  var bottomNavH = (document.getElementById('mobile-bottom-nav')|| {}).offsetHeight || 60;
-  // visualViewport.height a legpontosabb: kizárja az Android nav sávot és a billentyűzetet
-  var vh = (window.visualViewport ? window.visualViewport.height : window.innerHeight);
-  var available = Math.floor(vh - headerH - bottomNavH);
+
+  var headerH    = (document.getElementById('site-header')      || {}).offsetHeight || 0;
+  var bottomNavH = (document.getElementById('mobile-bottom-nav') || {}).offsetHeight || 0;
+
+  // Ismert Android bug: innerHeight fizikai pixelt ad → screen.height a helyes felső határ
+  var vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+  if (vh > window.screen.height) vh = window.screen.height;
+
+  var available = Math.floor(vh - headerH - bottomNavH) - 4; // 4px biztonsági rés
   qv.style.height = Math.max(200, available) + 'px';
 }
 

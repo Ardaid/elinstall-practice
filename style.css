@@ -1202,6 +1202,43 @@ body.sb-resizing * {
   margin: 0 auto;
 }
 
+/* Quiz layout: JS állítja a height-et, ezért flex oszlop kell */
+.content.quiz-mode {
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.content.quiz-mode .quiz-view {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.quiz-top {
+  padding: 24px 24px 0;
+  flex-shrink: 0;
+}
+
+.quiz-opts-scroll {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 8px 24px 16px;
+}
+
+/* Quiz nav: a flex sor alján, mindig látszik */
+.content.quiz-mode .quiz-nav {
+  position: relative !important;
+  bottom: auto !important;
+  flex-shrink: 0;
+  margin-top: 0;
+  padding: 10px 24px 14px;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.35);
+}
+
 .progress-wrap {
   background: var(--surface);
   border-radius: 99px;
@@ -1905,37 +1942,21 @@ body.sb-resizing * {
     width: 100%;
   }
 
-  /* Quiz módban a content ne paddingoljon — JS adja hozzá a quiz-mode class-t */
-  .content.quiz-mode {
-    padding: 0;
-    overflow: hidden;
+  /* Mobilon kisebb padding a quiz elemeknek */
+  .quiz-top {
+    padding: 16px 16px 0;
+  }
+
+  .quiz-opts-scroll {
+    padding: 8px 16px 16px;
+  }
+
+  .content.quiz-mode .quiz-nav {
+    padding: 10px 16px 14px;
   }
 
   .question-view {
     max-width: 100%;
-  }
-
-  /* Quiz: flex oszlop, tölti ki a képernyőt */
-  .quiz-view {
-    display: flex;
-    flex-direction: column;
-    height: calc(100vh - 62px - 60px - env(safe-area-inset-bottom, 0px));
-    height: calc(100dvh - 62px - 60px);
-    max-width: 100%;
-    overflow: hidden;
-  }
-
-  .quiz-top {
-    padding: 16px 16px 0;
-    flex-shrink: 0;
-  }
-
-  /* Csak az opciók görgethetők */
-  .quiz-opts-scroll {
-    flex: 1;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    padding: 8px 16px 16px;
   }
 
   /* --- SZÖVEGMÉRETEK --- */
@@ -1990,18 +2011,6 @@ body.sb-resizing * {
     font-size: 0.8rem;
   }
 
-  /* --- QUIZ NAV: normál flow a flex végén, mindig látszik --- */
-  .quiz-nav {
-    position: relative;
-    bottom: auto;
-    flex-shrink: 0;
-    padding: 10px 16px 14px;
-    background: var(--bg);
-    border-top: 1px solid var(--border);
-    box-shadow: 0 -4px 16px rgba(0,0,0,0.35);
-    z-index: 10;
-    margin-top: 0;
-  }
 
   /* --- BOTTOM NAV --- */
   .mobile-bottom-nav {
