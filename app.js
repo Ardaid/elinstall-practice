@@ -1452,6 +1452,9 @@ document.addEventListener('keydown', function(e) {
 
   window.addEventListener('touchstart', function(e) {
     if (refreshing) return;
+    // Ha a quiz görgethető opciók területén belül érintett → nem indítunk pull-to-refresh
+    var opts = document.querySelector('.quiz-opts-scroll');
+    if (opts && opts.contains(e.target)) { pulling = false; return; }
     var c = getContent();
     startY  = e.touches[0].clientY;
     pulling = c ? c.scrollTop < 2 : false;
