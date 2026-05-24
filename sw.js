@@ -1,16 +1,7 @@
-const CACHE_NAME = 'elinstall-v2';
-const ASSETS = [
-  './',
-  './index.html',
-  './style.css',
-  './app.js',
-  './data.js',
-  './words.js',
-  './questions.js',
-  './questions-hu.js',
-  './questions-sv.js',
-  './questions-en.js',
-  './questions-es.js',
+const CACHE_NAME = 'elinstall-v3';
+
+// Képek és ikonok — ritkán változnak, cache-first
+const STATIC_ASSETS = [
   './assets/flags/gb.png',
   './assets/flags/es.png',
   './assets/flags/hu.png',
@@ -21,7 +12,7 @@ const ASSETS = [
 
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS))
+    caches.open(CACHE_NAME).then(cache => cache.addAll(STATIC_ASSETS))
   );
   self.skipWaiting();
 });
@@ -36,7 +27,27 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(cached => cached || fetch(event.request))
-  );
+  const url = new URL(event.request.url);
+  const isCode = url.pathname.endsWith('.js') ||
+                 url.pathname.endsWith('.css') ||
+                 url.pathname.endsWith('.html') ||
+                 url.pathname.endsWith('/');
+
+  if (isCode) {
+    // JS/CSS/HTML: mindig hálózat először → friss verzió, offline esetén cache
+    event.respondWith(
+      fetch(event.request)
+        .then(response => {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+          return response;
+        })
+        .catch(() => caches.match(event.request))
+    );
+  } else {
+    // Képek, ikonok: cache-first
+    event.respondWith(
+      caches.match(event.request).then(cached => cached || fetch(event.request))
+    );
+  }
 });
