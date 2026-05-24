@@ -62,6 +62,48 @@ function langLabel(code) {
   var l = LANGUAGES.find(function(x) { return x.code === code; });
   return l ? l.label : code.toUpperCase();
 }
+// =====================
+// ZOOM
+// =====================
+var ZOOM_SIZES = { 1: '12px', 2: '14px', 3: '16px', 4: '18px', 5: '20px' };
+var currentZoom = 3;
+
+function setZoom(level) {
+  currentZoom = level;
+  document.documentElement.style.fontSize = ZOOM_SIZES[level];
+  localStorage.setItem('app-zoom', level);
+  buildZoomMenu();
+  document.getElementById('zoom-menu').classList.remove('open');
+  if (mode === 'quiz') requestAnimationFrame(applyQuizHeight);
+}
+
+function loadZoom() {
+  var saved = parseInt(localStorage.getItem('app-zoom') || '3');
+  if (saved >= 1 && saved <= 5) {
+    currentZoom = saved;
+    document.documentElement.style.fontSize = ZOOM_SIZES[saved];
+  }
+}
+
+function toggleZoomMenu() {
+  document.getElementById('zoom-menu').classList.toggle('open');
+}
+
+function buildZoomMenu() {
+  document.querySelectorAll('.zoom-lvl-btn').forEach(function(btn, i) {
+    var lvl = 5 - i; // gombok sorrendje: 5,4,3,2,1
+    btn.classList.toggle('zoom-active', lvl === currentZoom);
+  });
+}
+
+// Kattintás kívülre → menü bezár
+document.addEventListener('click', function(e) {
+  var wrap = document.getElementById('zoom-fab-wrap');
+  if (wrap && !wrap.contains(e.target)) {
+    document.getElementById('zoom-menu').classList.remove('open');
+  }
+});
+
 function saveLangs() {
   localStorage.setItem('app-langs', JSON.stringify({ p: langPrimary, s: langSecondary }));
 }
@@ -1397,9 +1439,11 @@ function setMode(m) {
 // =====================
 loadSessions();
 loadLangs();
+loadZoom();
 loadSidebarCollapsed();
 buildDropdown();
 buildLangPicker();
+buildZoomMenu();
 setTheme('graphite');
 quizQuestions = QA.map(function(_, i) { return i; });
 
