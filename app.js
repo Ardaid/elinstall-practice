@@ -1225,10 +1225,6 @@ function renderQuiz() {
       '<h2 class="quiz-q-sv">' + pri.q + '</h2>' +
       (langPrimary !== langSecondary ? '<p class="quiz-q-hu">' + sec.q + '</p>' : '') +
       optsHtml +
-      '<div class="feedback" id="qfb">' +
-        '<p class="fb-sv" id="qfb-sv"></p>' +
-        (langPrimary !== langSecondary ? '<p class="fb-hu" id="qfb-hu"></p>' : '') +
-      '</div>' +
       '<div class="quiz-nav">' +
         '<div style="display:flex;align-items:center;gap:12px">' +
           '<span class="score-txt" id="score-txt">Score: ' + quizScore + ' / ' + quizAns + '</span>' +
@@ -1252,25 +1248,16 @@ function pick(i) {
     document.getElementById('qo-' + j).disabled = true;
   });
 
-  var fb = document.getElementById('qfb');
-  fb.classList.add('show');
-
   quizAnswers.push({ qi: quizQuestions[quizI], picked: i, correct: q.c });
 
   if (i === q.c) {
     quizScore++;
     document.getElementById('qo-' + i).classList.add('correct');
-    fb.classList.add('ok');
-    document.getElementById('qfb-sv').innerHTML = '✓ ' + formatAnswer(pri.a);
   } else {
     document.getElementById('qo-' + i).classList.add('wrong');
     document.getElementById('qo-' + q.c).classList.add('correct');
-    fb.classList.add('nope');
-    document.getElementById('qfb-sv').innerHTML = '✗ ' + formatAnswer(pri.a);
   }
 
-  var fbHu = document.getElementById('qfb-hu');
-  if (fbHu) fbHu.innerHTML = formatAnswer(sec.a);
   document.getElementById('score-txt').textContent = 'Score: ' + quizScore + ' / ' + quizAns;
   document.getElementById('btn-skip').style.display = 'none';
   document.getElementById('btn-next').style.display = 'inline-block';
