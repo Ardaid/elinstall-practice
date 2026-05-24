@@ -1204,6 +1204,7 @@ function renderQuiz() {
 
   var q    = QA[quizQuestions[quizI]];
   var pri  = qLang(q, langPrimary);
+  var sec  = qLang(q, langSecondary);
   var prog = Math.round(quizI / tot * 100);
   var optsHtml = '';
 
