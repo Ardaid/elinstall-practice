@@ -216,6 +216,35 @@ function saveSessions() {
   localStorage.setItem('quiz-sessions', JSON.stringify(sessions));
 }
 
+function saveSessionProgress() {
+  if (currentSessionId === null) return;
+  var s = sessions.find(function(x) { return x.id === currentSessionId; });
+  if (s && !s.completed) {
+    s.progress = {
+      quizQuestions: quizQuestions.slice(),
+      quizI: quizI + 1,           // a következő kérdés indexe
+      quizScore: quizScore,
+      quizAns: quizAns,
+      quizAnswers: quizAnswers.slice()
+    };
+    saveSessions();
+  }
+}
+
+function continueSession(id) {
+  var s = sessions.find(function(x) { return x.id === id; });
+  if (!s || !s.progress) return;
+  hideSessionModal();
+  currentSessionId = id;
+  quizQuestions = s.progress.quizQuestions;
+  quizI         = s.progress.quizI;
+  quizScore     = s.progress.quizScore;
+  quizAns       = s.progress.quizAns;
+  quizAnswers   = s.progress.quizAnswers;
+  renderSessions();
+  renderQuiz();
+}
+
 function startNewSession() {
   var now = new Date();
   var pad = function(n) { return n < 10 ? '0' + n : '' + n; };
@@ -339,12 +368,14 @@ function renderSessions() {
     var scoreText  = s.completed
       ? s.score + ' / ' + s.total + (s.stopped ? ' ⏹' : '') + ' — ' + pct + '%'
       : 'in progress…';
-    var hasReview  = s.answers && s.answers.length > 0;
+    var canContinue = !s.completed && s.progress;
+    var hasReview   = s.answers && s.answers.length > 0;
     html += '<div class="session-item' + (s.id === currentSessionId ? ' session-active' : '') + '">' +
               '<div class="session-item-info">' +
                 '<span class="session-date">' + s.date + '</span>' +
                 '<span class="session-score ' + scoreClass + '">' + scoreText + '</span>' +
-                (hasReview ? '<button class="session-review-btn" onclick="renderReview(' + s.id + ')">Review</button>' : '') +
+                (canContinue ? '<button class="session-review-btn" onclick="continueSession(' + s.id + ')">▶ Continue</button>' : '') +
+                (hasReview   ? '<button class="session-review-btn" onclick="renderReview(' + s.id + ')">Review</button>' : '') +
               '</div>' +
               '<button class="session-delete-btn" onclick="deleteSession(' + s.id + ')" title="Delete">✕</button>' +
             '</div>';
@@ -390,9 +421,20 @@ function maxCountRowHtml() {
 
 function buildModalStep1() {
   var box = document.getElementById('modal-box');
+  var ongoingSession = sessions.find(function(s) { return !s.completed && s.progress; });
+  var continueHtml = '';
+  if (ongoingSession) {
+    var done  = ongoingSession.progress.quizI;
+    var total = ongoingSession.progress.quizQuestions.length;
+    continueHtml =
+      '<button class="modal-btn-continue" onclick="continueSession(' + ongoingSession.id + ')">' +
+        '▶ Continue — ' + done + ' / ' + total + ' answered' +
+      '</button>';
+  }
   box.innerHTML =
     '<button class="modal-close" onclick="cancelSessionModal()">✕</button>' +
     '<p class="modal-title">New Session</p>' +
+    continueHtml +
     '<p class="modal-sub">Select which questions to include:</p>' +
     '<div class="modal-btns">' +
       '<button class="modal-btn-yes" onclick="startAllQuestions()">All questions (' + QA.length + ')</button>' +
@@ -401,7 +443,7 @@ function buildModalStep1() {
     shuffleRowHtml() +
     maxCountRowHtml() +
     '<hr class="picker-divider" style="margin:14px 0">' +
-    '<button class="modal-btn-prev" onclick="showPreviousSessions()">📋 Review previous sessions</button>';
+    '<button class="modal-btn-prev" onclick="showPreviousSessions()">📋 Previous sessions</button>';
 }
 
 function buildModalStep2() {
@@ -530,14 +572,36 @@ function startCustomQuestions() {
 function showPreviousSessions() {
   hideSessionModal();
   renderSessions();
-  var msg = sessions.length === 0
-    ? '<p class="res-lbl">No saved sessions yet.</p>'
-    : '<p class="res-lbl">Select a session from the right sidebar,<br>then click the <strong>Review</strong> button.</p>';
+  var sessionsHtml = '';
+  if (sessions.length === 0) {
+    sessionsHtml = '<p class="res-lbl">No saved sessions yet.</p>';
+  } else {
+    sessions.forEach(function(s) {
+      var pct        = s.completed ? Math.round(s.score / s.total * 100) : null;
+      var scoreClass = !s.completed ? 'session-ongoing' : (pct >= 70 ? 'session-good' : 'session-bad');
+      var scoreText  = s.completed
+        ? s.score + ' / ' + s.total + (s.stopped ? ' ⏹' : '') + ' — ' + pct + '%'
+        : 'in progress…';
+      var canContinue = !s.completed && s.progress;
+      var hasReview   = s.answers && s.answers.length > 0;
+      sessionsHtml +=
+        '<div class="session-item" style="margin-bottom:8px;text-align:left">' +
+          '<div class="session-item-info">' +
+            '<span class="session-date">' + s.date + '</span>' +
+            '<span class="session-score ' + scoreClass + '">' + scoreText + '</span>' +
+            (canContinue ? '<button class="session-review-btn" onclick="continueSession(' + s.id + ')">▶ Continue</button>' : '') +
+            (hasReview   ? '<button class="session-review-btn" onclick="renderReview(' + s.id + ')">Review</button>' : '') +
+          '</div>' +
+          '<button class="session-delete-btn" onclick="deleteSession(' + s.id + ');showPreviousSessions()" title="Delete">✕</button>' +
+        '</div>';
+    });
+  }
   document.getElementById('content').innerHTML =
     '<div class="quiz-view">' +
       '<div class="results">' +
-        '<p style="font-size:2.5rem;margin-bottom:16px">📋</p>' +
-        msg +
+        '<p style="font-size:2rem;margin-bottom:12px">📋</p>' +
+        '<p class="res-lbl" style="margin-bottom:20px">Previous Sessions</p>' +
+        sessionsHtml +
         '<button class="btn-review" style="margin-top:24px" onclick="showSessionModal()">← Back</button>' +
       '</div>' +
     '</div>';
@@ -1210,6 +1274,7 @@ function pick(i) {
   document.getElementById('score-txt').textContent = 'Score: ' + quizScore + ' / ' + quizAns;
   document.getElementById('btn-skip').style.display = 'none';
   document.getElementById('btn-next').style.display = 'inline-block';
+  saveSessionProgress();
 }
 
 function advance()   { quizI++; renderQuiz(); }

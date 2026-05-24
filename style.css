@@ -1043,6 +1043,24 @@ body.sb-resizing * {
   color: var(--accent);
 }
 
+.modal-btn-continue {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  background: rgba(79, 142, 247, 0.12);
+  border: 1.5px solid var(--accent);
+  border-radius: 9px;
+  padding: 12px 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent);
+  transition: background 0.15s;
+}
+
+.modal-btn-continue:hover {
+  background: rgba(79, 142, 247, 0.22);
+}
+
 /* =====================
    KÉRDÉSVÁLASZTÓ (step 2)
    ===================== */
