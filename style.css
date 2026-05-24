@@ -209,11 +209,11 @@ button {
   align-items: center;
   gap: 8px;
   width: 100%;
-  padding: 7px 8px;
+  padding: 11px 10px;
   border: none;
   border-radius: 7px;
   background: none;
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   color: var(--text);
   text-align: left;
   transition: background 0.12s;
@@ -943,9 +943,9 @@ body.sb-resizing * {
   background: var(--accent);
   color: #000;
   border: none;
-  padding: 11px 0;
+  padding: 15px 0;
   border-radius: 9px;
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   font-weight: 700;
   transition: opacity 0.15s;
 }
@@ -958,8 +958,8 @@ body.sb-resizing * {
   background: none;
   border: 1px solid var(--border);
   border-radius: 9px;
-  padding: 10px 0;
-  font-size: 0.84rem;
+  padding: 14px 0;
+  font-size: 0.9rem;
   color: var(--muted);
   transition: border-color 0.15s, color 0.15s;
 }
@@ -973,9 +973,9 @@ body.sb-resizing * {
   background: var(--surface2);
   color: var(--muted);
   border: 1px solid var(--border);
-  padding: 11px 18px;
+  padding: 15px 22px;
   border-radius: 9px;
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   transition: color 0.15s;
 }
 
@@ -1005,8 +1005,8 @@ body.sb-resizing * {
 .shuffle-opt {
   background: none;
   border: none;
-  padding: 6px 14px;
-  font-size: 0.8rem;
+  padding: 11px 18px;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--muted);
   transition: background 0.12s, color 0.12s;
@@ -1034,8 +1034,8 @@ body.sb-resizing * {
   background: none;
   border: 1px dashed var(--border);
   border-radius: 9px;
-  padding: 10px 0;
-  font-size: 0.84rem;
+  padding: 14px 0;
+  font-size: 0.9rem;
   color: var(--muted);
   transition: border-color 0.15s, color 0.15s;
 }
@@ -1052,8 +1052,8 @@ body.sb-resizing * {
   background: rgba(79, 142, 247, 0.12);
   border: 1.5px solid var(--accent);
   border-radius: 9px;
-  padding: 12px 0;
-  font-size: 0.9rem;
+  padding: 16px 0;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--accent);
   transition: background 0.15s;
@@ -1825,13 +1825,15 @@ body.sb-resizing * {
 
   /* --- HEADER --- */
   #site-header {
-    height: 54px;
-    padding: 0 10px;
-    gap: 6px;
+    height: 62px;
+    padding: 0 12px;
+    gap: 8px;
   }
 
   .hamburger-btn {
     display: block;
+    font-size: 1.6rem;
+    padding: 8px 12px;
   }
 
   .header-title {
@@ -1839,8 +1841,8 @@ body.sb-resizing * {
   }
 
   .logo-dot {
-    width: 26px;
-    height: 26px;
+    width: 28px;
+    height: 28px;
   }
 
   /* Mode tabbok elrejtve – bottom nav veszi át */
@@ -1849,8 +1851,9 @@ body.sb-resizing * {
   }
 
   .lang-btn {
-    padding: 6px 8px;
-    font-size: 0.75rem;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    min-height: 44px;
   }
 
   #lang-btn-label {
@@ -1858,8 +1861,9 @@ body.sb-resizing * {
   }
 
   .color-btn {
-    padding: 6px 8px;
-    font-size: 0.75rem;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    min-height: 44px;
   }
 
   /* --- LAYOUT --- */
@@ -1871,7 +1875,7 @@ body.sb-resizing * {
   .sidebar {
     position: fixed;
     left: -105%;
-    top: 54px;
+    top: 62px;
     bottom: 60px;
     width: 80%;
     max-width: 300px;
@@ -1933,8 +1937,8 @@ body.sb-resizing * {
   }
 
   .opt {
-    padding: 13px 14px;
-    font-size: 0.92rem;
+    padding: 16px 16px;
+    font-size: 0.95rem;
   }
 
   .big-score {
@@ -2012,7 +2016,7 @@ body.sb-resizing * {
    ===================== */
 #ptr-indicator {
   position: fixed;
-  top: 54px;
+  top: 62px;
   left: 50%;
   margin-left: -20px;
   width: 40px;
