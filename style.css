@@ -1876,7 +1876,7 @@ body.sb-resizing * {
     position: fixed;
     left: -105%;
     top: 62px;
-    bottom: 60px;
+    bottom: calc(60px + env(safe-area-inset-bottom, 0px));
     width: 80%;
     max-width: 300px;
     z-index: 300;
@@ -1901,7 +1901,7 @@ body.sb-resizing * {
 
   /* --- CONTENT --- */
   .content {
-    padding: 20px 16px 150px;
+    padding: 20px 16px calc(160px + env(safe-area-inset-bottom, 0px));
     width: 100%;
   }
 
@@ -1968,7 +1968,7 @@ body.sb-resizing * {
   /* --- QUIZ NAV mobilon fix, mindig a bottom nav fölött --- */
   .quiz-nav {
     position: fixed;
-    bottom: 60px;
+    bottom: calc(60px + env(safe-area-inset-bottom, 0px));
     left: 0;
     right: 0;
     padding: 10px 16px 12px;
@@ -1982,7 +1982,8 @@ body.sb-resizing * {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 60px;
+    height: calc(60px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: env(safe-area-inset-bottom, 0px);
     background: var(--sidebar-bg);
     border-top: 1px solid var(--border);
     z-index: 200;
