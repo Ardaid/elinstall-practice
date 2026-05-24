@@ -110,17 +110,31 @@ function buildLangPicker() {
   var dd  = document.getElementById('lang-dropdown');
   var html = '';
 
+  var LANG_SOON = { en: true, es: true };
+
   html += '<span class="picker-section-label">Primary language</span>';
   LANGUAGES.forEach(function(l) {
-    html += '<button class="lang-option' + (l.code === langPrimary ? ' lang-option-active' : '') + '" ' +
-      'onclick="setLangPrimary(\'' + l.code + '\')">' + langFlagHtml(l) + ' ' + l.label + '</button>';
+    var soon = !!LANG_SOON[l.code];
+    html += '<button class="lang-option' +
+      (l.code === langPrimary ? ' lang-option-active' : '') +
+      (soon ? ' lang-option-soon' : '') + '"' +
+      (soon ? ' disabled' : ' onclick="setLangPrimary(\'' + l.code + '\')"') + '>' +
+      langFlagHtml(l) + ' ' + l.label +
+      (soon ? ' <span class="lang-soon-badge">(soon)</span>' : '') +
+    '</button>';
   });
 
   html += '<hr class="picker-divider">';
   html += '<span class="picker-section-label">Secondary language</span>';
   LANGUAGES.forEach(function(l) {
-    html += '<button class="lang-option' + (l.code === langSecondary ? ' lang-option-active' : '') + '" ' +
-      'onclick="setLangSecondary(\'' + l.code + '\')">' + langFlagHtml(l) + ' ' + l.label + '</button>';
+    var soon = !!LANG_SOON[l.code];
+    html += '<button class="lang-option' +
+      (l.code === langSecondary ? ' lang-option-active' : '') +
+      (soon ? ' lang-option-soon' : '') + '"' +
+      (soon ? ' disabled' : ' onclick="setLangSecondary(\'' + l.code + '\')"') + '>' +
+      langFlagHtml(l) + ' ' + l.label +
+      (soon ? ' <span class="lang-soon-badge">(soon)</span>' : '') +
+    '</button>';
   });
 
   html += '<hr class="picker-divider">';

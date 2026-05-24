@@ -240,6 +240,19 @@ button {
   vertical-align: middle;
 }
 
+.lang-option-soon {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.lang-option-soon:hover { background: none; }
+
+.lang-soon-badge {
+  margin-left: auto;
+  font-size: 0.65rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
 .lang-option-active {
   background: var(--surface2);
   font-weight: 700;
