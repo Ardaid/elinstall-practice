@@ -1379,7 +1379,8 @@ document.addEventListener('keydown', function(e) {
 
   content.addEventListener('touchstart', function(e) {
     if (refreshing) return;
-    if (content.scrollTop === 0) {
+    pulling = false;
+    if (content.scrollTop < 2) {
       startY  = e.touches[0].clientY;
       pulling = true;
     }

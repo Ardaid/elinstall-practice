@@ -624,6 +624,7 @@ body.sb-resizing * {
   flex: 1;
   overflow-y: auto;
   padding: 48px 60px;
+  overscroll-behavior-y: contain;
 }
 
 /* =====================
