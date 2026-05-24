@@ -2054,6 +2054,33 @@ body.sb-resizing * {
 }
 
 /* =====================
+   ÁLLÓ TÁJOLÁS – kompakt quiz fejléc
+   ===================== */
+@media (max-width: 768px) and (orientation: portrait) {
+  .quiz-top {
+    padding: 10px 16px 0;
+  }
+
+  .progress-wrap {
+    margin-bottom: 10px;
+  }
+
+  .quiz-q-num {
+    margin-bottom: 6px;
+  }
+
+  .quiz-q-sv {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+
+  .quiz-q-hu {
+    font-size: 0.82rem;
+    margin-bottom: 10px;
+  }
+}
+
+/* =====================
    PULL TO REFRESH
    ===================== */
 #ptr-indicator {
