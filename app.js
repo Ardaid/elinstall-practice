@@ -131,15 +131,20 @@ function buildLangPicker() {
   var lbl = document.getElementById('lang-btn-label');
   if (lbl) lbl.textContent = langPrimary.toUpperCase() + ' › ' + langSecondary.toUpperCase();
 }
+function updateHeaderSubtitle() {
+  var el = document.getElementById('header-subtitle');
+  if (el) el.style.display = (langPrimary === 'hu') ? 'block' : 'none';
+}
+
 function setLangPrimary(code) {
-  langPrimary = code; saveLangs(); buildLangPicker(); refreshCurrentView();
+  langPrimary = code; saveLangs(); buildLangPicker(); updateHeaderSubtitle(); refreshCurrentView();
 }
 function setLangSecondary(code) {
   langSecondary = code; saveLangs(); buildLangPicker(); refreshCurrentView();
 }
 function swapLangs() {
   var tmp = langPrimary; langPrimary = langSecondary; langSecondary = tmp;
-  saveLangs(); buildLangPicker(); refreshCurrentView();
+  saveLangs(); buildLangPicker(); updateHeaderSubtitle(); refreshCurrentView();
 }
 function refreshCurrentView() {
   if (mode === 'list')      { buildSidebar();     renderList(); }
@@ -1635,6 +1640,7 @@ function setMode(m) {
 // =====================
 loadSessions();
 loadLangs();
+updateHeaderSubtitle();
 loadZoom();
 loadSidebarCollapsed();
 buildDropdown();
