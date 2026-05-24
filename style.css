@@ -1992,3 +1992,41 @@ body.sb-resizing * {
     line-height: 1;
   }
 }
+
+/* =====================
+   PULL TO REFRESH
+   ===================== */
+#ptr-indicator {
+  position: fixed;
+  top: 54px;
+  left: 50%;
+  margin-left: -20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(-50px);
+  z-index: 400;
+  pointer-events: none;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.35);
+  transition: background 0.2s;
+}
+
+#ptr-indicator.ptr-ready {
+  background: var(--correct);
+}
+
+#ptr-indicator.ptr-spinning {
+  animation: ptr-spin 0.5s linear infinite;
+}
+
+@keyframes ptr-spin {
+  to { transform: translateY(30px) rotate(360deg); }
+}
