@@ -13,6 +13,8 @@ var quizQuestions    = [];   // a kvízbe kerülő kérdések indexei
 var quizShuffle      = false; // keverés be/ki
 var quizMaxCount     = 0;    // 0 = összes, egyéb = limit
 var sidebarCollapsed = {};    // { groupIndex: true/false }
+var activeTopic = 0;          // currently selected topic index
+var activePart  = 0;          // currently selected part index within topic
 
 // =====================
 // NYELVEK
@@ -183,6 +185,51 @@ var GROUPS = [
     sv: 'Frågor om elinstallationsreglerna del 7 – särskilda slag av elinstallationer',
     hu: 'Kérdések a villamos szerelési előírások 7. részéről – speciális villamos szerelések',
     from: 92, to: 112
+  }
+];
+
+// =====================
+// TÉMÁK (sidebar struktúra)
+// =====================
+var TOPICS = [
+  {
+    sv: 'Téma 1 — Regler och standarder för lågspänningsinstallationer',
+    parts: [
+      { sv: '1. rész: Lagar & Regler',    hasData: true  },
+      { sv: '2. rész: Standard SS/SS-EN', hasData: false }
+    ]
+  },
+  {
+    sv: 'Téma 2 — Elinstallation i byggnader',
+    parts: [
+      { sv: 'Dimensionering',              hasData: false },
+      { sv: 'Mekanik',                     hasData: false },
+      { sv: 'Materialval',                 hasData: false },
+      { sv: 'Scheman',                     hasData: false },
+      { sv: 'Kontroll före ibruktagning',  hasData: false }
+    ]
+  },
+  {
+    sv: 'Téma 3 — Elmaskiner',
+    parts: [
+      { sv: 'Trefas växelströmsmotorer',   hasData: false },
+      { sv: 'Likströmsmotorer',            hasData: false },
+      { sv: 'Servomotorer',                hasData: false },
+      { sv: 'Skydd och övervakning',       hasData: false },
+      { sv: 'Drivsystem',                  hasData: false },
+      { sv: 'Transformatorer',             hasData: false }
+    ]
+  },
+  {
+    sv: 'Téma 4 — Produktion & Överföring',
+    parts: [
+      { sv: 'Avsnitt 1', hasData: false },
+      { sv: 'Avsnitt 2', hasData: false },
+      { sv: 'Avsnitt 3', hasData: false },
+      { sv: 'Avsnitt 4', hasData: false },
+      { sv: 'Avsnitt 5', hasData: false },
+      { sv: 'Avsnitt 6', hasData: false }
+    ]
   }
 ];
 
@@ -804,51 +851,120 @@ function buildDropdown() {
 // =====================
 function buildSidebar() {
   var sb   = document.getElementById('sidebar');
-  var html = '<p class="sidebar-label">Questions</p>';
+  var html = '';
 
-  GROUPS.forEach(function(g, gi) {
-    // kérdések ebben a csoportban
-    var groupQs = [];
-    QA.forEach(function(q, i) {
-      if (q.n >= g.from && q.n <= g.to) groupQs.push({ q: q, i: i });
-    });
-
-    var collapsed = sidebarCollapsed[gi] !== false;
-    var hasQs     = groupQs.length > 0;
+  TOPICS.forEach(function(topic, ti) {
+    var tcKey = 'topic-' + ti;
+    var topicCollapsed = (sidebarCollapsed[tcKey] === undefined) ? (ti !== 0) : !!sidebarCollapsed[tcKey];
 
     html +=
-      '<div class="sg' + (collapsed ? ' sg-collapsed' : '') + (hasQs ? '' : ' sg-empty') + '" id="sg-' + gi + '">' +
-        '<button class="sg-header" onclick="toggleGroupCollapse(' + gi + ')">' +
-          '<span class="sg-arrow">' + (collapsed ? '▸' : '▾') + '</span>' +
-          '<div class="sg-titles">' +
-            '<span class="sg-label">Group ' + (gi + 1) + '</span>' +
-            '<span class="sg-name">' + g.hu + '</span>' +
-          '</div>' +
-          '<span class="sg-count">' + (hasQs ? groupQs.length : '–') + '</span>' +
+      '<div class="sb-topic' + (topicCollapsed ? ' sb-topic-collapsed' : '') + '" id="sbt-' + ti + '">' +
+        '<button class="sb-topic-header" onclick="toggleTopicCollapse(' + ti + ')">' +
+          '<span class="sg-arrow">' + (topicCollapsed ? '▸' : '▾') + '</span>' +
+          '<span class="sb-topic-name">' + topic.sv + '</span>' +
         '</button>' +
-        '<div class="sg-items">';
+        '<div class="sb-topic-body">';
 
-    if (hasQs) {
-      groupQs.forEach(function(item) {
-        var priText = qLang(item.q, langPrimary).q;
-        var secText = qLang(item.q, langSecondary).q;
-        html +=
-          '<button class="sidebar-item" id="si-' + item.i + '" onclick="jumpTo(' + item.i + ')">' +
-            '<span class="sidebar-num">' + item.q.n + '</span>' +
-            '<span class="sidebar-texts">' +
-              '<span class="sidebar-q">'   + (priText || '—')   + '</span>' +
-              (langPrimary !== langSecondary && secText ? '<span class="sidebar-qhu">' + secText + '</span>' : '') +
-            '</span>' +
-          '</button>';
-      });
-    } else {
-      html += '<p class="sg-placeholder">Coming soon...</p>';
-    }
+    topic.parts.forEach(function(part, pi) {
+      var isActive = (activeTopic === ti && activePart === pi);
+      html +=
+        '<button class="sb-part-btn' + (isActive ? ' active' : '') + '" onclick="selectPart(' + ti + ',' + pi + ')">' +
+          part.sv +
+          (!part.hasData ? '<span class="sb-soon">soon</span>' : '') +
+        '</button>';
 
-    html += '</div></div>';
+      // Show question groups only under the currently active data part
+      if (isActive && part.hasData) {
+        html += '<div class="sb-groups">';
+        GROUPS.forEach(function(g, gi) {
+          var groupQs = [];
+          QA.forEach(function(q, i) {
+            if (q.n >= g.from && q.n <= g.to) groupQs.push({ q: q, i: i });
+          });
+          var gcollapsed = sidebarCollapsed[gi] !== false;
+          html +=
+            '<div class="sg' + (gcollapsed ? ' sg-collapsed' : '') + '" id="sg-' + gi + '">' +
+              '<button class="sg-header" onclick="toggleGroupCollapse(' + gi + ')">' +
+                '<span class="sg-arrow">' + (gcollapsed ? '▸' : '▾') + '</span>' +
+                '<div class="sg-titles">' +
+                  '<span class="sg-label">Group ' + (gi + 1) + '</span>' +
+                  '<span class="sg-name">' + g.hu + '</span>' +
+                '</div>' +
+                '<span class="sg-count">' + groupQs.length + '</span>' +
+              '</button>' +
+              '<div class="sg-items">';
+          groupQs.forEach(function(item) {
+            var priText = qLang(item.q, langPrimary).q;
+            var secText = qLang(item.q, langSecondary).q;
+            html +=
+              '<button class="sidebar-item" id="si-' + item.i + '" onclick="jumpTo(' + item.i + ')">' +
+                '<span class="sidebar-num">' + item.q.n + '</span>' +
+                '<span class="sidebar-texts">' +
+                  '<span class="sidebar-q">'   + (priText || '—')   + '</span>' +
+                  (langPrimary !== langSecondary && secText ? '<span class="sidebar-qhu">' + secText + '</span>' : '') +
+                '</span>' +
+              '</button>';
+          });
+          html += '</div></div>';
+        });
+        html += '</div>'; // .sb-groups
+      }
+    });
+
+    html += '</div></div>'; // .sb-topic-body + .sb-topic
   });
 
   sb.innerHTML = html;
+}
+
+function toggleTopicCollapse(ti) {
+  var key = 'topic-' + ti;
+  var current = (sidebarCollapsed[key] === undefined) ? (ti !== 0) : !!sidebarCollapsed[key];
+  sidebarCollapsed[key] = !current;
+  var el = document.getElementById('sbt-' + ti);
+  if (!el) return;
+  var collapsed = !current;
+  el.classList.toggle('sb-topic-collapsed', collapsed);
+  var arrow = el.querySelector(':scope > .sb-topic-header > .sg-arrow');
+  if (arrow) arrow.textContent = collapsed ? '▸' : '▾';
+  saveSidebarCollapsed();
+}
+
+function selectPart(ti, pi) {
+  var part = TOPICS[ti].parts[pi];
+  activeTopic = ti;
+  activePart  = pi;
+  closeMobileSidebar();
+  buildSidebar();
+
+  if (part.hasData) {
+    listQ = 0;
+    // Sync mode tabs manually (setMode would skip buildSidebar when not coming from dict)
+    var prev = mode;
+    mode = 'list';
+    document.getElementById('tab-list').classList.add('active');
+    document.getElementById('tab-quiz').classList.remove('active');
+    document.getElementById('tab-dict').classList.remove('active');
+    var ml = document.getElementById('mobile-tab-list');
+    var mq = document.getElementById('mobile-tab-quiz');
+    var md = document.getElementById('mobile-tab-dict');
+    if (ml) ml.classList.add('active');
+    if (mq) mq.classList.remove('active');
+    if (md) md.classList.remove('active');
+    document.getElementById('sessions-sidebar').classList.add('hidden');
+    renderList();
+  } else {
+    clearQuizMode();
+    document.getElementById('content').innerHTML =
+      '<div class="coming-soon-wrap">' +
+        '<div class="coming-soon-card">' +
+          '<p class="coming-soon-flag">🚧</p>' +
+          '<p class="coming-soon-lang">' + part.sv + '</p>' +
+          '<p class="coming-soon-msg">Coming soon</p>' +
+          '<p class="coming-soon-sub">Content not yet available.</p>' +
+        '</div>' +
+      '</div>';
+  }
 }
 
 function toggleGroupCollapse(gi) {
@@ -932,9 +1048,11 @@ function jumpTo(i) {
 
 function goHome() {
   listQ = 0;
+  activeTopic = 0;
+  activePart  = 0;
   closeMobileSidebar();
-  if (mode !== 'list') setMode('list');
-  else renderList();
+  if (mode === 'list') { buildSidebar(); renderList(); }
+  else setMode('list');
 }
 
 // =====================

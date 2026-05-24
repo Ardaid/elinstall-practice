@@ -603,6 +603,79 @@ button {
   opacity: 0.6;
 }
 
+/* =====================
+   TÉMÁK A SIDEBARBAN (3 szint: téma → rész → group)
+   ===================== */
+.sb-topic-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  width: 100%;
+  padding: 10px 12px 9px;
+  background: none;
+  border: none;
+  border-top: 1px solid var(--border);
+  color: var(--text);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: background 0.1s;
+}
+.sb-topic:first-child .sb-topic-header { border-top: none; }
+.sb-topic-header:hover { background: var(--surface); }
+
+.sb-topic-name {
+  flex: 1;
+  line-height: 1.35;
+}
+
+.sb-topic-body {
+  /* visible */
+}
+.sb-topic-collapsed .sb-topic-body {
+  display: none;
+}
+
+.sb-part-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 8px 12px 8px 22px;
+  background: none;
+  border: none;
+  border-left: 2px solid transparent;
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s, border-color 0.1s;
+}
+.sb-part-btn:hover { background: var(--surface); color: var(--text); }
+.sb-part-btn.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+  background: var(--surface);
+}
+
+.sb-soon {
+  font-size: 0.58rem;
+  font-weight: 700;
+  background: var(--surface2);
+  color: var(--muted);
+  border-radius: 4px;
+  padding: 1px 5px;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.sb-groups {
+  /* groups are nested under the active part */
+}
+
 /* Átméretező fogó — position:fixed, pontosan a scrollbar fölé */
 .sidebar-resize-handle {
   position: fixed;
