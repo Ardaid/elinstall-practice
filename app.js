@@ -193,45 +193,75 @@ var GROUPS = [
 // =====================
 var TOPICS = [
   {
-    sv: 'Téma 1 — Regler och standarder för lågspänningsinstallationer',
+    sv: 'Tema 1 — Regler och standarder för lågspänningsinstallationer',
+    hu: 'Téma 1 — Regler och standarder för lågspänningsinstallationer',
+    en: 'Topic 1 — Regler och standarder för lågspänningsinstallationer',
+    es: 'Tema 1 — Regler och standarder för lågspänningsinstallationer',
     parts: [
-      { sv: '1. rész: Lagar & Regler',    hasData: true  },
-      { sv: '2. rész: Standard SS/SS-EN', hasData: false }
+      { sv: 'Del 1: Lagar & Regler',      hu: '1. rész: Lagar & Regler',      en: 'Part 1: Lagar & Regler',      es: 'Parte 1: Lagar & Regler',      hasData: true  },
+      { sv: 'Del 2: Standard SS/SS-EN',   hu: '2. rész: Standard SS/SS-EN',   en: 'Part 2: Standard SS/SS-EN',   es: 'Parte 2: Standard SS/SS-EN',   hasData: false }
     ]
   },
   {
-    sv: 'Téma 2 — Elinstallation i byggnader',
+    sv: 'Tema 2 — Elinstallation i byggnader',
+    hu: 'Téma 2 — Elinstallation i byggnader',
+    en: 'Topic 2 — Elinstallation i byggnader',
+    es: 'Tema 2 — Elinstallation i byggnader',
     parts: [
-      { sv: 'Dimensionering',              hasData: false },
-      { sv: 'Mekanik',                     hasData: false },
-      { sv: 'Materialval',                 hasData: false },
-      { sv: 'Scheman',                     hasData: false },
-      { sv: 'Kontroll före ibruktagning',  hasData: false }
+      { sv: 'Dimensionering',             hu: 'Dimensionering',              en: 'Dimensionering',              es: 'Dimensionering',              hasData: false },
+      { sv: 'Mekanik',                    hu: 'Mekanik',                     en: 'Mekanik',                     es: 'Mekanik',                     hasData: false },
+      { sv: 'Materialval',                hu: 'Materialval',                 en: 'Materialval',                 es: 'Materialval',                 hasData: false },
+      { sv: 'Scheman',                    hu: 'Scheman',                     en: 'Scheman',                     es: 'Scheman',                     hasData: false },
+      { sv: 'Kontroll före ibruktagning', hu: 'Kontroll före ibruktagning',  en: 'Kontroll före ibruktagning',  es: 'Kontroll före ibruktagning',  hasData: false }
     ]
   },
   {
-    sv: 'Téma 3 — Elmaskiner',
+    sv: 'Tema 3 — Elmaskiner',
+    hu: 'Téma 3 — Elmaskiner',
+    en: 'Topic 3 — Elmaskiner',
+    es: 'Tema 3 — Elmaskiner',
     parts: [
-      { sv: 'Trefas växelströmsmotorer',   hasData: false },
-      { sv: 'Likströmsmotorer',            hasData: false },
-      { sv: 'Servomotorer',                hasData: false },
-      { sv: 'Skydd och övervakning',       hasData: false },
-      { sv: 'Drivsystem',                  hasData: false },
-      { sv: 'Transformatorer',             hasData: false }
+      { sv: 'Trefas växelströmsmotorer',  hu: 'Trefas växelströmsmotorer',   en: 'Trefas växelströmsmotorer',   es: 'Trefas växelströmsmotorer',   hasData: false },
+      { sv: 'Likströmsmotorer',           hu: 'Likströmsmotorer',            en: 'Likströmsmotorer',            es: 'Likströmsmotorer',            hasData: false },
+      { sv: 'Servomotorer',               hu: 'Servomotorer',                en: 'Servomotorer',                es: 'Servomotorer',                hasData: false },
+      { sv: 'Skydd och övervakning',      hu: 'Skydd och övervakning',       en: 'Skydd och övervakning',       es: 'Skydd och övervakning',       hasData: false },
+      { sv: 'Drivsystem',                 hu: 'Drivsystem',                  en: 'Drivsystem',                  es: 'Drivsystem',                  hasData: false },
+      { sv: 'Transformatorer',            hu: 'Transformatorer',             en: 'Transformatorer',             es: 'Transformatorer',             hasData: false }
     ]
   },
   {
-    sv: 'Téma 4 — Produktion & Överföring',
+    sv: 'Tema 4 — Produktion & Överföring',
+    hu: 'Téma 4 — Produktion & Överföring',
+    en: 'Topic 4 — Produktion & Överföring',
+    es: 'Tema 4 — Produktion & Överföring',
     parts: [
-      { sv: 'Avsnitt 1', hasData: false },
-      { sv: 'Avsnitt 2', hasData: false },
-      { sv: 'Avsnitt 3', hasData: false },
-      { sv: 'Avsnitt 4', hasData: false },
-      { sv: 'Avsnitt 5', hasData: false },
-      { sv: 'Avsnitt 6', hasData: false }
+      { sv: 'Avsnitt 1', hu: '1. fejezet', en: 'Section 1', es: 'Sección 1', hasData: false },
+      { sv: 'Avsnitt 2', hu: '2. fejezet', en: 'Section 2', es: 'Sección 2', hasData: false },
+      { sv: 'Avsnitt 3', hu: '3. fejezet', en: 'Section 3', es: 'Sección 3', hasData: false },
+      { sv: 'Avsnitt 4', hu: '4. fejezet', en: 'Section 4', es: 'Sección 4', hasData: false },
+      { sv: 'Avsnitt 5', hu: '5. fejezet', en: 'Section 5', es: 'Sección 5', hasData: false },
+      { sv: 'Avsnitt 6', hu: '6. fejezet', en: 'Section 6', es: 'Sección 6', hasData: false }
     ]
   }
 ];
+
+// Returns the label for a topic or part object in the current primary language
+function sbLabel(obj) {
+  return obj[langPrimary] || obj.sv;
+}
+
+// "Group" word translated
+function groupWord() {
+  if (langPrimary === 'hu') return 'Csoport';
+  if (langPrimary === 'en') return 'Group';
+  if (langPrimary === 'es') return 'Grupo';
+  return 'Grupp';
+}
+
+// Group name in primary language (falls back to sv)
+function gName(g) {
+  return (langPrimary === 'hu' && g.hu) ? g.hu : g.sv;
+}
 
 function groupForQ(n) {
   for (var i = 0; i < GROUPS.length; i++) {
@@ -861,7 +891,7 @@ function buildSidebar() {
       '<div class="sb-topic' + (topicCollapsed ? ' sb-topic-collapsed' : '') + '" id="sbt-' + ti + '">' +
         '<button class="sb-topic-header" onclick="toggleTopicCollapse(' + ti + ')">' +
           '<span class="sg-arrow">' + (topicCollapsed ? '▸' : '▾') + '</span>' +
-          '<span class="sb-topic-name">' + topic.sv + '</span>' +
+          '<span class="sb-topic-name">' + sbLabel(topic) + '</span>' +
         '</button>' +
         '<div class="sb-topic-body">';
 
@@ -878,7 +908,7 @@ function buildSidebar() {
               '<span class="sg-arrow">' + (partCollapsed ? '▸' : '▾') + '</span>' +
             '</button>' +
             '<button class="sb-part-name-btn" onclick="selectPart(' + ti + ',' + pi + ')">' +
-              part.sv +
+              sbLabel(part) +
               (!part.hasData ? '<span class="sb-soon">soon</span>' : '') +
             '</button>' +
           '</div>' +
@@ -898,8 +928,8 @@ function buildSidebar() {
               '<button class="sg-header" onclick="toggleGroupCollapse(' + gi + ')">' +
                 '<span class="sg-arrow">' + (gcollapsed ? '▸' : '▾') + '</span>' +
                 '<div class="sg-titles">' +
-                  '<span class="sg-label">Group ' + (gi + 1) + '</span>' +
-                  '<span class="sg-name">' + g.hu + '</span>' +
+                  '<span class="sg-label">' + groupWord() + ' ' + (gi + 1) + '</span>' +
+                  '<span class="sg-name">' + gName(g) + '</span>' +
                 '</div>' +
                 '<span class="sg-count">' + groupQs.length + '</span>' +
               '</button>' +
@@ -989,7 +1019,7 @@ function selectPart(ti, pi) {
       '<div class="coming-soon-wrap">' +
         '<div class="coming-soon-card">' +
           '<p class="coming-soon-flag">🚧</p>' +
-          '<p class="coming-soon-lang">' + part.sv + '</p>' +
+          '<p class="coming-soon-lang">' + sbLabel(part) + '</p>' +
           '<p class="coming-soon-msg">Coming soon</p>' +
           '<p class="coming-soon-sub">Content not yet available.</p>' +
         '</div>' +
