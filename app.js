@@ -997,8 +997,15 @@ function togglePartCollapse(ti, pi) {
 function selectPart(ti, pi) {
   var part = TOPICS[ti].parts[pi];
   var pKey = 'part-' + ti + '-' + pi;
-  // Always expand the part we're navigating to
-  sidebarCollapsed[pKey] = false;
+  var isFirst = (ti === 0 && pi === 0);
+  if (activeTopic === ti && activePart === pi) {
+    // Same part clicked: toggle collapse (same as clicking the arrow)
+    var cur = (sidebarCollapsed[pKey] === undefined) ? !isFirst : !!sidebarCollapsed[pKey];
+    sidebarCollapsed[pKey] = !cur;
+  } else {
+    // Different part: always expand
+    sidebarCollapsed[pKey] = false;
+  }
   activeTopic = ti;
   activePart  = pi;
   closeMobileSidebar();
