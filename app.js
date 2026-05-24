@@ -1211,12 +1211,12 @@ function renderQuiz() {
   pri.opts.forEach(function(o, i) {
     var MAX = 110;
     var shortPri = o.length <= MAX ? o : o.substring(0, MAX).replace(/\s+\S*$/, '') + '…';
-    var secOpt   = sec.opts[i] || '';
-    var shortSec = secOpt.length <= MAX ? secOpt : secOpt.substring(0, MAX).replace(/\s+\S*$/, '') + '…';
+    var secRaw   = sec.opts[i] || '';
+    var shortSec = secRaw.length <= MAX ? secRaw : secRaw.substring(0, MAX).replace(/\s+\S*$/, '') + '…';
     optsHtml +=
       '<button class="opt" id="qo-' + i + '" onclick="pick(' + i + ')">' +
         shortPri +
-        (langPrimary !== langSecondary && shortSec ? '<span class="opt-hu">' + shortSec + '</span>' : '') +
+        (langPrimary !== langSecondary ? '<span class="opt-hu">' + shortSec + '</span>' : '') +
       '</button>';
   });
 
