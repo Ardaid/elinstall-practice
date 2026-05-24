@@ -1180,24 +1180,44 @@ function dictNext() {
 }
 
 // =====================
-// KVÍZ MAGASSÁG (JS alapú, Android-on megbízható)
+// KVÍZ MAGASSÁG
+// visualViewport.height = ténylegesen látható magasság (Android nav sáv NÉLKÜL)
+// window.innerHeight    = layout magasság (Android nav sáv beleszámítva)
 // =====================
 function applyQuizHeight() {
   var c  = document.getElementById('content');
   var qv = document.querySelector('.quiz-view');
   if (!qv) return;
   if (window.innerWidth > 768) {
-    // Asztali nézetben nem kell korlátozni
     c.classList.remove('quiz-mode');
     qv.style.height = '';
     return;
   }
   c.classList.add('quiz-mode');
-  var headerH    = document.getElementById('site-header').offsetHeight || 62;
-  var bottomNavH = document.getElementById('mobile-bottom-nav').offsetHeight || 60;
-  var available  = window.innerHeight - headerH - bottomNavH;
-  qv.style.height = available + 'px';
+  var headerH    = (document.getElementById('site-header')     || {}).offsetHeight || 62;
+  var bottomNavH = (document.getElementById('mobile-bottom-nav')|| {}).offsetHeight || 60;
+  // visualViewport.height a legpontosabb: kizárja az Android nav sávot és a billentyűzetet
+  var vh = (window.visualViewport ? window.visualViewport.height : window.innerHeight);
+  var available = Math.floor(vh - headerH - bottomNavH);
+  qv.style.height = Math.max(200, available) + 'px';
 }
+
+// Újraszámol tájolásváltásnál és böngészőchrome változásnál
+(function() {
+  function onVpChange() {
+    if (mode === 'quiz') requestAnimationFrame(applyQuizHeight);
+  }
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', onVpChange);
+  } else {
+    window.addEventListener('resize', onVpChange);
+  }
+  window.addEventListener('orientationchange', function() {
+    setTimeout(function() {
+      if (mode === 'quiz') applyQuizHeight();
+    }, 300);
+  });
+})();
 
 function clearQuizMode() {
   var c = document.getElementById('content');
@@ -1270,8 +1290,8 @@ function renderQuiz() {
       '</div>' +
     '</div>';
 
-  // Quiz magasság beállítása JS-sel (CSS dvh/vh nem megbízható Android-on)
-  applyQuizHeight();
+  // Quiz magasság beállítása JS-sel — rAF hogy a DOM teljesen renderelve legyen
+  requestAnimationFrame(applyQuizHeight);
 
   // Ha már válaszolt erre a kérdésre, állítsuk vissza az állapotot
   if (quizAnswers.length > quizI) {
