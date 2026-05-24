@@ -120,6 +120,7 @@ function swapLangs() {
 function refreshCurrentView() {
   if (mode === 'list')      { buildSidebar();     renderList(); }
   else if (mode === 'dict') { buildDictSidebar(); renderDict(); }
+  else if (mode === 'quiz') { renderQuiz(); }
 }
 
 // =====================
@@ -1237,6 +1238,22 @@ function renderQuiz() {
         '</div>' +
       '</div>' +
     '</div>';
+
+  // Ha már válaszolt erre a kérdésre, állítsuk vissza az állapotot
+  if (quizAnswers.length > quizI) {
+    var ans = quizAnswers[quizI];
+    pri.opts.forEach(function(_, j) {
+      document.getElementById('qo-' + j).disabled = true;
+    });
+    if (ans.picked === ans.correct) {
+      document.getElementById('qo-' + ans.picked).classList.add('correct');
+    } else {
+      document.getElementById('qo-' + ans.picked).classList.add('wrong');
+      document.getElementById('qo-' + ans.correct).classList.add('correct');
+    }
+    document.getElementById('btn-skip').style.display = 'none';
+    document.getElementById('btn-next').style.display = 'inline-block';
+  }
 }
 
 function pick(i) {
