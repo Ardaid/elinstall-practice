@@ -788,6 +788,39 @@ body.sb-resizing * {
   cursor: not-allowed;
 }
 
+/* =====================
+   LISTA MÓD — rögzített magasság (mint a quiz)
+   ===================== */
+.content.list-mode {
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.content.list-mode .question-view {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.list-body {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 24px;
+}
+
+.list-nav {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 24px 14px;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.35);
+}
+
 .q-counter {
   font-size: 0.8rem;
   color: var(--muted);
@@ -2009,6 +2042,14 @@ body.sb-resizing * {
   .arrow-btn {
     padding: 10px 16px;
     font-size: 0.8rem;
+  }
+
+  .list-body {
+    padding: 16px;
+  }
+
+  .list-nav {
+    padding: 10px 16px 14px;
   }
 
 

@@ -1100,32 +1100,36 @@ function toggleDictSection(skey) {
 // =====================
 function renderList() {
   clearQuizMode();
+  var c = document.getElementById('content');
   if (!langHasData(langPrimary)) { renderComingSoon(langPrimary); updateSidebar(); saveState(); return; }
   var q   = QA[listQ];
   var pri = qLang(q, langPrimary);
   var sec = qLang(q, langSecondary);
   var html =
     '<div class="question-view">' +
-      '<div class="q-badge">' + q.n + ' / ' + QA.length + '</div>' +
-      '<h2 class="q-text-sv">' + pri.q + '</h2>' +
-      (langPrimary !== langSecondary ? '<p class="q-text-hu">' + sec.q + '</p>' : '') +
-      '<div class="answer-card">' +
-        '<p class="ans-lang">' + langLabel(langPrimary) + '</p>' +
-        '<p class="ans-sv">'   + formatAnswer(pri.a) + '</p>' +
-        (langPrimary !== langSecondary
-          ? '<hr class="ans-divider">' +
-            '<p class="ans-lang">' + langLabel(langSecondary) + '</p>' +
-            '<p class="ans-hu">'   + formatAnswer(sec.a) + '</p>'
-          : '') +
+      '<div class="list-body">' +
+        '<div class="q-badge">' + q.n + ' / ' + QA.length + '</div>' +
+        '<h2 class="q-text-sv">' + pri.q + '</h2>' +
+        (langPrimary !== langSecondary ? '<p class="q-text-hu">' + sec.q + '</p>' : '') +
+        '<div class="answer-card">' +
+          '<p class="ans-lang">' + langLabel(langPrimary) + '</p>' +
+          '<p class="ans-sv">'   + formatAnswer(pri.a) + '</p>' +
+          (langPrimary !== langSecondary
+            ? '<hr class="ans-divider">' +
+              '<p class="ans-lang">' + langLabel(langSecondary) + '</p>' +
+              '<p class="ans-hu">'   + formatAnswer(sec.a) + '</p>'
+            : '') +
+        '</div>' +
       '</div>' +
-      '<div class="nav-arrows">' +
+      '<div class="list-nav">' +
         '<button class="arrow-btn" onclick="prevQ()" ' + (listQ === 0 ? 'disabled' : '') + '>&larr; Previous</button>' +
         '<span class="q-counter">' + (listQ + 1) + ' / ' + QA.length + '</span>' +
         '<button class="arrow-btn" onclick="nextQ()" ' + (listQ === QA.length - 1 ? 'disabled' : '') + '>Next &rarr;</button>' +
       '</div>' +
     '</div>';
 
-  document.getElementById('content').innerHTML = html;
+  c.innerHTML = html;
+  requestAnimationFrame(applyListHeight);
   updateSidebar();
   saveState();
 }
@@ -1239,10 +1243,28 @@ function applyQuizHeight() {
   qv.style.height = Math.max(200, available) + 'px';
 }
 
+function applyListHeight() {
+  var c  = document.getElementById('content');
+  var qv = document.querySelector('.question-view');
+  if (!qv) return;
+
+  c.classList.add('list-mode');
+
+  var headerH    = (document.getElementById('site-header')      || {}).offsetHeight || 0;
+  var bottomNavH = (document.getElementById('mobile-bottom-nav') || {}).offsetHeight || 0;
+
+  var vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+  if (vh > window.screen.height) vh = window.screen.height;
+
+  var available = Math.floor(vh - headerH - bottomNavH) - 4;
+  qv.style.height = Math.max(200, available) + 'px';
+}
+
 // Újraszámol tájolásváltásnál és böngészőchrome változásnál
 (function() {
   function onVpChange() {
     if (mode === 'quiz') requestAnimationFrame(applyQuizHeight);
+    if (mode === 'list') requestAnimationFrame(applyListHeight);
   }
   if (window.visualViewport) {
     window.visualViewport.addEventListener('resize', onVpChange);
@@ -1252,13 +1274,14 @@ function applyQuizHeight() {
   window.addEventListener('orientationchange', function() {
     setTimeout(function() {
       if (mode === 'quiz') applyQuizHeight();
+      if (mode === 'list') applyListHeight();
     }, 300);
   });
 })();
 
 function clearQuizMode() {
   var c = document.getElementById('content');
-  if (c) c.classList.remove('quiz-mode');
+  if (c) { c.classList.remove('quiz-mode'); c.classList.remove('list-mode'); }
 }
 
 // =====================
@@ -1490,9 +1513,11 @@ document.addEventListener('keydown', function(e) {
 
   window.addEventListener('touchstart', function(e) {
     if (refreshing) return;
-    // Ha a quiz görgethető opciók területén belül érintett → nem indítunk pull-to-refresh
-    var opts = document.querySelector('.quiz-opts-scroll');
-    if (opts && opts.contains(e.target)) { pulling = false; return; }
+    // Görgethető belső területekről ne induljon pull-to-refresh
+    var scrollAreas = document.querySelectorAll('.quiz-opts-scroll, .list-body');
+    for (var i = 0; i < scrollAreas.length; i++) {
+      if (scrollAreas[i].contains(e.target)) { pulling = false; return; }
+    }
     var c = getContent();
     startY  = e.touches[0].clientY;
     pulling = c ? c.scrollTop < 2 : false;
