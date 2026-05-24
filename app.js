@@ -65,7 +65,7 @@ function langLabel(code) {
 // =====================
 // ZOOM
 // =====================
-var ZOOM_SIZES = { 1: '12px', 2: '14px', 3: '16px', 4: '18px', 5: '20px' };
+var ZOOM_SIZES = { 1: '12px', 2: '14px', 3: '16px', 4: '18px', 5: '20px', 6: '23px' };
 var currentZoom = 3;
 
 function setZoom(level) {
@@ -78,7 +78,7 @@ function setZoom(level) {
 
 function loadZoom() {
   var saved = parseInt(localStorage.getItem('app-zoom') || '3');
-  if (saved >= 1 && saved <= 5) {
+  if (saved >= 1 && saved <= 6) {
     currentZoom = saved;
     document.documentElement.style.fontSize = ZOOM_SIZES[saved];
   }
@@ -786,8 +786,8 @@ function buildDropdown() {
   // --- TEXT SIZE szekció ---
   html += '<span class="picker-section-label">Text size</span>';
   html += '<div class="zoom-btn-group">';
-  var zoomLabels = ['XS', 'S', 'M', 'L', 'XL'];
-  for (var z = 1; z <= 5; z++) {
+  var zoomLabels = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
+  for (var z = 1; z <= 6; z++) {
     html +=
       '<button class="zoom-step-btn' + (z === currentZoom ? ' zoom-step-active' : '') + '" ' +
              'onclick="setZoom(' + z + ')">' +
