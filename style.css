@@ -1901,7 +1901,7 @@ body.sb-resizing * {
 
   /* --- CONTENT --- */
   .content {
-    padding: 20px 16px 80px;
+    padding: 20px 16px 150px;
     width: 100%;
   }
 
@@ -1965,10 +1965,14 @@ body.sb-resizing * {
     font-size: 0.8rem;
   }
 
-  /* --- QUIZ NAV mobilon a bottom nav fölé sticky --- */
+  /* --- QUIZ NAV mobilon fix, mindig a bottom nav fölött --- */
   .quiz-nav {
+    position: fixed;
     bottom: 60px;
-    padding: 10px 0 10px;
+    left: 0;
+    right: 0;
+    padding: 10px 16px 12px;
+    z-index: 150;
   }
 
   /* --- BOTTOM NAV --- */
