@@ -1935,7 +1935,7 @@ document.addEventListener('keydown', function(e) {
   window.addEventListener('touchstart', function(e) {
     if (refreshing) return;
     // Görgethető belső területekről ne induljon pull-to-refresh
-    var scrollAreas = document.querySelectorAll('.quiz-opts-scroll, .list-body, .expl-view, #sidebar');
+    var scrollAreas = document.querySelectorAll('.quiz-opts-scroll, .list-body, .expl-view, .expl-section-nav, #sidebar');
     for (var i = 0; i < scrollAreas.length; i++) {
       if (scrollAreas[i].contains(e.target)) { pulling = false; return; }
     }
