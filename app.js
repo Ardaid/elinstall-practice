@@ -818,6 +818,7 @@ function setTheme(id) {
   });
 
   document.getElementById('color-dropdown').classList.remove('open');
+  localStorage.setItem('app-theme', id);
 }
 
 // =====================
@@ -1741,7 +1742,7 @@ loadZoom();
 loadSidebarCollapsed();
 buildDropdown();
 buildLangPicker();
-setTheme('graphite');
+setTheme(localStorage.getItem('app-theme') || 'graphite');
 quizQuestions = QA.map(function(_, i) { return i; });
 
 // Mentett állapot visszaállítása
