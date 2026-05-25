@@ -1443,6 +1443,7 @@ function dictNext() {
 // =====================
 function renderExplanation() {
   clearQuizMode();
+  saveState();
   var c = document.getElementById('content');
 
   if (langPrimary !== 'hu') {
