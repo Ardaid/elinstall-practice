@@ -1459,28 +1459,122 @@ function renderExplanation() {
         requestAnimationFrame(applyExplanationHeight);
         return;
       }
-      var html = '<div class="expl-view"><div class="expl-body">';
-      text.split(/\n\n+/).forEach(function(block) {
-        block = block.trim();
-        if (!block) return;
-        if (block.startsWith('### ')) {
-          html += '<h3 class="expl-h3">' + block.slice(4) + '</h3>';
-        } else if (block.startsWith('## ')) {
-          html += '<h2 class="expl-h2">' + block.slice(3) + '</h2>';
-        } else if (block.startsWith('# ')) {
-          html += '<h1 class="expl-h1">' + block.slice(2) + '</h1>';
-        } else {
-          html += '<p class="expl-p">' + block.replace(/\n/g, '<br>') + '</p>';
-        }
-      });
-      html += '</div></div>';
-      c.innerHTML = html;
+      c.innerHTML = '<div class="expl-view"><div class="expl-body">' + buildExplHtml(text) + '</div></div>';
       requestAnimationFrame(applyExplanationHeight);
     })
     .catch(function() {
       c.innerHTML = '<div class="expl-view"><div class="expl-body"><p class="expl-empty">Nem sikerült betölteni a fájlt.</p></div></div>';
       requestAnimationFrame(applyExplanationHeight);
     });
+}
+
+// Parses explanation-hu.txt (with ════/──── decorators) into styled HTML
+function buildExplHtml(text) {
+  // True if a line is 8+ repeated decorator characters (═ ─ = -)
+  function isDecorLine(line) {
+    var t = line.trim();
+    return t.length >= 8 && /^([═─=\-])\1+$/.test(t);
+  }
+  // 'thick' for ═/=, 'thin' for ─/-, null if no decorator found
+  function firstDecorType(lines) {
+    for (var i = 0; i < lines.length; i++) {
+      if (!isDecorLine(lines[i])) continue;
+      var ch = lines[i].trim()[0];
+      return (ch === '═' || ch === '=') ? 'thick' : 'thin';
+    }
+    return null;
+  }
+  // Render lines with | as an HTML table
+  function renderTable(lines) {
+    var rows = lines.filter(function(l) {
+      return l.trim() && !isDecorLine(l) && l.includes('|');
+    });
+    if (rows.length < 2) return '';
+    var out = '<table class="expl-table"><tbody>';
+    rows.forEach(function(row, idx) {
+      var cells = row.split('|').map(function(c) { return c.trim(); }).filter(Boolean);
+      if (!cells.length) return;
+      var tag = idx === 0 ? 'th' : 'td';
+      out += '<tr>' + cells.map(function(cell) {
+        return '<' + tag + ' class="expl-td">' + cell + '</' + tag + '>';
+      }).join('') + '</tr>';
+    });
+    out += '</tbody></table>';
+    return out;
+  }
+
+  // Parse all double-newline-separated blocks
+  var parsed = text.split(/\n\n+/).map(function(block) {
+    block = block.trim();
+    if (!block) return null;
+    var lines      = block.split('\n');
+    var dType      = firstDecorType(lines);
+    var contentLines = lines.filter(function(l) { return !isDecorLine(l) && l.trim(); });
+    if (!contentLines.length) return null; // pure decorator → skip
+
+    if (dType) {
+      var texts  = contentLines.map(function(l) { return l.trim(); });
+      var joined = texts.join(' ');
+      if (dType === 'thin') {
+        // ─── = question header → h3 with number badge
+        var m = joined.match(/^(\d+)\.\s+([\s\S]*)/);
+        if (m) {
+          return { type: 'h3', html:
+            '<h3 class="expl-h3">' +
+              '<span class="expl-qnum">' + m[1] + '</span>' + m[2] +
+            '</h3>'
+          };
+        }
+        return { type: 'h3', html: '<h3 class="expl-h3">' + joined + '</h3>' };
+      }
+      if (dType === 'thick') {
+        // ═══ = section or main title
+        if (texts.some(function(t) { return /\d+\s*KÉRDÉS/i.test(t); })) {
+          return { type: 'h1', html:
+            '<div class="expl-title-block">' +
+              '<h1 class="expl-h1">' + texts[0] + '</h1>' +
+              (texts[1] ? '<p class="expl-subtitle">' + texts[1] + '</p>' : '') +
+            '</div>'
+          };
+        }
+        return { type: 'h2', html: '<h2 class="expl-h2">' + joined + '</h2>' };
+      }
+    }
+
+    // Explicit markdown headings (### ## #)
+    if (block.startsWith('### ')) return { type: 'h3', html: '<h3 class="expl-h3">' + block.slice(4) + '</h3>' };
+    if (block.startsWith('## '))  return { type: 'h2', html: '<h2 class="expl-h2">' + block.slice(3) + '</h2>' };
+    if (block.startsWith('# '))   return { type: 'h1', html: '<h1 class="expl-h1">' + block.slice(2) + '</h1>' };
+
+    // Bullet item (block starts with • possibly after whitespace)
+    if (/^\s*•\s/.test(block)) {
+      var bulletText = block.replace(/^\s*•\s*/, '').replace(/\n\s*/g, ' ');
+      return { type: 'li', html: '<li class="expl-li">' + bulletText + '</li>' };
+    }
+
+    // Table (2+ lines containing |)
+    if (lines.filter(function(l) { return l.includes('|'); }).length >= 2) {
+      return { type: 'table', html: renderTable(lines) };
+    }
+
+    // Regular paragraph
+    return { type: 'p', html: '<p class="expl-p">' + contentLines.join('\n').replace(/\n/g, '<br>') + '</p>' };
+  }).filter(Boolean);
+
+  // Build final HTML — wrap consecutive <li> items in <ul>
+  var out = '';
+  var inList = false;
+  parsed.forEach(function(item) {
+    if (item.type === 'li') {
+      if (!inList) { out += '<ul class="expl-list">'; inList = true; }
+      out += item.html;
+    } else {
+      if (inList) { out += '</ul>'; inList = false; }
+      out += item.html;
+    }
+  });
+  if (inList) out += '</ul>';
+  return out;
 }
 
 function applyExplanationHeight() {
