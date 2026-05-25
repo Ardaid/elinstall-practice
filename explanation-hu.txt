@@ -1,1 +1,2026 @@
+============================================================
+  112 KÉRDÉS ÉS VÁLASZ — ÉRTELMEZŐ MAGYARÁZATOK
+  AL auktorizáció | Elinstallationsreglerna
+============================================================
 
+Ez a fájl nem az eredeti száraz szöveg fordítása — hanem magyarázat.
+Minden kérdésnél megkapod, hogy MIÉRT fontos, MI a lényeg, és hogyan kell érteni.
+
+
+════════════════════════════════════════════════════════════
+  TÉMA: JOGSZABÁLYOK, HATÓSÁGOK, JOGOSÍTVÁNYOK
+  (1–15. kérdés)
+════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────
+1. Mi tartozik az "elektromos jogszabályok" körébe?
+────────────────────────────────────────────────────────────
+
+⚡ A lényeg: Törvény, rendelet, előírás = kötelező. Szabvány = nem kötelező.
+
+Svédországban a "elektriska lagstiftningen" (elektromos jogszabályok) azt jelenti:
+amit az országgyűlés, a kormány vagy egy kijelölt hatóság (pl. Elsäkerhetsverket) fogadott el.
+Ezeket BE KELL TARTANI, és megszegésük büntetőjogi következményekkel járhat.
+
+⚠️  A svéd szabvány (SS) NEM része a jogszabályoknak — csak egy eszköz,
+    ami segít teljesíteni a jogszabályi követelményeket.
+
+Tehát a rangsor: Törvény > Rendelet > Hatósági előírás > Szabvány (önkéntes)
+
+
+────────────────────────────────────────────────────────────
+2. Mely hatóságok működnek a villamosság területén?
+────────────────────────────────────────────────────────────
+
+🏛️  Négy fontos szereplő van — mindnek más a feladata:
+
+  • Elsäkerhetsverket — ez a mi "főhatóságunk". Ők felügyelik az elektromos
+    biztonságot, adják ki a jogosítványokat (auktorizáció), és hozzák az ELSÄK-FS
+    előírásokat.
+
+  • Energimarknadsinspektionen (EMI) — hálózati hatóság. Ők engedélyezik,
+    hogy ki építhet villamos hálózatot (koncesszió), és figyelik a díjak
+    méltányosságát.
+
+  • Svenska Kraftnät (SvK) — az ország villamoshálózatának "irányítótornya".
+    Ők tartják egyensúlyban a termelést és a fogyasztást, és üzemeltetik
+    a gerincvezetéket (stamnätet).
+
+  • Svenska Kraftnät (SvK) — egyben az ellátásbiztonságért felelős hatóság is.
+
+🔑 Vizsgán valószínűleg kérdezik: melyik hatóság mit csinál.
+
+
+────────────────────────────────────────────────────────────
+3. Mely villamossági munkák igényelnek jogosítványt?
+────────────────────────────────────────────────────────────
+
+🪪  Alapszabály: Erős áramú berendezés kivitelezése, módosítása, javítása
+    → jogosítvány kell (vagy felügyelt szakember).
+
+Jogosítvány NÉLKÜL szabad:
+  ✅ Legfeljebb 16 A / 400 V-os kapcsolók és csatlakozók cseréje
+  ✅ Lámpatestek cseréje száraz, nem tűzveszélyes lakáshelyiségben
+  ✅ SELV-körbe tartozó berendezés (max. 50 V / 200 VA / 10 A biztosító)
+  ✅ Max. 50 V-os védő kisfeszültségű fűtőkábel fektetése
+  ✅ Berendezés le- vagy csatlakoztatása laboratóriumban/kísérleti szobában
+
+💡 Gondolj rá így: amit egy "okos házigazda" is el tud végezni biztonságosan
+   kis kockázattal, azt nem kötik jogosítványhoz.
+
+
+────────────────────────────────────────────────────────────
+4. Mit jelent az "elinstallatör" (villamosszerelő)?
+────────────────────────────────────────────────────────────
+
+🪪  Az elinstallatör olyan személy, akinek az Elsäkerhetsverket
+    kiadott egy személyes jogosítványt meghatározott körű munkákra.
+
+Fontos pontok:
+  • A jogosítvány SZEMÉLYES — egy cégnek nem lehet jogosítványa, csak embernek.
+  • Több szintje létezik (pl. AL = Allmän Behörighet Lågspänning — ez a te kurzusod!).
+  • A felelősség is személyes.
+
+Hivatkozás: Elinstallatörsförordning SFS 1990:806, 2§
+
+
+────────────────────────────────────────────────────────────
+5. Mit jelent a "yrkesman" (szakember)?
+────────────────────────────────────────────────────────────
+
+👷 A yrkesman az a személy, aki az elinstallatör FELÜGYELETE ALATT dolgozhat.
+
+Meglepő, de igaz: nincs formális képesítési követelmény a yrkes­man számára!
+Az elinstallatör maga dönti el, ki elég kompetens a felügyelete alá.
+A kompetencia teljesen a munka összetettségétől függ.
+
+💡 Tehát egy betanított segédmunkás is lehet yrkesman egyszerű munkáknál,
+   de egy komplex kapcsolóterem szerelésénél nyilván más elvárás van.
+
+
+────────────────────────────────────────────────────────────
+6. Mi az "anordning" (berendezés)?
+────────────────────────────────────────────────────────────
+
+🔌 Berendezés (anordning) = olyan elektromos felszerelés, amelyben
+   az elektromosságot felhasználják, és erős áramú hálózatra való
+   csatlakoztatásra szánják.
+
+Példák: mosógép, gép, világítótest, fűtőkészülék.
+
+Ez azért fontos, mert a jogszabályok más szabályokat vonatkoztatnak
+a "berendezésre" és a "gépre" — lásd a 9. kérdést.
+
+Hivatkozás: Starkströmsförordning SFS 2009:22, 2§
+
+
+────────────────────────────────────────────────────────────
+7. Mely villamossági munkák NEM igényelnek jogosítványt?
+────────────────────────────────────────────────────────────
+
+🔧 Normál karbantartás nem köteles jogosítvány:
+  • Biztosítók cseréje
+  • Megszakítók működtetése, visszaállítása
+  • CE-jelöléssel ellátott villamos anyagok (kapcsolók, lámpatestek) javítása, módosítása
+
+⚠️  Fontos: aki ilyen munkát végez, MAGA felel az ellenőrzésért!
+
+Tehát bárki elvégezheti, de nem "ingyen" — a felelősség megmarad.
+
+
+────────────────────────────────────────────────────────────
+8. Igényel-e jogosítványt egy gép elektromos berendezésének javítása?
+────────────────────────────────────────────────────────────
+
+🏭 NEM. Gépek elektromos berendezéseire (kivitelezés, javítás, módosítás)
+   nincs formális jogosítványkövetelmény.
+
+Miért? Mert a gépek a gépjogszabályok hatálya alá esnek, nem az
+elinstallatörs­förordning hatálya alá.
+
+Lásd még a 9. kérdést (hogyan különítjük el gépet és berendezést).
+
+
+────────────────────────────────────────────────────────────
+9. Hogyan különböztessük meg a gépet az elektromos berendezéstől?
+────────────────────────────────────────────────────────────
+
+🔍 Ez fontos elhatárolás, mert a két dologra más szabályok vonatkoznak!
+
+Gép ismérvei:
+  • CE-jelöléssel rendelkezik a gépirányelvek szerint
+  • Dokumentációja jelöli a csatlakozási pontot
+  • Sok esetben rugalmas kábellel csatlakozik a hálózathoz
+
+Néha nem egyértelmű: pl. papírgyártó gépnél nehezebb eldönteni,
+hol ér véget a gép és hol kezdődik az elektromos berendezés.
+
+💡 Liftberendezés: általában gépnek minősül az egésze, de a liftakna
+   szervizvilágítása és konnektorai már az elektromos berendezéshez tartoznak.
+
+
+────────────────────────────────────────────────────────────
+10. Elvégezhet-e valaki munkát jogosítvány nélkül, majd kérhet
+    egy elinstallatörtől felülvizsgálatot és felelősségvállalást?
+────────────────────────────────────────────────────────────
+
+🚫 NEM. Ez bűncselekménynek minősül!
+
+A szabály: a munkát végző szakembernek ugyanannál a vállalkozásnál kell
+dolgoznia, mint a jogosult elinstallatörnek.
+Nem lehet "kölcsönkérni" egy jogosult villanyszerelőt más cégből.
+
+Büntetés: pénzbírság vagy akár 1 évig terjedő szabadságvesztés.
+
+Hivatkozás: Elinstallatörsförordning SFS 1990:806, 6§
+
+
+────────────────────────────────────────────────────────────
+11. Ki felelős egy villamos berendezésért?
+────────────────────────────────────────────────────────────
+
+👤 A felelős személy az ÜZEMELTETŐ (innehavare/driftansvarig).
+
+Az üzemeltető az, aki ténylegesen üzemelteti a berendezést —
+akár tulajdonjogon, akár használati jogon alapul.
+
+Ha tulajdonos ≠ bérlő: szerződésben rendezhetik, ki felel az ellenőrzésért.
+
+Az üzemeltető kötelezettsége: gondoskodni arról, hogy a berendezés
+folyamatosan megfelelő védelmet nyújtson személyi sérülés és anyagi kár ellen.
+
+Hivatkozás: Starkströmsförordning SFS 2009:22, 4§
+
+
+────────────────────────────────────────────────────────────
+12. Mire kell figyelnem munkáltatóként, ha a személyzetem
+    egyszerűbb villamos munkákat végez?
+────────────────────────────────────────────────────────────
+
+👔 Munkáltatóként három kérdést kell mérlegelni:
+
+  1️⃣  Jogosítványköteles-e a munka?
+      Ha igen → jogosult elinstallatörnek vagy az ő felügyelete alatt
+      dolgozó kollegának kell elvégeznie. NEM lehet "kölcsönözni" jogosítványt.
+
+  2️⃣  Mi a kockázat az elvégző személy számára?
+      Elektromos veszéllyel járó munkánál be kell tartani az el-biztonsági
+      előírásokat: kockázatértékelés, biztonsági terv, védőintézkedések.
+
+  3️⃣  Ellenőrzött-e a munka?
+      Az üzembe helyezés előtt ellenőrzés lehet szükséges.
+
+
+────────────────────────────────────────────────────────────
+13. Szabad-e egyik telekről a másikra áramot átvezetni
+    (pl. garázs villamosítása szomszédos telken)?
+────────────────────────────────────────────────────────────
+
+📋 Általában koncesszió (engedély) kell — de vannak kivételek!
+
+Az épületen belüli vagy azon lévő összes vezeték → engedélymentes.
+
+SFS 2007:215 rendelet 6§ szerint: belső hálózat, amely lakóház KÖZVETLEN
+közelében lévő épületbe vezet áramot, engedély nélkül kiépíthető,
+ha az áramot saját célra használják.
+
+⚠️  Ha a tulajdonos bérbe adja a garázsát → valószínűleg NEM szabad
+    (a garázs saját előfizetést kell kapjon).
+
+Koncessziós ügyeket az Energimarknadsinspektionen intézi.
+
+
+────────────────────────────────────────────────────────────
+14. Hol találhatók útmutatások a gyermekbiztonságos konnektorokhoz?
+────────────────────────────────────────────────────────────
+
+👶 Az Elsäkerhetsverket előírja: minden hálózati konnektort vagy
+   petávédővel kell ellátni, vagy úgy kell elhelyezni, hogy gyermekek
+   ne tudják beledugni az ujjukat.
+
+A telepítési szabályzat (41A melléklet, 2.6. pont) lehetséges megoldásai:
+  • Legalább 1,7 m magasságba szerelni
+  • Rögzített berendezéssel (hűtő, tűzhely) letakarni
+  • Blokkolni
+  • Zárható fedéllel ellátni
+  • Más módon megvédeni
+
+💡 A petávédő a leggyakoribb és legegyszerűbb megoldás, de nem az egyetlen.
+
+
+────────────────────────────────────────────────────────────
+15. Kell-e CE-jelöléssel ellátni egy elosztószekrényt?
+────────────────────────────────────────────────────────────
+
+📦 Attól függ, hogyan készül a szekrény!
+
+Ha gyárban, funkcio­nális egységként gyártják és úgy értékesítik → IGEN, kell CE.
+  (Az 1993:1068 rendelet és ELSÄK-FS 2000:1 szerint)
+
+Ha helyszínen szerelik össze, és a kész berendezés rögzített részét képezi → NEM kell CE.
+  (Az ELSÄK-FS 2008:1 szerint kell kivitelezni, de CE-jelölés nincs)
+
+Tehát a "helyszínen összerakott" szekrények nem termékek — ők az elektromos
+berendezés részei, és az installatörs­előírások vonatkoznak rájuk.
+
+
+════════════════════════════════════════════════════════════
+  TÉMA: SZABVÁNYOK, ELTÉRÉSEK, DOKUMENTÁCIÓ
+  (16–21. kérdés)
+════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────
+16. Kötelező-e a svéd szabványt (SS) követni?
+────────────────────────────────────────────────────────────
+
+📏 NEM kötelező — de erősen ajánlott!
+
+Ha nem követed: te magad kell bizonyíts, hogy a megoldásod megfelelő
+biztonságot nyújt, és ezt dokumentálni kell.
+
+Ha követed: vélelmezik, hogy megfelelő vagy (ún. "safe harbour" elv).
+
+Az előírások csak az ALAPVETŐ biztonsági követelményeket határozzák meg,
+és lehetővé tesznek alternatív megoldásokat is.
+
+Hivatkozás: ELSÄK-FS 2008:1, 2 kap. 1§
+
+
+────────────────────────────────────────────────────────────
+17. Mit jelent a "svéd szabvány" (svensk standard)?
+────────────────────────────────────────────────────────────
+
+📚 A svéd szabványokat a SEK Svensk Elstandard dolgozza ki.
+
+  • A SEK NEM hatóság — önkéntes, nonprofit szervezet.
+  • A legtöbb svéd szabvány európai (EN) vagy nemzetközi (IEC) alapokon nyugszik.
+  • Az elinstallationsreglerna = SS 4364000+R1 (ez a főszabályzat).
+
+Fontos: ha a SEK visszavonja egy szabvány hatályát, az többé nem "svéd szabvány".
+Nem lehet rá hivatkozni, mint érvényes szabványra, ha az üzembe helyezéskor
+már hatályon kívül volt.
+
+
+────────────────────────────────────────────────────────────
+18. Mi a teendő, ha egy szabvány új kiadása jelenik meg?
+────────────────────────────────────────────────────────────
+
+🔄 Az elinstallationsreglernát folyamatosan frissítik.
+
+Ha a berendezés az új kiadástól eltér:
+→ Dokumentálni kell, hogy melyik régebbi kiadás szerint készült.
+→ A dokumentáció igazolja, hogy a telepítés egy érvényes (korábbi) kiadásnak megfelel.
+
+Példa a könyvből:
+Az 1. kiadás 2010. március végén veszti hatályát.
+Ha 2010 április után fejezed be a munkát, a dokumentációban fel kell
+tüntetni: "A berendezés az 1. kiadás szerint készült."
+
+
+────────────────────────────────────────────────────────────
+19. Tilos-e régebbi szabvány kiadása szerint kivitelezni?
+────────────────────────────────────────────────────────────
+
+🚦 Általában NEM tilos.
+
+Az, hogy megjelent egy új kiadás, nem jelenti automatikusan, hogy
+a régi kiadás veszélyes vagy tiltott.
+
+De: a kivitelezett berendezés nem számít "svéd szabvány szerint készültnek",
+ha az üzembe helyezéskor a kiadás már nem volt érvényes.
+
+Ha az Elsäkerhetsverket tiltani akar egy megoldást → ezt csak rendelet útján teheti meg.
+
+Hivatkozás: ELSÄK-FS 2008:1, 2 kap. 1§
+
+
+────────────────────────────────────────────────────────────
+20. Lehet-e felmentést (dispens) kérni a svéd szabványtól való eltérésre?
+────────────────────────────────────────────────────────────
+
+🚫 NEM. Senki nem adhat felmentést — sem az Elsäkerhetsverket, sem a SEK.
+
+De!
+  • Eltérések, amelyek NEM érintik az elektromos biztonságot (pl. konnektorok
+    száma, kapcsoló magassága) → nem kell dokumentálni.
+  • Eltérések, amelyek ÉRINTIK az elektromos biztonságot → dokumentálni kell,
+    és az Elsäkerhetsverket kérésére be kell mutatni.
+
+
+────────────────────────────────────────────────────────────
+21. Ha nem követjük a 6. részt (ellenőrzések), kell-e dokumentálni?
+────────────────────────────────────────────────────────────
+
+📋 NEM kell dokumentálni a 6. résztől való eltérést.
+
+Miért? Mert a szabályzat felépítése ez:
+  • 1–5. és 7. rész = kivitelezési szabályok → eltérést dokumentálni KELL (ha biztonsági vonatkozású)
+  • 6. rész = ellenőrzés → ezt más, kötelező erejű rendeletek szabályozzák!
+    (Starkströmsförordning + ELSÄK-FS 2008:2)
+
+A 6. részt alkalmazhatod iránymutatásként, de a tényleges kötelezettség
+a rendeletekből fakad, nem a szabványból.
+Ezért az eltérést nem szükséges dokumentálni.
+
+💡 Az elinstallatör maga felelős az ellenőrzésért — ő dönti el, hogyan végzi el.
+
+Hivatkozás: Elinstallatörsförordning SFS 1990:806, 7§
+
+
+════════════════════════════════════════════════════════════
+  TÉMA: JORDFELSBRYTARE, KONNEKTOROK, VÉDELMI SZINTEK
+  (22–24. kérdés)
+════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────
+22. Kötelező-e jordfelsbrytare (áramvédő kapcsoló) meglévő villa
+    bővítésekor?
+────────────────────────────────────────────────────────────
+
+⚡ Lakásokban, iskolákban, óvodákban, napközikben:
+   IGEN, kötelező legfeljebb 30 mA-es jordfelsbrytare minden max. 16 A-es konnektorhoz.
+
+Kivétel csak akkor, ha a konnektor kikapcsolása súlyos következményekkel járna
+(pl. életfontosságú berendezés).
+
+Speciális eset — meglévő SZÁRAZ helyiség bővítése:
+  → Jordfelsbrytare nélkül is felszerelhető konnektor, HA a meglévő
+    berendezés az ELSÄK-FS 1994:7 vagy korábbi előírások szerint készült
+    (azaz 2000. július 1. előtt).
+
+⚠️  Ez a kivétel CSAK meglévő száraz helyiségre vonatkozik.
+    Új helyiségre, nedves vagy vizes helyiségre NEM.
+
+Hivatkozás: ELSÄK-FS 2008:1
+
+
+────────────────────────────────────────────────────────────
+23. Eltörölték-e a nem védőföldelt konnektorokra vonatkozó kivételt
+    meglévő berendezések bővítésekor?
+────────────────────────────────────────────────────────────
+
+🔌 NEM törölték el — a kivétel megmaradt.
+
+Két kivétel létezik kisfeszültségű berendezések bővítésekor:
+
+  1. A kitett fémalkatrészeket nem kell védőföldre csatlakoztatni,
+     ha a meglévő kitett részek sem csatlakoznak, és a berendezés
+     1994. január 1. ELŐTT készült.
+
+  2. Meglévő száraz helyiségben felszerelhető konnektor jordfelsbrytare nélkül,
+     ha az ELSÄK-FS 1994:7 vagy korábbi előírások szerint készült.
+
+⚠️  NAGYON FONTOS: Ahol nem védőföldelt konnektorok vannak,
+    oda NEM szabad védőföldelt konnektorokat bevezetni!
+    A kettő egyidejű érintése fokozott balesetveszélyt jelent!
+
+Lásd még a 35. kérdést.
+
+
+────────────────────────────────────────────────────────────
+24. Miért nem adják meg a TELJES tokozási fokozatot (pl. IP44)?
+    Miért láthatunk IP2X, IPX5, IPXXB jelöléseket?
+────────────────────────────────────────────────────────────
+
+🛡️  Az elinstallationsreglerna minden fejezete csak az OTT RELEVÁNS
+    védelmi szintet adja meg — a többi helyre X kerül.
+
+Hogyan kell érteni az IP jelölést:
+  • Első szám = idegen testek és ujj behatolása elleni védelem
+  • Második szám = víz behatolása elleni védelem
+  • B betű (IPXXB) = ujjal való érintés elleni védelem
+
+Példák:
+  📌 41. fejezet (áramütés elleni védelem): IP2X
+     → A 2-es az ujjvédelmet jelöli, a vízvédelmet nem határozza meg itt.
+
+  📌 Fürdőszoba (701.512.2): IPX4
+     → A vízvédelem van meghatározva, az idegentestbehatolás nem ebben a részben.
+
+  📌 IPXXB: sem idegentestbehatolás, sem víz nincs meghatározva az adott fejezetben,
+     csak az ujjas érintésvédelem.
+
+💡 Végső, összesített IP-fokozatot az összes vonatkozó követelmény alapján
+   kell meghatározni!
+
+
+════════════════════════════════════════════════════════════
+  TÉMA: SZABVÁNY ALKALMAZÁSI KÖRE, KÁBELEK, RENDSZERFÖLDLÉS
+  (25–34. kérdés)
+════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────
+25. Alkalmazhatók-e az elinstallationsreglerna egy gép kivitelezésénél?
+────────────────────────────────────────────────────────────
+
+🏭 NEM. Az elinstallationsreglerna NEM vonatkozik gépek elektromos berendezéseire.
+
+Gépekre az SS-EN 60204-1 vonatkozik:
+"Gépek biztonsága – Gépek elektromos berendezései – 1. rész: Általános követelmények"
+
+Az elinstallationsreglerna kizárólag kisfeszültségű villamos TELEPÍTÉSEK
+tervezésére, szerelésére és ellenőrzésére vonatkozik.
+
+
+────────────────────────────────────────────────────────────
+26. Az EKRK kábel árnyékolásának (biledare) mindkét végén
+    csatlakoztatottnak kell lennie?
+────────────────────────────────────────────────────────────
+
+⚡ NEM kötelező csatlakoztatni — de lehet.
+
+Az EKRK alumíniumburkolata NEM "kitett fémalkatrész":
+  • A kitett fémalkatrész érintkezéssel hozzáférhető és hibásodáskor
+    veszélyes feszültséget vehet fel.
+  • Az alumíniumburkolat érintkezéssel NEM hozzáférhető → nem kitett fémalkatrész.
+
+Ha mégis földelik: egy végpont is elegendő, nem kell mindkét végén.
+
+Lásd még a 58. kérdést.
+
+
+────────────────────────────────────────────────────────────
+27. Mit jelent a "védővezető" (skyddsledare)?
+────────────────────────────────────────────────────────────
+
+🟢  A "védővezető" egy GYŰJTŐFOGALOM — mindenféle biztonsági célú vezető:
+
+  • Skyddsjordsledare (védőföldelési vezető)
+  • Kiegyenlítővezető (skyddsutjämningsledare)
+  • PEN-vezető
+  • Földelési vezető (jordtagsledare)
+
+Mind "védővezető" — de különböző névvel és funkcióval.
+
+Szín: zöld-sárga (és csak erre szabad ilyet használni!)
+
+Lásd még a 60. kérdést.
+
+
+────────────────────────────────────────────────────────────
+28. Kell-e a semleges vezetőt is megszakítani ("összes pólus kikapcsolás")?
+────────────────────────────────────────────────────────────
+
+🔌 Az "összes pólusú kikapcsolás" NEM szerepel az elinstallationsreglernában!
+
+Mi az alapkövetelmény?
+→ Minden áramkört le kell tudni választani az összes tápfeszültség-vezető hatóköréből.
+
+Semleges vezető: definíció szerint feszültség alatt álló vezető, de
+TN-C-S és TN-S rendszerekben NEM szükséges elszakítani.
+
+KIVÉTEL: fokozott tűzveszélyes helyiségekben (422.2.14) minden semleges
+vezető számára leválasztó berendezést kell biztosítani.
+
+Hivatkozás: 536.1.2
+
+
+────────────────────────────────────────────────────────────
+29. Hol találhatók a csatlakozókábelekre vonatkozó szabályok?
+────────────────────────────────────────────────────────────
+
+📋 A "csatlakozókábel" szó eltűnőben van — valójában félrevezető kifejezés,
+   hiszen minden kábel "csatlakozókábel" valamilyen értelemben.
+
+A rugalmas kábelekre és zsinórokra vonatkozó szabályok: 521.9. szakasz.
+
+Lásd még a 65. kérdést.
+
+
+────────────────────────────────────────────────────────────
+30. Van-e ajánlás arra, milyen rendszerföldlést (systemjordning)
+    alkalmazzunk egy épületben?
+────────────────────────────────────────────────────────────
+
+🔋 TN, TT és IT rendszer egyaránt alkalmazható.
+
+Ha TN-rendszert választasz:
+→ Újépítésnél a csatlakozási ponton túl TN-S rendszert kell alkalmazni.
+→ TN-S: az "S" azt jelenti, hogy különálló védővezető van (normál üzemi
+  áramok NEM folynak rajta).
+
+Speciális eset (saját áramforrás is van, pl. aggregát):
+→ A csatlakozó hálózat TN-C, de a saját forrás semlegespontját csak
+  EGY pontban szabad földhöz csatlakoztatni (általában a főföldelő sínon).
+
+Hivatkozás: 312.2, 444.4.3.2, 444.4.6.1
+
+
+────────────────────────────────────────────────────────────
+31. Figyelembe lehet-e venni az egyidejűségi tényezőt a fővezeték
+    méretezésekor?
+────────────────────────────────────────────────────────────
+
+✅ IGEN — ezt kifejezetten ajánlják.
+
+A névleges áramok összege sokszor sokkal nagyobb, mint a tényleges terhelés.
+Az egyidejűségi tényező figyelembevételével gazdaságosabb és mégis biztonságos
+méretezés lehetséges.
+
+Feltételek (433. szakasz):
+  IB ≤ In ≤ Iz  (1. feltétel)
+  I2 ≤ 1,45 × Iz  (2. feltétel)
+
+Alapok: SS 4370145 szabvány 4.2. szakasza.
+
+
+────────────────────────────────────────────────────────────
+32. Milyen követelmények vonatkoznak TT-rendszernél a rendszerföldlésre?
+────────────────────────────────────────────────────────────
+
+🌍 TT-rendszerben:
+  • Az áramforrás semlegespontja → közvetlenül földhöz csatlakozik (saját jordelektróda).
+  • A telepítés kitett fémalkatrészei → MÁSIK jordelektródához csatlakoznak.
+
+Mivel nincs közvetlen fémkapcsolat a két elektróda között,
+a hibaáram nagysága az elektródák ellenállásától függ.
+Ezért általában jordfelsbrytare (áramvédő kapcsoló) szükséges.
+
+Feltétel a jordfelsbrytare alkalmazásához:
+  RA ≤ 50 / IΔn
+  (ahol RA = jordelektróda + védővezető ellenállása, IΔn = névleges kioldási áram)
+
+
+────────────────────────────────────────────────────────────
+33. Kötelező-e a védőkészülékeknek szelektívnek lenniük?
+────────────────────────────────────────────────────────────
+
+📋 NEM kötelező — az elinstallationsreglerna nem írja elő a szelektivitást.
+
+De: az áramellátás folyamatosságának igényét a felhasználó és a megrendelő
+határozza meg → ha fontos, a tervezési szakaszban kell foglalkozni vele.
+
+💡 Ha problémád van azzal, hogy a főbiztosíték kioldi a csoportvezetéki hibánál,
+   a megoldás: szelektív védőkészülékek tervezése — de ez IGÉNY kérdése, nem kötelezettség.
+
+Hivatkozás: 314. szakasz, 36. fejezet
+
+
+────────────────────────────────────────────────────────────
+34. Elhelyezhetők-e különböző feszültségszintű, alapszigeteléses
+    vezetékek ugyanabba a kábelcsatornába?
+────────────────────────────────────────────────────────────
+
+⚠️  Alapvetően NEM — de bizonyos feltételekkel igen.
+
+Feltételek:
+  1. A különböző feszültségű alapszigeteléses vezetékeket egyenként a
+     LEGMAGASABB feszültségre kell szigetelni, VAGY el kell választani egymástól.
+  2. Figyelembe kell venni a karbantartó személyzet tudását és tapasztalatát.
+  3. Figyelembe kell venni az elektromágneses zavarok kockázatát.
+
+Hivatkozás: 414.4, 444.6, 514.2, 515.2, 521.6, 528.1, 529.1
+
+
+════════════════════════════════════════════════════════════
+  TÉMA: VÉDELMI MÓDOK, FÖLDELÉS, KIEGYENLÍTÉS
+  (35–45. kérdés)
+════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────
+35. Nem szabad keverni a földelt és nem földelt konnektorokat —
+    de hol van ez leírva?
+────────────────────────────────────────────────────────────
+
+🔌 Az elinstallationsreglerna 6 védelmi módot ismer:
+  1. Automatikus leválasztás (411)
+  2. Kettős vagy megerősített szigetelés (412)
+  3. Védő elválasztás (413)
+  4. SELV vagy PELV (414)
+  5. Szigetelt környezet (41C.1)
+  6. Földpotenciál mentes helyi kiegyenlítés (41C.2)
+
+Az automatikus leválasztásnál: I. osztályú anyagokat tápláló konnektoroknak
+FÖLDELT konnektornak kell lenniük (védővezető-csatlakozóval).
+
+A nem földelt konnektorok csak a "szigetelt környezet" védelmi módnál megengedett.
+
+⚠️  Ez más, mint a régi svéd rendszer, amelyet 1993-ig alkalmaztak lakásokban.
+    Lásd még a 23. kérdést.
+
+
+────────────────────────────────────────────────────────────
+36. Minden épületben szükséges-e védő kiegyenlítési rendszer
+    (skyddsutjämning)?
+────────────────────────────────────────────────────────────
+
+🔧 NEM minden épületben szükséges.
+
+A védő kiegyenlítés az automatikus leválasztáson alapuló védelmi intézkedés RÉSZE.
+Ha ezt a módszert nem alkalmazzák → nem szükséges.
+
+Nem kell, ha:
+  • Kisebb épület, nincs konnektora, és az egész telepítésnél kettős/megerősített
+    szigetelést alkalmaznak.
+  • Ha az épületben nincsenek hozzáférhető vezető részek.
+
+Fontos: Egy fémdarab a falon csak akkor "idegen vezető rész",
+ha földpotenciálra kerülhet.
+
+
+────────────────────────────────────────────────────────────
+37. Helyettesítheti-e a rövid kikapcsolási idő a védő kiegyenlítési
+    rendszert?
+────────────────────────────────────────────────────────────
+
+🚫 NEM. Soha nem helyettesítheti!
+
+Az automatikus leválasztáson alapuló védelem (411) KÉT feltételt igényel:
+  1. Kitett fémalkatrészek → védőföldre csatlakoztatva.
+  2. Védő kiegyenlítési rendszer → megakadályozza a veszélyes érintési
+     feszültséget, ha az épületen KÍVÜL keletkezik hiba.
+
+Miért fontos?
+Ha fázis- és védővezető között hiba keletkezik, a védővezető 100–150 V
+feszültséget vehet fel az elosztórendszer földelési pontjához képest.
+Ez az érintési feszültség veszélyes — sem jordfelsbrytare, sem gyors kikapcsoló
+nem váltja ki a kiegyenlítési rendszert!
+
+
+────────────────────────────────────────────────────────────
+38. Csatlakoztatni kell-e a mosogató fém munkalapját a
+    védő kiegyenlítőhöz?
+────────────────────────────────────────────────────────────
+
+🔧 NEM feltétlenül — helyzettől függ.
+
+Ha szigetelési hiba keletkezik a tűzhelyen:
+→ A védelmi készüléknek automatikusan kell lekapcsolni.
+
+Ha a hiba az épületen kívül keletkezik:
+→ A fémcsővezetékeket már az épületbe való belépés ELŐTT csatlakoztatni kell
+  a védő kiegyenlítőhöz → így tűzhely és munkalap azonos potenciálra kerül.
+
+Ha a csővezetékek szigetelők, és a munkalap nem érintkezik a talajjal:
+→ A munkalap NEM idegen vezető rész → nem keletkezik érintési feszültség → nem kell csatlakoztatni.
+
+Lásd még a 37. kérdést.
+
+
+────────────────────────────────────────────────────────────
+39. Mi a különbség a védő kiegyenlítés és a kiegészítő védő
+    kiegyenlítés között?
+────────────────────────────────────────────────────────────
+
+🔍 Két különböző dolog, más célra:
+
+📌 Védő kiegyenlítés (skyddsutjämning):
+  • Az automatikus leválasztás ALAPVETŐ feltétele.
+  • Cél: megakadályozza a veszélyes érintési feszültséget az épületen BELÜL,
+    ha az ÉPÜLETEN KÍVÜL keletkezik hiba.
+  • Hol valósul meg? Egy központi ponton (ahol az ellátó rendszerek belépnek).
+  • Magában foglalja: bejövő védővezetők, idegen vezető részek, fémcsővezetékek,
+    betonvas hálózatok.
+
+📌 Kiegészítő védő kiegyenlítés (kompletterande skyddsutjämning):
+  • Helyi, kiegészítő védelem — egy helyiségre vagy berendezésrészre.
+  • Cél: az érintési feszültséget 50 V ALÁ csökkenteni, a kikapcsolási időtől
+    FÜGGETLENÜL.
+  • Minden egyidejűleg érinthető vezető részt össze kell kötni,
+    és minden anyag védővezetőjéhez csatlakoznia kell.
+
+💡 Analógia: a védő kiegyenlítés olyan, mint az épület általános biztonsági hálója;
+   a kiegészítő kiegyenlítés egy extra, helyi háló egy különösen veszélyes helyen.
+
+Lásd még a 37. kérdést.
+
+
+────────────────────────────────────────────────────────────
+40. Mekkora kikapcsolási idő megengedett egy 25 A névleges áramú,
+    400 V főfeszültségű, háromfázisú kábelnél (szerszámgép)?
+────────────────────────────────────────────────────────────
+
+⏱️  Legfeljebb 32 A névleges áramú csoportvezetéknél → 41.1. táblázat érvényes.
+
+Ha a fázisfeszültség 230 V:
+→ Kikapcsolásnak 0,4 másodpercen BELÜL kell megtörténnie.
+
+Hivatkozás: 411.3.2, 41.1. táblázat
+
+
+────────────────────────────────────────────────────────────
+41. Mi a maximális kikapcsolási idő fővezetéken bekövetkező hibánál?
+────────────────────────────────────────────────────────────
+
+⏱️  Minden 32 A FELETTI csoportvezetékre és minden fővezetékre:
+    → Legfeljebb 5 másodperc.
+
+Kivételek (hosszabb is megengedett):
+  • Közüzemi elosztóhálózat
+  • Utca- és közúti világítás kitett fémalkatrészei (ha kockázatkezelés volt)
+
+⚠️  Vidéki légvezetékes hálózatoknál (ELFORSK-jelentés alapján) fokozott kockázat,
+    ha a kikapcsolási idő meghaladja a 10 másodpercet.
+
+Hivatkozás: 411.3.2.3, 714.411.3.2.3
+
+
+────────────────────────────────────────────────────────────
+42. IT-rendszernél nincsenek kikapcsolási idők — nem kell lekapcsolni?
+────────────────────────────────────────────────────────────
+
+🔌 IT-rendszerben az ELSŐ hiba esetén általában NEM szükséges lekapcsolni.
+
+Miért? Mert az első hiba esetén a hibaáram olyan alacsony, hogy
+nem okoz számottevő érintési feszültséget.
+
+De! Az első hibát a lehető leghamarabb el kell hárítani!
+
+Ha az első hiba fennmarad és egy másik fázison is hiba keletkezik:
+→ Kétpólusú földzárás → nagy hibaáram → ki KELL kapcsolni!
+→ Ilyenkor a TN-rendszernél megadott kikapcsolási idők alkalmazandók.
+
+💡 IT-rendszer tipikus alkalmazása: kórházak, ahol a folyamatos táplálás kritikus.
+
+
+────────────────────────────────────────────────────────────
+43. Miért engednek meg hosszabb kikapcsolási időt TN-rendszernél,
+    mint TT-rendszernél?
+────────────────────────────────────────────────────────────
+
+⚡ A különbség az érintési feszültség nagyságában rejlik:
+
+📌 TN-rendszer:
+  Ha hiba van a fázisvezető és a védőföldelt fémalkatrész között,
+  feszültségosztás jön létre.
+  → Az érintési feszültség ≈ 40% × U₀ (kb. 92 V 230 V-os hálózatnál).
+
+📌 TT-rendszer:
+  Nincs fémkapcsolat az áramforrás és a kitett rész között.
+  → Az érintési feszültség megközelítheti az EGÉSZ fázisfeszültséget (≈ 230 V).
+
+Magasabb érintési feszültség → nagyobb testáram → rövidebb kikapcsolási idő szükséges.
+
+
+────────────────────────────────────────────────────────────
+44. A védő kiegyenlítővezető rézből legalább 6 mm² legyen, de nem kell
+    nagyobb 25 mm²-nél. Mi határozza meg a pontos értéket?
+────────────────────────────────────────────────────────────
+
+📏 Két szabvány együttesen határozza meg:
+
+  • 543. szakasz: a védővezető általános méretezési szabályai (54.3. táblázat)
+  • 544. szakasz: a védő kiegyenlítővezető különleges szabályai
+
+Példák:
+  Ha a legnagyobb fázisvezető 16 mm² réz → kiegyenlítővezető: 16 mm²
+  Ha a fázisvezető 95 mm² réz → kiegyenlítővezető: max. 25 mm² elég
+
+
+────────────────────────────────────────────────────────────
+45. Mit jelent a "szakemberek vagy instruált személyek felügyelete"
+    (411.3.3)?
+────────────────────────────────────────────────────────────
+
+👷 Ez a jordfelsbrytare (áramvédő kapcsoló) kötelező alkalmazásának kivételéhez kapcsolódik.
+
+Bizonyos szakmai vagy ipari helyiségekben — ahol a munkát szakemberek
+vagy betanított személyek felügyelik — kivétel tehető a jordfelsbrytare
+kötelező alkalmazásától.
+
+De a szabály általában: lakásokban minden legfeljebb 20 A-es konnektort
+jordfelsbrytare­vel kell ellátni.
+
+⚠️  Az elektromos veszélyek kézi anyagok és zsinórok esetén
+    különösen nagynak tekintendők.
+
+
+════════════════════════════════════════════════════════════
+  TÉMA: BIZTOSÍTÓK, TÚLÁRAMVÉDELEM, KÁBELHOSSZAK
+  (46–53. kérdés)
+════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────
+46. Honnan tudom, hogy a biztosító a 41. fejezetben megadott
+    időn belül kapcsol ki?
+────────────────────────────────────────────────────────────
+
+📚 A SEK kiadott egy kézikönyvet (SEK HB 421) az automatikus
+   kikapcsolás ellenőrzéséhez.
+
+  • SS 4241406 szabvány → legfeljebb 1000 V-os hálózatok (olvadóbiztosítók)
+  • SS 4241404 szabvány → automatikus megszakítók
+
+Ha a kábelhossz NEM haladja meg a táblázatokban megadott értékeket,
+az automatikus kikapcsolás követelménye teljesítettnek tekinthető.
+
+Hivatkozás: 230 V-os, közvetlenül földelt hálózatoknál alkalmazható.
+
+
+────────────────────────────────────────────────────────────
+47. Hosszabb kábelhosszak alkalmazhatók-e jordfelsbrytare esetén?
+────────────────────────────────────────────────────────────
+
+✅ IGEN — bizonyos esetekben.
+
+A jordfelsbrytare csak FÖLDHIBÁNÁL old ki, de rövidzárlat ellen
+a 434. szakasz szerinti védelemre is szükség van!
+
+Példa (2,5 mm²-es EKK kábel, 16 A-es biztosító, 230 V):
+  • Jordfelsbrytare NÉLKÜL (0,4 s kikapcsolás): max. 112 m (SS 4241406, 8. táblázat)
+  • Jordfelsbrytare­VEL (5 s kikapcsolás): max. 172 m (SS 4241406, 6. táblázat)
+
+Tehát a jordfelsbrytare lehetővé teszi a hosszabb kábelt, mert
+a hibavédelem a jordfelsbrytare dolga, nem a biztosítóé.
+
+
+────────────────────────────────────────────────────────────
+48. Hogyan ismerek fel egy korlátozott felületi hőmérsékletű
+    lámpatestetet (fokozott tűzveszélyes helyiségben)?
+────────────────────────────────────────────────────────────
+
+🔥 Az 55ZA melléklet (559. szakasz) magyarázza a lámpatest szimbólumokat.
+
+Korlátozott felületi hőmérsékletű lámpatest jelölése:
+→ "D" betű egy háromszögben. Ezt kell keresni a lámpatest specifikációjában
+  és magán a lámpatesten.
+
+
+────────────────────────────────────────────────────────────
+49. Mekkora a maximális biztosító névleges áram túlterhelés-védelemnél?
+────────────────────────────────────────────────────────────
+
+📐 Két feltétel egyszerre kell teljesülni:
+  IB ≤ In ≤ Iz  (1. feltétel — a terhelési áram ≤ biztosítóáram ≤ vezető kapacitása)
+  I2 ≤ 1,45 × Iz  (2. feltétel — a kioldási áram ≤ 1,45 × vezető kapacitása)
+
+Az SS-EN 60269-1 szerint gyártott olvadóbiztosítóknál:
+  • 13 A és nagyobb: I2 = 1,6 × In
+  • 6 A és 10 A: I2 = 1,9 × In
+
+Minimális terhelhetőség 10 A-es biztosítóhoz:
+  Iz ≥ (10 × 1,9) / 1,45 = 13,1 A
+
+
+────────────────────────────────────────────────────────────
+50. Mi érvényes, ha egy- és háromfázisú terhelések vannak
+    ugyanazon a csoportvezetéken?
+────────────────────────────────────────────────────────────
+
+⚠️  TŰZVESZÉLY áll fenn, ha hiba esetén csak egy fázisvezető kapcsolódik le!
+
+Miért? Mert a le nem kapcsolt fázis a faseltolódástól függően
+a névlegesnél magasabb vagy alacsonyabb feszültséget vehet fel,
+és a csatlakoztatott berendezések megsérülhetnek.
+
+Megoldás: Többpólusú túláramvédő, amely egyszerre kapcsolja le az összes fázisvezetőt.
+
+⚠️  FONTOS: A jordfelsbrytare NEM helyettesíti a többpólusú túláramvédőt,
+    mert a jordfelsbrytare nem véd a feszültség alatti részek közötti hibák ellen.
+
+
+────────────────────────────────────────────────────────────
+51. A túlterhelési és rövidzárlatvédelem alternatív elhelyezési
+    szabályai csak elosztótáblákban érvényesek?
+────────────────────────────────────────────────────────────
+
+📋 NEM — általánosan vonatkoznak villamos telepítésekre (de kapcsolókészülékekre NEM).
+
+Rövidzárlattal szemben nem védett kábelnél:
+  → A túlterhelési védőkészülék az elágazási ponttól legfeljebb 3 m-re helyezhető el,
+    ha különleges intézkedések vannak a rövidzárlat ellen,
+    és a kábel nincs gyúlékony anyagok közelében.
+
+Hivatkozás: 433.2.2 (túlterhelési), 434.2.1 (rövidzárlat-védelmi alternatív elhelyezés)
+
+
+────────────────────────────────────────────────────────────
+52. Mit jelent a "túlterhelési védelem kihagyása" (433.3)?
+    Szükséges-e ilyenkor egyáltalán biztosíték?
+────────────────────────────────────────────────────────────
+
+🔌 A túlterhelési védelem kihagyása CSAK a túlzott terhelésvétel elleni
+   védelmet hagyja ki — a rövidzárlatvédelmet NEM!
+
+Tehát: a kábelt rövidzárlattal szemben ettől függetlenül VÉDENI KELL.
+
+Példa: Elektromos kazánnál a tápkábel túlterhelési védelme elhagyható
+(a kazán nem terhelhetők túl a normál üzemben), de rövidzárlatvédelem kell!
+
+
+────────────────────────────────────────────────────────────
+53. Mekkora kikapcsolási idő érvényes egy 63 A, 230 V-os konnektornál?
+────────────────────────────────────────────────────────────
+
+⏱️  Két okból lehet szükség kikapcsolásra — teljesen eltérő feltételekkel!
+
+  1️⃣  Áramütés elleni védelem (411.3.2.3):
+      → 32 A-nél nagyobb csoportvezetéknél: legfeljebb 5 másodperc.
+
+  2️⃣  Rövidzárlat-védelem (434.5.2):
+      → Az idő függ a minimális rövidzárlati áramtól, a vezető
+        keresztmetszetétől és szigetelésétől.
+
+💡 Tehát egy 63 A-es konnektornál az áramütés-védelmi követelmény 5 s,
+   de ha rövidzárlat van, az adott körülményektől függ a kikapcsolási idő.
+
+
+════════════════════════════════════════════════════════════
+  TÉMA: KIEGYENLÍTŐVEZETŐ KERESZTMETSZETEK, JELÖLÉSEK
+  (54–60. kérdés)
+════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────
+54. Mekkora keresztmetszet szükséges a funkcionális kiegyenlítővezetőhöz?
+────────────────────────────────────────────────────────────
+
+📏 Függ a kiegyenlítés céljától és a frekvenciától:
+
+Normál hálózati frekvencián (50 Hz):
+  → A kiegészítő védőkiegyenlítő követelményeivel összhangban lévő
+    keresztmetszetek általában elegendőek (544.2 pont).
+
+Magasabb frekvenciákon:
+  → A keresztmetszet NEM oldja meg a problémát!
+  → Az induktancia és kapacitás nem csökkenthető keresztmetszet-növeléssel.
+  → A vezető legyen a lehető LEGRÖVIDEBB.
+
+Hivatkozás: 444.5.5
+
+
+────────────────────────────────────────────────────────────
+55. Kötelező-e villámtúlfeszültség-védelmet (överspänningsskydd)
+    felszerelni?
+────────────────────────────────────────────────────────────
+
+⚡ Kockázatelemzés alapján dől el — nem automatikusan kötelező.
+
+Ahol általában IGEN szükséges:
+  • Kórházak, közszolgáltatások, bankok, szállodák, ipari és mezőgazdasági
+    létesítmények (társadalmi következmények miatt).
+
+Ahol általában NEM szükséges:
+  • Egylakásos városias ház Svédországban (alacsony ásfrekvencia:
+    kb. 0,2 csapás/km²/év, d értéke általában nem haladja meg a 0,1-et).
+
+💡 De mégis AJÁNLOTT újépítésnél vagy nagyobb felújításnál, mert a modern
+   házakban rengeteg elektronika van, ami érzékeny a túlfeszültségre.
+
+Hivatkozás: 443.3
+
+
+────────────────────────────────────────────────────────────
+56. Milyen tokozási osztály vonatkozik egy álmennyezetbe szerelt
+    lámpára, ha fölötte elszívónyílás van?
+────────────────────────────────────────────────────────────
+
+🛡️  IP meghatározásához három kérdést kell megválaszolni:
+
+  1. Áramütés elleni védelem → első szám (BA osztálykód alapján)
+  2. Idegentestbehatolás → szintén első szám (AE osztálykód)
+  3. Vízbehatolás → második szám (AD osztálykód)
+
+Irodai álmennyezet esetén:
+  • Nincs gyermek → BA1 (felnőttekre tervezett) → 2-es első szám elegendő
+  • Elhanyagolható idegen testek → AE1 → nem változtat az első számon
+  • Nincs vízveszély → AD1 → nem kell vízállóság
+
+Eredmény: IP20 az összesített minimumkövetelmény.
+
+Lásd még a 24. és 93. kérdést.
+
+
+────────────────────────────────────────────────────────────
+57. Milyen magasságra kell felszerelni az elosztószekrényt?
+────────────────────────────────────────────────────────────
+
+📐 Az SS 4370145 szabvány szerint:
+  • Elosztószekrény felső éle: legfeljebb 2,2 m a padlótól
+  • Kezeléshez szükséges részek: 0,4 m – 2,0 m magasság között
+  • Csavaros biztosítók (diazedsäkringar): legalább 1,7 m (kivéve zárt szekrény)
+
+Hivatkozás: 513. szakasz, SS 4370145
+
+Lásd még a 107. kérdést.
+
+
+────────────────────────────────────────────────────────────
+58. Milyen színű védőcsövet szabad az EKLK kábel párhuzamos
+    vezetőjénél (biledare) alkalmazni?
+────────────────────────────────────────────────────────────
+
+🟡 Az átlátszó cső a legjobb megoldás!
+   → Könnyű azonosítani, csökkenti a felcserélés kockázatát.
+
+⚠️  TILOS: zöld-sárga szín → kizárólag védővezetőnek van fenntartva!
+
+Csatlakozóterekben a párhuzamos vezető nem szükséges, hogy szigetelt legyen.
+
+Hivatkozás: 514.3.1.Z2
+Lásd még a 26. kérdést.
+
+
+────────────────────────────────────────────────────────────
+59. Hogyan kell jelölni azt a vezetőt, amely egy transzformátor
+    semlegespontját köti össze a főföldelő sínnel?
+────────────────────────────────────────────────────────────
+
+🟢 Attól függ, milyen a rendszerföldelés:
+
+TN-rendszer:
+  → A vezető normál üzemi áramokat és hibaáramokat is vezet.
+  → Ez PEN-vezető → zöld-sárga színjelölés TELJES hosszában + kék jelölés a végein.
+
+TT- vagy IT-rendszer:
+  → Ez csak jordtagsledare (földelési vezető) → más szabályok érvényesek.
+
+
+────────────────────────────────────────────────────────────
+60. A 2. kiadásban nincs szabály a kiegyenlítővezető
+    színjelölésére — nem kell azonosítani?
+────────────────────────────────────────────────────────────
+
+🟢 De igen kell! A különbség az, hogy mi a célja.
+
+📌 Ha BIZTONSÁGI okból van a kiegyenlítés (áramütés elleni védelem):
+   → Ez skyddsutjämning (védőkiegyenlítés) → védővezető → ZÖLD-SÁRGA szín kötelező.
+   Hivatkozás: 514.3.1.Z2
+
+📌 Ha NEM biztonsági okból van (pl. zavarszűrés, elektromágneses):
+   → Ez funktionsutjämningsledare → zöld-sárga TILOS, de nincs különleges szín előírva.
+
+Lásd még a 27. kérdést.
+
+
+════════════════════════════════════════════════════════════
+  TÉMA: KÁBELEK FEKTETÉSE, KLÁMERTÁVOLSÁG, CSÖVEK
+  (61–69. kérdés)
+════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────
+61. Használható-e kék vezető gyújtóvezetékként (tändtråd)?
+────────────────────────────────────────────────────────────
+
+🔵 Igen, bizonyos esetekben.
+
+A kék szín alapvetően a semleges vezető (N) és a középponti vezető azonosítására szolgál.
+
+Ha az adott áramkörből HIÁNYOZNAK ezek a vezetők, a kék szín más célra is
+használható — pl. kapcsoló és elosztódoboz közötti gyújtóvezetékként.
+
+💡 Kék vezető fazvezetőként is alkalmazható háromfázisú,
+   semleges vezető nélküli hálózatokban (pl. egyes motorszerelésekben).
+
+⚠️  Csőbe fektetett egyvezetékes kábelek esetén vigyázzunk: kerüljük,
+    hogy a lámpaaljzat két kék vezető között csatlakozzon.
+
+
+────────────────────────────────────────────────────────────
+62. Szabad-e, hogy egy háromfázisú csoport biztosítékai szétszórva
+    legyenek az elosztóban (pl. 7., 9., 12. helyen)?
+────────────────────────────────────────────────────────────
+
+🚫 NEM. Ez régen is, ma is tilos.
+
+Követelmény: a védőberendezések elrendezése és jelölése legyen olyan,
+hogy a védett áramkörökhöz EGYÉRTELMŰEN hozzárendelhetők legyenek.
+
+Háromfázisú csoport biztosítékainak szomszédos pozícióban kell lenniük.
+
+
+────────────────────────────────────────────────────────────
+63. Szabad-e elosztószekrényt közvetlenül fafalra szerelni?
+────────────────────────────────────────────────────────────
+
+🪵 IGEN, ha a szekrénynek van HÁTSÓ LAPJA (bakstycke).
+
+Ha nincs hátsó lap: csak akkor szabad fára szerelni, ha:
+  1. Az épületszerkezet feszültség alá kerülése kizárt.
+  2. Éghető épületszerkezetek felé tűzgátlás biztosított.
+
+Hivatkozás: 515. szakasz
+Lásd még a 57. kérdést.
+
+
+────────────────────────────────────────────────────────────
+64. Hol találhatók a kábelszerelési szabályok?
+────────────────────────────────────────────────────────────
+
+📚 Alapvető elvek: 52. fejezet
+
+Részletes útmutatók:
+  • SS 4241437 — kabelförläggning i mark (földkábel-fektetés)
+  • SS 4241438 — kabelförläggning i byggnader (épületen belüli kábelfektetés)
+
+
+────────────────────────────────────────────────────────────
+65. Használható-e gumikábel rögzített szerelésben?
+────────────────────────────────────────────────────────────
+
+🔌 IGEN, rögzített fektetésre is használható rugalmas kábel —
+   de a termékszabvány és a gyártó utasításai szerint kell eljárni.
+
+Figyelem: egyes gumikábelek ÉLETTARTAMA rövidebb, mint a hagyományos
+szerelőkábelé → vedd figyelembe a hosszú távú üzemeltetésnél.
+
+💡 Rezgő épületszerkezetnél kifejezetten ajánlott a rugalmas kábel!
+
+Hivatkozás: 521.9. szakasz
+Lásd még a 29. kérdést.
+
+
+────────────────────────────────────────────────────────────
+66. Mekkora a legkisebb megengedett hajlítási sugár energiakábelnél?
+────────────────────────────────────────────────────────────
+
+📐 Hivatkozás: 522.6.3
+
+Gyártói utasítás hiányában tájékoztató értékként:
+  • Kész szerelésben: sugár ≥ 8 × kábel átmérő (többeres kábelnél)
+  • Fektetés közben: sugár lehetőleg ≥ 12 × átmérő (a kábel védelme érdekében)
+
+⚠️  Be kell tartani a gyártó minimális fektetési hőmérsékletre vonatkozó
+    utasításait is!
+
+Lásd még a 64. kérdést.
+
+
+────────────────────────────────────────────────────────────
+67. Vannak-e szabályok a kábelek közötti legkisebb klámertávolságra?
+────────────────────────────────────────────────────────────
+
+📐 Hivatkozás: 552.8.4 + SS 4241438
+
+Tájékoztató értékek (SS 4241438):
+  • ≤ 2,5 mm² keresztmetszet: max. 25 cm klámertávolság
+  • 4–10 mm²: max. 35 cm
+  • 16–50 mm²: max. 50 cm
+  • Nagyobb keresztmetszetek: lehet 50 cm-nél több is
+
+Cél: megakadályozni, hogy a kábel saját súlya vagy rövidzárlatnál
+fellépő elektrodinamikai erők kárt okozzanak.
+
+
+────────────────────────────────────────────────────────────
+68. Hány db 1,5 mm²-es vezető fektethető egy 16 mm-es csőbe?
+────────────────────────────────────────────────────────────
+
+📏 Az SS 4370145 szabvány 2. táblázata legfeljebb 5 darabot ajánl.
+
+Teljesen egyenes csőbe — a szigetelés sérelme nélkül — valószínűleg több is befér.
+
+A szabály célja: a bevonáskor ne sérüljön a szigetelés (522.8.6).
+A konkrét mennyiség tehát attól is függ, hány kanyara van a csőnek.
+
+
+────────────────────────────────────────────────────────────
+69. Milyen mélységben kell fektetni a parkvilágítást tápláló
+    földkábelt?
+────────────────────────────────────────────────────────────
+
+🌱 Hivatkozás: SS 4241437
+
+  • Útterületen belül (max. 63 A védelem): legalább 25 cm feltöltési magasság.
+  • Nem útterületen, talajmunka nélküli területen: legalább 35 cm.
+
+
+════════════════════════════════════════════════════════════
+  TÉMA: TERHELHETŐSÉG, FELHARMONIKUSOK, FESZÜLTSÉGESÉS
+  (70–73. kérdés)
+════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────
+70. A régi kivétel (korrekciós tényezők elhagyása 1,5–4 mm²-nél)
+    nem szerepel az új szabályzatban — miért?
+────────────────────────────────────────────────────────────
+
+📚 A régi kivételt nem vették át az új szabályzatba, mert:
+  • Nehezen értelmezhető volt, félreértésekre adott okot.
+  • Olyan feltételezésekre épített, amelyek ma már nem érvényesek általánosan.
+
+Van HELYETTE egy másik kivétel (523.5 szakasz):
+  → Ha az üzemi viszonyok olyanok, hogy egy kábel várhatóan nem vezet
+    többet, mint a kapacitásának 30%-át, a többi kábel hatása elhanyagolható.
+
+
+────────────────────────────────────────────────────────────
+71. Az ábrák 2 vagy 3 terhelt erűt mutatnak — de a gyakorlatban
+    sokszor több van (pl. gyújtóvezetékek). Hogyan kell kezelni?
+────────────────────────────────────────────────────────────
+
+⚡ Az ábrák a TERHELT VEZETŐK számát mutatják — a védővezető nélkül.
+
+Gyújtóvezetékek: általában csak kis teljesítményt visznek, alig melegítenek.
+Ha mégis nagyobb teljesítményt visznek: meg kell vizsgálni az áramirányokat,
+de általában a végeredmény: az áramok összege ritkán haladja meg a 20 A-t.
+
+Tehát egy háromfázisú, 3 × 13,5 A terhelhetőségű csőben összesen 3 × 13,5 A
+áramot lehet elvezetni — a gyújtóvezetékek általában nem változtatnak ezen.
+
+
+────────────────────────────────────────────────────────────
+72. Mit jelent a 30%-os felharmonikus-tartalom, és hogyan befolyásolja
+    a szerelést?
+────────────────────────────────────────────────────────────
+
+🔄 A 3. felharmonikus a szimmetrikusan terhelt háromfázisú hálózat problémája.
+
+Normálisan: a háromfázisú áramok kiegyenlítik egymást → semleges vezető
+árama nulla (szimmetrikus terhelésnél).
+
+Felharmonikusoknál: a 3. felharmonikus áramok NEM egyenlítik ki egymást,
+hanem a SEMLEGES VEZETŐBEN összeadódnak!
+
+Ez kritikus:
+  • Fénycsöves lámpák, számítógép-tápegységek → sok 3. felharmonikus.
+  • A semleges vezető ugyanolyan (vagy nagyobb!) áramot vezet, mint a fázisok.
+
+A terhelhetőséget át kell számítani (52E melléklet alapján).
+
+Példa (3. felharmonikus = 30%):
+  → Korrekciós tényező: 0,86 (52E.1 táblázat)
+  → 1,5 mm²-es PVC kábel kábeltálcán: Iz = 18,5 × 0,78 × 0,86 = 12,4 A
+  → Biztosíték: max. 10 A (kismegszakító) vagy 6 A (olvadóbiztosíték)
+
+
+────────────────────────────────────────────────────────────
+73. Mekkora feszültségesés megengedett a fővezetéken?
+────────────────────────────────────────────────────────────
+
+📉 A feszültségesést a névleges feszültség százalékában adjuk meg.
+
+SS 4370145 szerinti ajánlott maximumok:
+  • Fővezeték (biztosítéktól csoportelosztóig): max. 2%
+  • Fővezeték + csoportvezeték (világítás és kis készülékek): összesen max. 3%
+  • Fővezeték + csoportvezeték (egyéb célra): összesen max. 4%
+
+💡 Nagyobb anläggeknél (saját transzformátorral) a megengedett érték nagyobb lehet —
+   ekkor gazdaságossági kérdéssé válik.
+
+⚠️  Szélsőséges esetben a feszültségesés tűzveszélyt is jelenthet!
+
+
+════════════════════════════════════════════════════════════
+  TÉMA: VÉDŐVEZETŐ KÖZÖS HASZNÁLAT, PEN-VEZETŐ, HIBAKÖR
+  (74–81. kérdés)
+════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────
+74. Lehet-e egy jordfelsbrytare közös több csoportvezetékhez?
+────────────────────────────────────────────────────────────
+
+✅ NEM tiltott — de az üzemzavar minimalizálásának elvét be kell tartani.
+
+Az elektromos szereléseket a szükséges mértékig szekcionálni kell:
+→ Ha hiba van az egyik csoportvezetéken, csak az érintett részt kapcsolja le,
+  ne az egész lakást.
+
+Tehát a közös jordfelsbrytare megengedett, de gondosan kell megtervezni.
+
+
+────────────────────────────────────────────────────────────
+75. Beköthető-e az egypólusú kapcsoló a semleges vezetőbe?
+────────────────────────────────────────────────────────────
+
+🔌 NEM — az egypólusú kapcsoló mindig a FÁZISVEZETŐBE kell!
+
+Kivétel — ha mégis szükséges a semleges vezető megszakítása:
+  → Csak akkor megengedett, ha a csoportvezetéket max. 30 mA-es
+    jordfelsbrytare védi.
+
+💡 Miért fontos? Ha a kapcsoló a semleges vezetőben van, és valaki
+   "kikapcsolt" állapotban érinti a lámpatestést, a lámpatest feszültség
+   alatt maradhat a fázisvezetéken keresztül → áramütésveszély!
+
+
+────────────────────────────────────────────────────────────
+76. Mit jelent a rövidzárlatvédő "maximális" és "névleges"
+    kapcsolási teljesítménye (Icu, Icn, Ics)?
+────────────────────────────────────────────────────────────
+
+⚡ A rövidzárlatvédőnek legalább akkora kapcsolási teljesítménye kell,
+   mint az áramkör legnagyobb várható rövidzárlati árama.
+
+  • Icu (teljesítménykapcsolók) / Icn (kismegszakítók) = MAXIMÁLIS kapcsolási
+    teljesítmény: a legnagyobb áram, amit meg tud szakítani. Egyszer!
+  • Ics = NÉVLEGES kapcsolási teljesítmény: ismételten (általában 3-szor)
+    megszakítható áram. Az Icu/Icn %-ában adják meg.
+
+💡 Az Icu és Icn közvetlenül nem hasonlíthatók össze, mert más termékszabványok
+   szerint vizsgálják őket — az Icu nagyobb lehet, mint az Icn.
+
+
+────────────────────────────────────────────────────────────
+77. A főföldelő sínnek az anlágg csatlakozási pontjában kell-e lennie?
+────────────────────────────────────────────────────────────
+
+📍 Az érkező fővezeték csatlakozási pontjának KÖZELÉBEN kell elhelyezni.
+
+Miért? Mert a beépített túlfeszültségvédők hatékonysága függ a
+csatlakozóvezetékek hosszától — azok legyenek a lehető legrövidebbek
+(lehetőleg ≤ 0,5 m).
+
+Hivatkozás: Ugyanabban a helyiségben vagy térben kell lennie, mint az érkező
+fővezeték. Lásd még a 39. kérdést.
+
+
+────────────────────────────────────────────────────────────
+78. Mekkora a legkisebb megengedett védővezető keresztmetszet
+    a mérőszekrénytől az elosztószekrényig?
+────────────────────────────────────────────────────────────
+
+📐 Két lehetőség van a méretezésre (543. szakasz):
+
+Lehetőség 1 (54.3. táblázat alapján):
+  • Ha fázisvezető = 6 mm² → PE minimum 6 mm²
+
+Lehetőség 2 (számítás, 543.1.2):
+  S = √(I² × t) / k
+  (ahol I = várható hibaáram, t = kikapcsolási idő, k = anyagtényező)
+
+Mechanikai minimumok:
+  • PE soha ne legyen kisebb 1,5 mm²-nél.
+  • Fővezetéken a kikapcsolási idő max. 5 s → a számítás általában
+    min. 2,5 mm²-t ad ki.
+
+
+────────────────────────────────────────────────────────────
+79. Lehet-e egy védővezető közös több csoportvezetékhez?
+────────────────────────────────────────────────────────────
+
+✅ IGEN — ha megfelelően van méretezve (a legnagyobb hibaáram és
+   leghosszabb kikapcsolási idő figyelembevételével).
+
+Figyelmeztetések:
+  • Laza csatlakozások problémát okozhatnak.
+  • Egyértelmű azonosíthatóság szükséges (melyik áramkörhöz tartozik).
+  • Ha túláramvédelemmel oldják meg a kikapcsolást: a védővezető
+    lehetőleg a fázisvezetők közvetlen közelében haladjon
+    (nagy távolság → nagyobb impedancia → kikapcsolási feltételek nehezebben teljesíthetők).
+
+
+────────────────────────────────────────────────────────────
+80. Mekkora keresztmetszetű PEN-vezető szükséges?
+────────────────────────────────────────────────────────────
+
+🟢  A PEN-vezető egyszerre PE (védő) és N (semleges) → mindkét szerepre kell méretezni!
+
+Mechanikai minimum:
+  • Réz: minimum 10 mm²
+  • Alumínium: minimum 16 mm²
+
+Méretezési szempontok:
+  • 524.2 és 524.3 szakasz → üzemi áramok (N szerep)
+  • 543.1 szakasz → hibaáramok (PE szerep)
+
+
+────────────────────────────────────────────────────────────
+81. Milyen követelmények vonatkoznak egy generátoraggregát
+    földelőelektródjára?
+────────────────────────────────────────────────────────────
+
+🔋 Ha az aggregát tartalékforrásként üzemel a rendes hálózat mellett:
+   → Az automatikus lekapcsolás NEM függhet a hálózat földelési rendszerétől!
+
+TN- vagy IT-rendszernél:
+  → A kikapcsolás a saját hibaáramkörén alapul → nincs különleges
+    követelmény a jordelektródával szemben.
+
+Megjegyzés: Generátor által előállítható hibaáram KORLÁTOZOTT lehet
+→ jordfelsbrytare szükséges lehet az automatikus kikapcsoláshoz.
+
+A jordelektróda átmeneti ellenállásának évszaktól viszonylag függetlennek
+kell lennie — a pontos ohm-érték kevésbé kritikus.
+
+
+════════════════════════════════════════════════════════════
+  TÉMA: AKKUMULÁTOROK, TARTALÉKÁRAM, KAPCSOLÓK, DOKUMENTÁCIÓ
+  (82–90. kérdés)
+════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────
+82. Mikor kell az állótelepeket (akkumulátorokat) külön
+    akkumulátorhelyiségben elhelyezni?
+────────────────────────────────────────────────────────────
+
+🔋 Hivatkozás: SS-EN 50272-2 szabvány
+
+Mérlegelési szempontok:
+  a) Védelem külső veszélyektől (tűz, víz, ütések, rezgések, kártevők)
+  b) Védelem a telep által keltett veszélyektől:
+     • 60 V felett → korlátozott hozzáférés
+     • 120 V felett → zárt helyiség szükséges
+     • Robbanásveszély, elektrolitveszély, korrózió
+  c) Védelem illetéktelen személyek hozzáférésétől
+  d) Védelem szélsőséges környezeti hatásoktól
+
+A telepfajta, kapacitás és szükséges szaktudás dönti el,
+hogy szükséges-e külön akkumulátorhelyiség.
+
+Hivatkozás: elinstallationsreglerna 551.8.1 → szünetmentes tápellátáshoz
+használt állótelepeket kizárólag szakképzett/betanított személyzet számára
+hozzáférhető helyen kell felállítani.
+
+
+────────────────────────────────────────────────────────────
+83. Mi alapján dől el, hogy tartalék- vagy szünetmentes tápellátásról
+    van-e szó?
+────────────────────────────────────────────────────────────
+
+⚡ Két különböző rendszer:
+
+  📌 Szünetmentes táprendszer (nödkraftsystem):
+     → Kritikus funkciók, amelyek az emberek és háziállatok egézsége/biztonsága
+       szempontjából nélkülözhetetlenek, VAGY jogszabályi előírás alapján szükségesek.
+     → Ezekre az 556. szakasz követelményei is vonatkoznak.
+
+  📌 Tartaléktáprendszer (reservkraftsystem):
+     → Nem kötelező szünetmentes folytonosság, de hasznos.
+
+💡 A létesítmény tulajdonosa/üzemeltetője határozza meg, melyik funkcióhoz
+   melyik rendszer szükséges.
+   Segédlet: SS 4371002 szabvány B melléklete (SEK Handbok 450).
+
+
+────────────────────────────────────────────────────────────
+84. Szabad-e egy kapcsolón a fel nem használt fázisvezetőt
+    tovább csatlakoztatni a berendezésre?
+────────────────────────────────────────────────────────────
+
+⚠️  VESZÉLYES, ha laikusok végezhetnek cserét — komolyan kell venni!
+
+A probléma: ha háromfázisú csoport egyenként van biztosítva (3 külön biztosíték),
+és a semleges vezető tovább van csatlakoztatva az aljzaton,
+a semleges vezető FESZÜLTSÉG ALÁ KERÜLHET, ha az áramköre megszakad
+anélkül, hogy a fázisvezetőket is feszültségmentesítik.
+→ Áramütésveszély, berendezés-meghibásodás, tűzveszély!
+
+Megoldás: Ha laikusok végezhetik a cserét:
+  → Kerüljük mind a felhasználatlan fázisvezetők, mind a semleges vezető
+    továbbcsatlakoztatását az aljzatokon.
+
+Ha hárompolúsú túláramvédő van (egyszerre kapcsol le minden fázist):
+  → A kockázat kiküszöbölődik, lehet tovább csatlakoztatni.
+
+
+────────────────────────────────────────────────────────────
+85. Kötelező-e az előimpedanciát (förimpedans) feltüntetni a
+    dokumentációban?
+────────────────────────────────────────────────────────────
+
+📋 NEM kötelező — a mai előírások ezt nem követelik meg.
+
+Régebben ajánlás volt a feltüntetésre (svéd szabványok a előimpedanciához
+viszonyítva adták meg a maximális kábelhosszakat).
+
+Ma a módszertan inkább európai alapú → földzárlati és rövidzárlati áramok
+alapján méreteznek.
+
+De mégis CÉLSZERŰ feltüntetni a kábel keresztmetszetének és védőkészülékek
+megválasztásának alapjait — a jövőbeli karbantartók és ellenőrök számára.
+
+
+────────────────────────────────────────────────────────────
+86. Mit kell tartalmaznia az üzembe helyezés előtti ellenőrzésnek?
+────────────────────────────────────────────────────────────
+
+🔍 Három dologból áll:
+
+  1. Inspektion (szemrevételezés) — vizuális ellenőrzés
+  2. Provning (mérési próbák) — műszeres mérések
+  3. Dokumentáció — a végzett munka rögzítése
+
+Plusz kötelezettség: Ellenőrizni kell, hogy a szerelési munkák nem rontották-e le
+a MEGLÉVŐ anlágg biztonságát!
+
+Lásd még a 21. kérdést (6. rész kötelező jellege).
+
+
+────────────────────────────────────────────────────────────
+87. Milyen követelmények vonatkoznak a mérőeszközökre?
+    Van minimális mérőáram a folytonossági próbához?
+────────────────────────────────────────────────────────────
+
+🔬 Hivatkozás: SS-EN 61557 szabványsorozat
+
+Ha a 6. rész szerint végzik az ellenőrzést:
+  → A mérőeszközt az SS-EN 61557 vonatkozó részei szerint kell megválasztani.
+
+A védővezetők folytonossági próbájához (kontinuitetstest):
+  → SS-EN 61557-1 (Általános) ÉS SS-EN 61557-4 (Ellenállás):
+    • Mérési feszültség: 4–24 V
+    • Mérési áram: legalább 0,2 A
+
+Ha más mérőeszközt alkalmaznak: legalább egyenértékű biztonságot és
+teljesítményt kell nyújtson.
+
+
+────────────────────────────────────────────────────────────
+88. Kötelező-e a kábelt szigetelésellenállás-méréssel vizsgálni?
+    A kábel ugye termék, amelynek biztonságát a gyártó szavatolja...
+────────────────────────────────────────────────────────────
+
+✅ IGEN, kötelező (annak ellenére, hogy a kábel termék).
+
+Miért? A kábelgyártó szavatolja a kábelt, de a SZERELÉSI HIBÁKAT nem!
+(Sérült szigetelés csatlakozásoknál, rossz végzárás, stb.)
+
+Hogyan kell elvégezni:
+  • Kábelek csatlakoztatva legyenek, de a BERENDEZÉSEK lekapcsolva.
+  • Mérni kell a feszültségvivő vezetők és a védővezető között.
+  • Fokozott tűzveszélyes területeken: a feszültségvivő VEZETŐK KÖZÖTT is!
+
+Minimumértékek (2. kiadás):
+  • Névleges feszültség ≤ 500 V: legalább 1 MΩ (próbafeszültség ≥ 500 V DC)
+  • Ez villamos biztonsági minimum — nem minőségi mérőszám!
+  • Egyes hálózati vállalatok új talajkábelnél legalább 5 MΩ-t követelnek.
+
+
+────────────────────────────────────────────────────────────
+89. Kötelező-e mindig megmérni a hibakör-impedanciát első
+    üzembe helyezéskor?
+────────────────────────────────────────────────────────────
+
+📐 NEM kötelező mérni — ha rendelkezésre állnak a számítási adatok.
+
+Két lehetőség:
+  1. Ha van maximális kábelhossz-számítás és az ellenőrizhető → nincs szükség mérésre.
+     Ellenőrizni kell: kábelhossz, védőkészülék névleges árama, beállítása, karakterisztikája.
+
+  2. Ha nincs tervezési dokumentáció → MÉRNI KELL a hibakör-impedanciát.
+
+Megjegyzés: a normál terhelési és hibaáramok miatti hőmérséklet-emelkedést
+(és az ebből fakadó ellenállás-növekedést) általában figyelembe kell venni.
+
+
+────────────────────────────────────────────────────────────
+90. Kötelező-e a jordfelsbrytare kioldási idejét mérni és dokumentálni?
+────────────────────────────────────────────────────────────
+
+📋 NEM kötelező külön műszerrel mérni!
+
+A svéd álláspont (amelyet a svéd nemzeti bizottság elfogadtatott):
+A jordfelsbrytarét a GYÁRTÓ UTASÍTÁSAI szerint kell vizsgálni,
+ami általában a beépített tesztgomb megnyomását jelenti.
+
+Ezért a szabályzatban ezek az előírások csak MEGJEGYZÉSKÉNT szerepelnek,
+nem kötelező követelményként.
+
+A kioldási időkre vonatkozó szabvány: SS-EN 61008-1/IS1.
+
+
+════════════════════════════════════════════════════════════
+  TÉMA: KÜLÖNLEGES HELYSZÍNEK — IDŐSZAKI, MEZŐGAZDASÁGI,
+        FÜRDŐSZOBA, USZODA, KEMPING
+  (91–106. kérdés)
+════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────
+91. Milyen sűrűn kell ellenőrizni az irodai- és kültéri anlägget?
+────────────────────────────────────────────────────────────
+
+🔍 A starkströmsförordning szerint:
+   Az üzemeltető FOLYAMATOSAN ellenőrizze, hogy a berendezés megfelelő biztonságot nyújt-e.
+
+Időszaki alapos ellenőrzés (periodisk kontroll) is szükséges.
+Az időköz több tényezőtől függ:
+  • Külső behatások (pl. kültér, nedvesség)
+  • Alkalmazott műszaki megoldások
+  • Hiba esetleges következményei
+
+Normál esetben: néhány év (pl. 4 év) megfelelő lehet.
+Kültéri anläggenél: sűrűbb ellenőrzés lehet szükséges.
+
+💡 Motorblokk-fűtő aljzatoknál (jordfelsbrytare­vel védve):
+   Legalább minden szezon előtt tesztelni kell a jordfelsbrytarét!
+
+
+────────────────────────────────────────────────────────────
+92. Most már szabad EKRK kábelt fürdőszobában alkalmazni?
+    A tilalmat eltörölték...
+────────────────────────────────────────────────────────────
+
+⚠️  Formálisan valószínűleg még MINDIG NEM megengedett.
+
+A tilalom eltörlésének oka: a szabályzat feladata nem meghatározni,
+melyik terméket szabad használni — ez a termékszabvány vagy a gyártó dolga.
+
+Az EKRK termékszabványa szerint: száraz, nem tűzveszélyes helyiségekben használható.
+Ameddig a gyártó utasításai száraz helyiségeket írnak elő → fürdőszobában nem alkalmazható!
+
+💡 Várható, hogy a közeljövőben bővül a felhasználási kör és nedves helyiségeket
+   is magában foglal majd.
+
+
+────────────────────────────────────────────────────────────
+93. Milyen tokozási osztály érvényes fürdőszobában a
+    0., 1., 2. zónán kívül?
+────────────────────────────────────────────────────────────
+
+🛡️  A tokozási osztályt az 51ZA melléklet szerint kell meghatározni.
+
+Minimumok a különböző helyzetekben:
+  • Falak általában nem nedvesek, de rövid időre lehetnek (páralecsapódás,
+    jó szellőztetéssel gyorsan szárad): IP20 is elegendő lehet.
+  • Nyilvános fürdőlétesítmény (állandóan párás levegő): IP21 valószínűleg minimum.
+  • Vízpermetnek kitett (takarítás): legalább IPX5.
+
+A szabályos zónákon belüli minimumok:
+  • 0. zóna (medencén belül): IPX7
+  • 1. és 2. zóna: IPX4
+
+Hivatkozás: 512.2, 51ZA melléklet, 701.512.2
+Lásd még a 24. és 56. kérdést.
+
+
+────────────────────────────────────────────────────────────
+94. Szabad-e törölközőszárítót felszerelni a kád FELETT?
+    (A kád határvonalain belül — azaz az 1. zónában)
+────────────────────────────────────────────────────────────
+
+✅ IGEN — feltéve, hogy:
+  • Állandóan rögzített (permanent monterad)
+  • Rögzítetten csatlakoztatott (fast ansluten)
+  • Tokozási osztálya legalább IPX4
+
+Plusz: Minden csoportvezetéket — zónától FÜGGETLENÜL — max. 30 mA-es
+jordfelsbrytare­vel kell kiegészítő védelem alá vonni fürdőszobában.
+
+
+────────────────────────────────────────────────────────────
+95. Kötelező-e kiegészítő védőkiegyenlítés fürdőszobában?
+    Kiváltható-e mással?
+────────────────────────────────────────────────────────────
+
+⚡ IGEN, kötelező — és a gyakorlatban alig van reális alternatíva.
+
+Miért olyan fontos?
+  • Nedvesség csökkenti a testimpedanciát.
+  • A test nagy érintési felülettel kerülhet kapcsolatba idegen vezető részekkel.
+  • Egy földhiba 100–150 V érintési feszültséget is okozhat.
+  • Egyes hibáknál akár 5 másodperces kikapcsolási idő is megengedett.
+
+Egyetlen valódi kivétel: ha az egész fürdőszoba kettős/megerősített
+szigetelés elvén (412. szakasz) valósul meg — ekkor nincs érintett rész,
+amelyet ki kellene egyenlíteni. De ez az egész fürdőszobát ehhez a védelmi
+módhoz köti, ami ritka és korlátozott megoldás.
+
+
+────────────────────────────────────────────────────────────
+96. Csatlakoztathatók-e a fürdőszoba idegen vezető részei közvetlenül
+    a főföldelő sínre (ahelyett, hogy egymáshoz kötnénk)?
+────────────────────────────────────────────────────────────
+
+🚫 Általában NEM — ez nem éri el a kívánt célt.
+
+Miért? Ha hiba van egy fázisvezető és a védővezető között, hibaáram folyik,
+és feszültségesés keletkezik. Az érintési feszültség az egyidejűleg érinthető
+részek közötti feszültségkülönbség.
+
+A hatékony megoldás: az összes EGYIDEJŰLEG ÉRINTHETŐ érintett és idegen
+vezető részt egymással kell összekötni, a lehető legrövidebb vezető segítségével.
+
+Ha az anläggnekvan védőkiegyenlítő rendszere, az idegen vezető részek már
+hozzá vannak csatlakoztatva — egy külön vezető a sínhez nem változtat az érintési feszültségen.
+
+
+────────────────────────────────────────────────────────────
+97. A 2. kiadásban kibővítették a jordfelsbrytare alkalmazási körét
+    32 A-ig. Át kell-e alakítani a meglévő építési helyszíni elosztókat?
+────────────────────────────────────────────────────────────
+
+📋 NEM kell átalakítani a MEGLÉVŐ elosztókat.
+
+A már piacra bocsátott terméket addig szabad használni, amíg megfelel
+a PIACRA BOCSÁTÁSKOR érvényes előírásoknak.
+
+Mettől érvényes az új szabály?
+  • 2010 április után piacra kerülő elosztóknak: 2. kiadás szerint kell.
+  • 2010. április 1. után helyszínen kialakított aljzat-szereléseknél: szintén.
+  • 2010. április 1-én üzemben lévő ideiglenes anlägge: folytathatja, amíg megfelelő biztonságot nyújt.
+
+
+────────────────────────────────────────────────────────────
+98. A 704. szakaszban nincs tokozási osztály az építési helyszíni
+    szerelvényekre. Mit kell alkalmazni?
+────────────────────────────────────────────────────────────
+
+🛡️  A 704. szakasz csak KIEGÉSZÍTÉS az alapvető szabályokhoz.
+
+Az 51ZA melléklet AD osztálykódja alapján:
+Az építési helyszínen a szerelvények vízzel való leöntésnek lehetnek kitéve
+→ IPX4 szükséges.
+
+Általánosan ajánlott: IP44.
+
+Megjegyzés: az előfeltételek nagyon különbözőek lehetnek (egy épületen belüli
+szerelés szinte teljesen száraz is lehet).
+
+
+────────────────────────────────────────────────────────────
+99. Milyen kikapcsolási idők érvényesek ideiglenes anläggenél
+    (byggströmstavlor)?
+────────────────────────────────────────────────────────────
+
+⏱️  A 2. kiadásban lényegében csak 2 kikapcsolási idő szerepel:
+
+  1. 41.1. táblázat → legfeljebb 32 A-es csoportvezetékekre
+  2. 5 másodperc → minden más (fővezetékek, 32 A feletti csoportvezetékek)
+
+A régi, rendkívül rövid kikapcsolási idők (pl. építési helyszínekre, vásárokra)
+→ ELTÖRÖLTÉK.
+
+Miért? A rövid kikapcsolási idő követelményét felváltotta a jordfelsbrytare
+alkalmazásának kötelezettsége. Ez egyszerűbb és biztonságosabb.
+
+
+────────────────────────────────────────────────────────────
+100. Szabad-e aljzatot felszerelni uszodában? Milyen feltételek?
+────────────────────────────────────────────────────────────
+
+🏊 A medencékre a 702. szakasz érvényes.
+
+  • 0. zóna (medencén belül): NEM helyezhető aljzat
+  • 1. zóna: általában NEM
+  • 2. zóna (legalább 2 m-re a medence szélétől): IGEN, ha:
+    → Legfeljebb 30 mA-es jordfelsbrytare védi
+    → Vízvédelem: legalább IPX4 (öblítéses takarításnál IPX5)
+
+  A 2. zónán kívül: általános szabályok érvényesek.
+
+
+────────────────────────────────────────────────────────────
+101. 230 V-os merülő szivattyú szökőkútba — csatlakoztatható-e
+     közvetlenül a hálózathoz?
+────────────────────────────────────────────────────────────
+
+🌊 Szökőkútakra a 702. szakasz (fontánok: 702.410.3.3.02) vonatkozik.
+
+230 V-os berendezésre két lehetőség:
+  1. Védelmi szeparált áramkörre csatlakoztatva (forrás a 0. és 1. zónán kívül)
+  2. Legfeljebb 30 mA-es jordfelsbrytare védi a tápáramkört
+
+
+────────────────────────────────────────────────────────────
+102. 63 A-os kültéri aljzat földieper-ültetvény öntözéséhez —
+     kötelező-e jordfelsbrytare?
+────────────────────────────────────────────────────────────
+
+🌱 Ez valószínűleg a 705. szakasz alá esik (mezőgazdasági és kertészeti anlägge).
+
+  • Legfeljebb 32 A-es aljzatokhoz: max. 30 mA-es jordfelsbrytare
+  • 32 A-nél nagyobb aljzatokhoz: max. 100 mA-es jordfelsbrytare
+    → Mind bel-, mind kültéren kötelező!
+
+A 41. fejezet alapvető szabályai önmagukban NEM követelik meg a jordfelsbrytarét
+32 A-nél nagyobb aljzatoknál, de a 7. rész (különleges helyszínek) igen.
+
+
+────────────────────────────────────────────────────────────
+103. Mekkora keresztmetszetű kiegészítő védőkiegyenlítő vezető
+     szükséges állattartó helyiségben?
+────────────────────────────────────────────────────────────
+
+📏 Kétféle kiegészítő védőkiegyenlítő vezető létezik:
+
+  📌 Két érintett rész között:
+     → Nem kisebb, mint az érintett részekhez vezető LEGKISEBB védővezető.
+
+  📌 Érintett rész és idegen vezető rész között:
+     → Legalább az érintett rész védővezetője keresztmetszetének FELE.
+
+Minimális keresztmetszet (ha nem kábel része):
+  • 2,5 mm² ha mechanikai sérülés ellen védett
+  • 4 mm² ha nincs mechanikai védelem
+
+Példa:
+  PE1 = 16 mm², PE2 = 10 mm²
+  → Vezető 1 (két érintett rész között): legalább 10 mm² (a kisebb PE)
+  → Vezető 2 (érintett rész–idegen rész): legalább 6 mm² (PE1 fele? → de 10/2=5,
+    a minimumkövetelménnyel együtt: 6 mm²)
+
+
+────────────────────────────────────────────────────────────
+104. Csatlakoztatható-e egy akadályjelző fény közvetlenül hálózatra?
+     (Telekommunikációs árboc teteje → szűk vezető tér, 706. szakasz)
+────────────────────────────────────────────────────────────
+
+⚡ IGEN — ha teljesülnek a 706. szakasz feltételei.
+
+Két lehetséges megközelítés:
+  1. Automatikus leválasztás + kiegészítő védőkiegyenlítés
+  2. Kettős/megerősített szigetelés + max. 30 mA jordfelsbrytare
+
+
+────────────────────────────────────────────────────────────
+105. Kempinghelyen az aljzatok alacsony magasságban kell legyenek
+     (0,5–1,5 m), de nincs petávédő a CEE típusú aljzaton —
+     hogyan kell megoldani a gyermekbiztonságot?
+────────────────────────────────────────────────────────────
+
+👶 Mivel 1,7 m alatti magasságban van az aljzat, más megoldás kell.
+
+A megoldás: az aljzatokat ELOSZTÓSZEKRÉNYBE vagy KÜLÖNÁLLÓ TOKOZÁSBA
+kell elhelyezni, amely ZÁRHATÓ FEDÉLLEL van ellátva.
+
+⚠️  FONTOS: A korábbi előírásokban a jordfelsbrytare (30 mA) kiválthatta a
+    mechanikai gyermekvédelmet. Ez MA MÁR NEM ÉRVÉNYES!
+    A gyermekbiztonság önálló védelmi szint — jordfelsbrytare nem váltja ki!
+
+Lásd még a 14. kérdést.
+
+
+────────────────────────────────────────────────────────────
+106. Lehet-e egy jordfelsbrytare közös több aljzathoz kikötőterületen?
+────────────────────────────────────────────────────────────
+
+🚢 NEM! A szabályok kis hajók kikötőire vonatkoznak (702A szakasz).
+
+Minden egyes szabadidő-hajóhoz tartozó aljzatot EGYENKÉNT, ÖNÁLLÓAN
+kell max. 30 mA-es jordfelsbrytare­vel védeni.
+
+Miért? Mert ha egy közös jordfelsbrytare kioldott, az összes hajó
+egyszerre marad áram nélkül — és pl. éjszaka ezt senki sem veszi észre.
+
+
+════════════════════════════════════════════════════════════
+  TÉMA: ÜZEMELTETÉSI HELYISÉGEK, KÜLTÉR, FŰTŐKÁBELEK,
+        SPECIÁLIS KÉRDÉSEK
+  (107–112. kérdés)
+════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────
+107. Mekkora a legkisebb megengedett közlekedési útvonal szélessége
+     egy üzemeltetési helyiségben lévő kapcsolóberendezés előtt?
+────────────────────────────────────────────────────────────
+
+📏 Hivatkozás: 729. szakasz + SS 4362101
+
+Ha a kapcsolóberendezés alapvédelmű burkolattal van ellátva:
+  • Kapcsolókar/fogantyú, kihúzott egység és fal között: legalább 600 mm
+  • Tokozások között, illetve tokozás és fal között: legalább 700 mm
+
+Menekülési útvonalon:
+  • Mindig legalább 500 mm szabad átjárás kell a nyitott helyzetben rögzített
+    ajtólap mellett ÉS a teljesen kihúzott teljesítménykapcsoló előtt.
+
+Lásd még a 57. kérdést.
+
+
+────────────────────────────────────────────────────────────
+108. Kötelező-e a kültéri világítást jordfelsbrytare­vel védeni?
+────────────────────────────────────────────────────────────
+
+📋 NEM kötelező — de AJÁNLOTT.
+
+A 714. szakasz (kültéri világítás) közvetlen követelményt NEM tartalmaz,
+de ajánlott max. 30 mA jordfelsbrytarét alkalmazni:
+  • Telefonülkék, buszváró szélfogók, reklámtáblák
+  • Tájékozódási térképek, egyes közúti táblák világítóberendezései
+
+
+────────────────────────────────────────────────────────────
+109. Kötelező-e vészvilágítás az üzemeltetési helyiségben?
+────────────────────────────────────────────────────────────
+
+💡 IGEN — az SS 4362101 szabvány szerint.
+
+Követelmények:
+  • A vészvilágítás vezető fényt biztosítson a menekülési úthoz.
+  • Elhelyezés: legfeljebb 0,5 m magasságra a padlótól
+    (erős füstfejlődés esetén alul látni, felül nem!).
+  • Alternatíva: utóvilágítású jelölések.
+
+💡 Sok vészvilágítás automatikusan begyullad, ha a normál hálózati feszültség kimarad.
+
+⚠️  Régebbi üzemeltetési helyiségek kockázatértékelésekor figyelembe kell venni:
+    erős füstfejlődés a hálózati feszültség kiesése NÉLKÜL is bekövetkezhet!
+
+
+────────────────────────────────────────────────────────────
+110. Milyen előírások vonatkoznak egy háztartási garázs villamos
+     szerelésére, ha padlólefolyó és csaptelep is van benne?
+────────────────────────────────────────────────────────────
+
+🚗 Általános szabályok (1–7. rész) vonatkoznak rá — nincs külön garázs-fejezet.
+
+Tokozási osztály megítélése:
+  • Olyan helyiségek, ahol a falak általában nem nedvesek, de rövid időre
+    lehetnek (páralecsapódás, gyorsan szárad): IP20 is elegendő.
+  • Egyszerű autómosásra alkalmas garázs: IPX4 szükséges lehet.
+  • Kereskedelmi autómosó/mosóterület: IPX5.
+
+💡 Egy tipikus háztartási garázs — még ha van is lefolyó és csaptelep —
+   sok esetben IP20-ban kivitelezhető, ha egyébként nem "nedvességtűrő
+   kialakítású" (azaz a falak általában szárazak maradnak).
+
+
+────────────────────────────────────────────────────────────
+111. Kötelező-e a fűtőkábeleket jordfelsbrytare­vel védeni?
+────────────────────────────────────────────────────────────
+
+⚡ Ha padlóba vagy belső mennyezetbe fektetik: IGEN, kötelező!
+
+A 753. szakasz szerint:
+  → Max. 30 mA-es jordfelsbrytare szükséges.
+
+Egyéb fűtőkábelekre (pl. mezőgazdasági területen):
+  → 705. szakasz: az áramkörök általában max. 300 mA jordfelsbrytarével védendők.
+
+A 753D melléklet szerint a jordfelsbrytare hatékony tűz elleni védelemként
+is szerepel a példákban.
+
+⚠️  A gyártó fektetési, szerelési és hibaelhárítási utasításait mindig
+    az elinstallationsreglerna kiegészítéseként kell követni!
+
+
+────────────────────────────────────────────────────────────
+112. Felülvizsgálaton azt jelezték, hogy el kell távolítani az
+     automatikus ajtócsukót az üzemeltetési helyiség ajtajáról.
+     Nem kell-e a tűzszakasz ajtajának önzáróknak lennie?
+────────────────────────────────────────────────────────────
+
+🔥 Az üzemeltetési helyiségek menekülési ajtaira NEM SZABAD automatikus
+   ajtócsukót felszerelni!
+
+Miért? Az üzemeltetési helyiségben az egyik kockázat az ívkisülés
+(ljusbåge), amely súlyos égési sérüléseket okoz. A gyors menekülésnek
+akadálymentesnek kell lennie — az ajtócsukó lassítaná ezt.
+
+Igaz, hogy a Boverket Byggregler azt mondja, a menekülési utakon lévő
+ajtóknak önzáróknak kell lenniük — DE ugyanebből kitűnik, hogy az általában
+ZÁRT ÁLLAPOTBAN TARTOTT kisebb helyiségek ajtói (pl. liftgépház, légkezelő)
+mentesíthetők.
+
+Az üzemeltetési helyiség is általában ZÁRVA TARTANDÓ → alkalmazható a mentesítés
+→ az ajtócsukó elhagyható.
+
+
+════════════════════════════════════════════════════════════
+  ÖSSZEFOGLALÓ TÁBLÁZAT — JORDFELSBRYTARE KÖVETELMÉNYEK
+════════════════════════════════════════════════════════════
+
+  Helyszín / berendezés                  | Max. kioldási áram
+  ─────────────────────────────────────────────────────────────
+  Lakás, iskola, óvoda (≤16 A aljzat)   | 30 mA
+  Meglévő száraz helys. bővítése (régi)  | Kivétel lehetséges
+  Fürdőszoba (minden csoportvezeték)     | 30 mA
+  Uszoda (2. zóna aljzat)                | 30 mA
+  Szökőkút szivattyú                     | 30 mA (vagy SELV)
+  Kempinghely aljzat                     | 30 mA
+  Kikötőhely (hajók, egyenként!)         | 30 mA
+  Padló-/mennyezetfűtő kábel             | 30 mA
+  Mezőgazd. ≤32 A aljzat                | 30 mA
+  Mezőgazd. >32 A aljzat                | 100 mA
+  Szűk vezető tér (706.) + kieg. véd.    | 30 mA
+
+
+════════════════════════════════════════════════════════════
+  ÖSSZEFOGLALÓ TÁBLÁZAT — TOKOZÁSI OSZTÁLYOK
+════════════════════════════════════════════════════════════
+
+  Helyszín                                | Minimum IP
+  ─────────────────────────────────────────────────────────
+  Száraz lakótér, irodai álmennyezet      | IP20
+  Üzemeltetési helyiség (általánosan)    | IP2X (vö. BA)
+  Uszoda 0. zóna                          | IPX7
+  Uszoda/fürdőszoba 1–2. zóna            | IPX4
+  Fürdőszoba vízpermetnek kitett rész     | IPX5
+  Nyilvános fürdőlétesítmény (párás)      | IP21
+  Építési helyszín (általánosan)          | IP44
+  Kültéri öntözés (leöntésnek kitett)    | IPX4 vagy IPX5
+
+
+════════════════════════════════════════════════════════════
+  Fájl vége. Sok sikert a vizsgákhoz! 💪⚡
+════════════════════════════════════════════════════════════
