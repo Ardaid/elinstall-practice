@@ -876,7 +876,11 @@ function buildDropdown() {
     { hex: '#00BCD4', label: 'Cyan'       },
     { hex: '#4CAF50', label: 'Green'      },
     { hex: '#29B6F6', label: 'Sky blue'   },
-    { hex: '#CE93D8', label: 'Purple'     }
+    { hex: '#CE93D8', label: 'Purple'     },
+    { hex: '#8B4513', label: 'Brown'      },
+    { hex: '#D32F2F', label: 'Red'        },
+    { hex: '#F57C00', label: 'Orange'     },
+    { hex: '#5C6BC0', label: 'Indigo'     }
   ];
 
   accents.forEach(function(a) {
