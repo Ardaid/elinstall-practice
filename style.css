@@ -50,6 +50,19 @@
   --muted:      #909090;
 }
 
+/* Book (meleg papír, tinta) */
+:root.theme-book {
+  --bg:         #f5f0e8;
+  --sidebar-bg: #ece6d8;
+  --surface:    #e8e2d4;
+  --surface2:   #ddd6c5;
+  --border:     #c5baa8;
+  --text:       #1a1208;
+  --muted:      #7a6a52;
+  --correct:    #2d6a2d;
+  --wrong:      #b03020;
+}
+
 /* =====================
    ALAP RESET
    ===================== */

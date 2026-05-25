@@ -773,6 +773,13 @@ var themes = [
     bg1: '#1c1c1c',
     bg2: '#141414',
     className: 'theme-graphite'
+  },
+  {
+    id: 'book',
+    label: 'Book',
+    bg1: '#f5f0e8',
+    bg2: '#ece6d8',
+    className: 'theme-book'
   }
 ];
 
@@ -783,7 +790,8 @@ var themeAccents = {
   midnight: '#00BCD4',
   galaxy:   '#CE93D8',
   terminal: '#4CAF50',
-  graphite: '#90CAF9'
+  graphite: '#90CAF9',
+  book:     '#8B4513'
 };
 
 function setTheme(id) {
