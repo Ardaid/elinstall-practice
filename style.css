@@ -2253,6 +2253,71 @@ body.sb-resizing * {
 }
 
 /* =====================
+   EXPLANATION MÓD
+   ===================== */
+.content.expl-mode {
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.expl-view {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.expl-body {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 28px 28px 40px;
+}
+
+.expl-h1 {
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 32px 0 14px;
+  color: var(--text);
+}
+.expl-h1:first-child { margin-top: 0; }
+
+.expl-h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 28px 0 10px;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+}
+
+.expl-h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 20px 0 8px;
+  color: var(--accent);
+}
+
+.expl-p {
+  font-size: 0.97rem;
+  line-height: 1.85;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+
+.expl-loading, .expl-empty {
+  color: var(--muted);
+  font-style: italic;
+  padding: 40px 0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .expl-body { padding: 18px 16px 32px; }
+  .expl-h1   { font-size: 1.25rem; }
+  .expl-h2   { font-size: 1.05rem; }
+}
+
+/* =====================
    ZOOM IN DROPDOWN
    ===================== */
 .zoom-btn-group {

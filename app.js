@@ -161,9 +161,10 @@ function swapLangs() {
   saveLangs(); buildLangPicker(); updateHeaderSubtitle(); refreshCurrentView();
 }
 function refreshCurrentView() {
-  if (mode === 'list')      { buildSidebar();     renderList(); }
-  else if (mode === 'dict') { buildDictSidebar(); renderDict(); }
-  else if (mode === 'quiz') { renderQuiz(); }
+  if (mode === 'list')            { buildSidebar();     renderList(); }
+  else if (mode === 'dict')       { buildDictSidebar(); renderDict(); }
+  else if (mode === 'quiz')       { renderQuiz(); }
+  else if (mode === 'explanation') { renderExplanation(); }
 }
 
 // =====================
@@ -1433,6 +1434,64 @@ function dictNext() {
 }
 
 // =====================
+// EXPLANATION MÓD
+// =====================
+function renderExplanation() {
+  clearQuizMode();
+  var c = document.getElementById('content');
+  c.innerHTML = '<div class="expl-view"><div class="expl-body"><p class="expl-loading">Betöltés…</p></div></div>';
+  requestAnimationFrame(applyExplanationHeight);
+
+  fetch('./explanation-hu.txt?nocache=' + Date.now())
+    .then(function(r) { return r.text(); })
+    .then(function(text) {
+      text = text.trim();
+      if (!text) {
+        c.innerHTML =
+          '<div class="expl-view"><div class="expl-body">' +
+            '<p class="expl-empty">Még nincs tartalom. Másold be a szöveget az <code>explanation-hu.txt</code> fájlba.</p>' +
+          '</div></div>';
+        requestAnimationFrame(applyExplanationHeight);
+        return;
+      }
+      var html = '<div class="expl-view"><div class="expl-body">';
+      text.split(/\n\n+/).forEach(function(block) {
+        block = block.trim();
+        if (!block) return;
+        if (block.startsWith('### ')) {
+          html += '<h3 class="expl-h3">' + block.slice(4) + '</h3>';
+        } else if (block.startsWith('## ')) {
+          html += '<h2 class="expl-h2">' + block.slice(3) + '</h2>';
+        } else if (block.startsWith('# ')) {
+          html += '<h1 class="expl-h1">' + block.slice(2) + '</h1>';
+        } else {
+          html += '<p class="expl-p">' + block.replace(/\n/g, '<br>') + '</p>';
+        }
+      });
+      html += '</div></div>';
+      c.innerHTML = html;
+      requestAnimationFrame(applyExplanationHeight);
+    })
+    .catch(function() {
+      c.innerHTML = '<div class="expl-view"><div class="expl-body"><p class="expl-empty">Nem sikerült betölteni a fájlt.</p></div></div>';
+      requestAnimationFrame(applyExplanationHeight);
+    });
+}
+
+function applyExplanationHeight() {
+  var c  = document.getElementById('content');
+  var ev = document.querySelector('.expl-view');
+  if (!ev) return;
+  c.classList.add('expl-mode');
+  var headerH    = (document.getElementById('site-header')      || {}).offsetHeight || 0;
+  var bottomNavH = (document.getElementById('mobile-bottom-nav') || {}).offsetHeight || 0;
+  var vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+  if (vh > window.screen.height) vh = window.screen.height;
+  var available = Math.floor(vh - headerH - bottomNavH) - 4;
+  ev.style.height = Math.max(200, available) + 'px';
+}
+
+// =====================
 // KVÍZ MAGASSÁG
 // visualViewport.height = ténylegesen látható magasság (Android nav sáv NÉLKÜL)
 // window.innerHeight    = layout magasság (Android nav sáv beleszámítva)
@@ -1475,8 +1534,9 @@ function applyListHeight() {
 // Újraszámol tájolásváltásnál és böngészőchrome változásnál
 (function() {
   function onVpChange() {
-    if (mode === 'quiz') requestAnimationFrame(applyQuizHeight);
-    if (mode === 'list') requestAnimationFrame(applyListHeight);
+    if (mode === 'quiz')        requestAnimationFrame(applyQuizHeight);
+    if (mode === 'list')        requestAnimationFrame(applyListHeight);
+    if (mode === 'explanation') requestAnimationFrame(applyExplanationHeight);
   }
   if (window.visualViewport) {
     window.visualViewport.addEventListener('resize', onVpChange);
@@ -1485,15 +1545,16 @@ function applyListHeight() {
   }
   window.addEventListener('orientationchange', function() {
     setTimeout(function() {
-      if (mode === 'quiz') applyQuizHeight();
-      if (mode === 'list') applyListHeight();
+      if (mode === 'quiz')        applyQuizHeight();
+      if (mode === 'list')        applyListHeight();
+      if (mode === 'explanation') applyExplanationHeight();
     }, 300);
   });
 })();
 
 function clearQuizMode() {
   var c = document.getElementById('content');
-  if (c) { c.classList.remove('quiz-mode'); c.classList.remove('list-mode'); }
+  if (c) { c.classList.remove('quiz-mode'); c.classList.remove('list-mode'); c.classList.remove('expl-mode'); }
 }
 
 // =====================
@@ -1635,20 +1696,26 @@ function closeMobileSidebar() {
 function setMode(m) {
   var prev = mode;
   mode = m;
+  document.getElementById('tab-expl').classList.toggle('active', m === 'explanation');
   document.getElementById('tab-list').classList.toggle('active', m === 'list');
   document.getElementById('tab-quiz').classList.toggle('active', m === 'quiz');
   document.getElementById('tab-dict').classList.toggle('active', m === 'dict');
   // Mobile bottom nav sync
+  var me = document.getElementById('mobile-tab-expl');
   var ml = document.getElementById('mobile-tab-list');
   var mq = document.getElementById('mobile-tab-quiz');
   var md = document.getElementById('mobile-tab-dict');
+  if (me) me.classList.toggle('active', m === 'explanation');
   if (ml) ml.classList.toggle('active', m === 'list');
   if (mq) mq.classList.toggle('active', m === 'quiz');
   if (md) md.classList.toggle('active', m === 'dict');
   closeMobileSidebar();
   document.getElementById('sessions-sidebar').classList.toggle('hidden', m !== 'quiz');
 
-  if (m === 'dict') {
+  if (m === 'explanation') {
+    if (prev === 'dict') buildSidebar();
+    renderExplanation();
+  } else if (m === 'dict') {
     buildDictSidebar();
     if (prev !== 'dict') { dictI = 0; dictFlipped = false; }
     renderDict();
@@ -1681,6 +1748,7 @@ quizQuestions = QA.map(function(_, i) { return i; });
 var savedMode = loadState();
 
 // Tab gombok aktív állapota
+document.getElementById('tab-expl').classList.toggle('active', savedMode === 'explanation');
 document.getElementById('tab-list').classList.toggle('active', savedMode === 'list');
 document.getElementById('tab-quiz').classList.toggle('active', savedMode === 'quiz');
 document.getElementById('tab-dict').classList.toggle('active', savedMode === 'dict');
@@ -1690,6 +1758,10 @@ if (savedMode === 'dict') {
   mode = 'dict';
   buildDictSidebar();
   renderDict();
+} else if (savedMode === 'explanation') {
+  mode = 'explanation';
+  buildSidebar();
+  renderExplanation();
 } else {
   mode = 'list';
   buildSidebar();
@@ -1727,7 +1799,7 @@ document.addEventListener('keydown', function(e) {
   window.addEventListener('touchstart', function(e) {
     if (refreshing) return;
     // Görgethető belső területekről ne induljon pull-to-refresh
-    var scrollAreas = document.querySelectorAll('.quiz-opts-scroll, .list-body, #sidebar');
+    var scrollAreas = document.querySelectorAll('.quiz-opts-scroll, .list-body, .expl-view, #sidebar');
     for (var i = 0; i < scrollAreas.length; i++) {
       if (scrollAreas[i].contains(e.target)) { pulling = false; return; }
     }

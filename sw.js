@@ -1,4 +1,4 @@
-const CACHE_NAME = 'elinstall-v24';
+const CACHE_NAME = 'elinstall-v25';
 
 // Képek és ikonok — ritkán változnak, cache-first
 const STATIC_ASSETS = [
@@ -37,6 +37,7 @@ self.addEventListener('fetch', event => {
   const isCode = url.pathname.endsWith('.js') ||
                  url.pathname.endsWith('.css') ||
                  url.pathname.endsWith('.html') ||
+                 url.pathname.endsWith('.txt') ||
                  url.pathname.endsWith('/');
 
   if (isCode) {

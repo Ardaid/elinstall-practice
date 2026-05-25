@@ -29,6 +29,7 @@
     <div class="header-right">
       <!-- Mode tabs -->
       <div class="mode-tabs">
+        <button class="mode-tab" id="tab-expl" onclick="setMode('explanation')">📝 Explanation</button>
         <button class="mode-tab active" id="tab-list" onclick="setMode('list')">📋 List</button>
         <button class="mode-tab" id="tab-quiz" onclick="setMode('quiz')">🎯 Quiz</button>
         <button class="mode-tab" id="tab-dict" onclick="setMode('dict')">📖 Dictionary <span class="tab-beta">(Beta)</span></button>
@@ -93,6 +94,10 @@
 
   <!-- BOTTOM NAV (mobile) -->
   <nav class="mobile-bottom-nav" id="mobile-bottom-nav">
+    <button class="mobile-nav-btn" id="mobile-tab-expl" onclick="setMode('explanation')">
+      <span class="mobile-nav-icon">📝</span>
+      <span>Leírás</span>
+    </button>
     <button class="mobile-nav-btn active" id="mobile-tab-list" onclick="setMode('list')">
       <span class="mobile-nav-icon">📋</span>
       <span>Lista</span>
