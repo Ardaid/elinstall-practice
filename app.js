@@ -1444,6 +1444,12 @@ function dictNext() {
 function renderExplanation() {
   clearQuizMode();
   var c = document.getElementById('content');
+
+  if (langPrimary !== 'hu') {
+    renderComingSoon(langPrimary);
+    return;
+  }
+
   c.innerHTML = '<div class="expl-view"><div class="expl-body"><p class="expl-loading">Betöltés…</p></div></div>';
   requestAnimationFrame(applyExplanationHeight);
 
