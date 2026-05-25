@@ -2260,10 +2260,67 @@ body.sb-resizing * {
   padding: 0 !important;
   overflow: hidden !important;
 }
+
+/* Wrapper: content area + right nav side-by-side */
+.expl-wrap {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
 .expl-view {
+  flex: 1;
+  min-width: 0;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
+
+/* ── Section navigator (right column) ── */
+.expl-section-nav {
+  flex-shrink: 0;
+  width: 58px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 5px 12px;
+  gap: 4px;
+  background: var(--sidebar-bg);
+  border-left: 1px solid var(--border);
+}
+.expl-nav-btn {
+  width: 46px;
+  min-height: 36px;
+  padding: 5px 2px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+  word-break: break-all;
+}
+.expl-nav-btn:hover {
+  background: var(--surface2);
+  color: var(--text);
+  border-color: var(--accent);
+}
+.expl-nav-btn.expl-nav-active {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+.expl-nav-top {
+  font-size: 0.85rem;
+  border-color: var(--accent);
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
 .expl-body {
   max-width: 800px;
   margin: 0 auto;
@@ -2399,14 +2456,24 @@ body.sb-resizing * {
   padding: 40px 0;
   text-align: center;
 }
+.expl-closing {
+  text-align: center;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 40px;
+  padding: 16px 0 8px;
+  border-top: 1px solid var(--border);
+}
 
 @media (max-width: 768px) {
-  .expl-body    { padding: 16px 14px 36px; }
-  .expl-h1      { font-size: 1.15rem; }
-  .expl-h2      { font-size: 0.72rem; margin-top: 36px; }
-  .expl-h3      { font-size: 0.91rem; padding: 8px 12px; }
-  .expl-table   { font-size: 0.8rem; }
-  .expl-td      { padding: 6px 10px !important; }
+  .expl-body           { padding: 16px 14px 36px; }
+  .expl-h1             { font-size: 1.15rem; }
+  .expl-h2             { font-size: 0.72rem; margin-top: 36px; }
+  .expl-h3             { font-size: 0.91rem; padding: 8px 12px; }
+  .expl-table          { font-size: 0.8rem; }
+  .expl-td             { padding: 6px 10px !important; }
+  .expl-section-nav    { width: 50px; padding: 6px 3px 10px; }
+  .expl-nav-btn        { width: 42px; font-size: 0.6rem; min-height: 32px; }
 }
 
 /* =====================

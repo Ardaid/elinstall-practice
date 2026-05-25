@@ -1465,7 +1465,12 @@ function renderExplanation() {
         requestAnimationFrame(applyExplanationHeight);
         return;
       }
-      c.innerHTML = '<div class="expl-view"><div class="expl-body">' + buildExplHtml(text) + '</div></div>';
+      var result = buildExplHtml(text);
+      c.innerHTML =
+        '<div class="expl-wrap">' +
+          '<div class="expl-view"><div class="expl-body">' + result.html + '</div></div>' +
+          '<nav class="expl-section-nav">' + buildExplNavHtml(result.sections) + '</nav>' +
+        '</div>';
       requestAnimationFrame(applyExplanationHeight);
     })
     .catch(function() {
@@ -1475,13 +1480,16 @@ function renderExplanation() {
 }
 
 // Parses explanation-hu.txt (with ════/──── decorators) into styled HTML
+// Returns { html: string, sections: [{id, label, title}] }
 function buildExplHtml(text) {
-  // True if a line is 8+ repeated decorator characters (═ ─ = -)
+  var sections = [];
+  var sIdx     = 0;
+  var sumIdx   = 0;
+
   function isDecorLine(line) {
     var t = line.trim();
     return t.length >= 8 && /^([═─=\-])\1+$/.test(t);
   }
-  // 'thick' for ═/=, 'thin' for ─/-, null if no decorator found
   function firstDecorType(lines) {
     for (var i = 0; i < lines.length; i++) {
       if (!isDecorLine(lines[i])) continue;
@@ -1490,7 +1498,6 @@ function buildExplHtml(text) {
     }
     return null;
   }
-  // Render lines with | as an HTML table
   function renderTable(lines) {
     var rows = lines.filter(function(l) {
       return l.trim() && !isDecorLine(l) && l.includes('|');
@@ -1509,65 +1516,67 @@ function buildExplHtml(text) {
     return out;
   }
 
-  // Parse all double-newline-separated blocks
   var parsed = text.split(/\n\n+/).map(function(block) {
     block = block.trim();
     if (!block) return null;
-    var lines      = block.split('\n');
-    var dType      = firstDecorType(lines);
+    var lines        = block.split('\n');
+    var dType        = firstDecorType(lines);
     var contentLines = lines.filter(function(l) { return !isDecorLine(l) && l.trim(); });
-    if (!contentLines.length) return null; // pure decorator → skip
+    if (!contentLines.length) return null;
 
     if (dType) {
       var texts  = contentLines.map(function(l) { return l.trim(); });
       var joined = texts.join(' ');
       if (dType === 'thin') {
-        // ─── = question header → h3 with number badge
         var m = joined.match(/^(\d+)\.\s+([\s\S]*)/);
         if (m) {
           return { type: 'h3', html:
-            '<h3 class="expl-h3">' +
-              '<span class="expl-qnum">' + m[1] + '</span>' + m[2] +
-            '</h3>'
+            '<h3 class="expl-h3"><span class="expl-qnum">' + m[1] + '</span>' + m[2] + '</h3>'
           };
         }
         return { type: 'h3', html: '<h3 class="expl-h3">' + joined + '</h3>' };
       }
       if (dType === 'thick') {
-        // ═══ = section or main title
+        // Main title
         if (texts.some(function(t) { return /\d+\s*KÉRDÉS/i.test(t); })) {
           return { type: 'h1', html:
-            '<div class="expl-title-block">' +
+            '<div id="expl-top" class="expl-title-block">' +
               '<h1 class="expl-h1">' + texts[0] + '</h1>' +
               (texts[1] ? '<p class="expl-subtitle">' + texts[1] + '</p>' : '') +
             '</div>'
           };
         }
-        return { type: 'h2', html: '<h2 class="expl-h2">' + joined + '</h2>' };
+        // Closing message
+        if (joined.indexOf('Fájl vége') >= 0) {
+          return { type: 'p', html: '<p class="expl-closing">' + joined + '</p>' };
+        }
+        // Section header — register in nav
+        var sId      = 'expl-s-' + sIdx++;
+        var rangeM   = joined.match(/\((\d+)[–\-](\d+)/);
+        var label    = rangeM ? (rangeM[1] + '–' + rangeM[2]) : ('∑' + (++sumIdx));
+        var navTitle = joined.replace(/^TÉMA:\s*/i, '').replace(/^ÖSSZEFOGLALÓ TÁBLÁZAT\s*[—\-]\s*/i, '');
+        if (navTitle.length > 38) navTitle = navTitle.slice(0, 36) + '…';
+        sections.push({ id: sId, label: label, title: navTitle });
+        return { type: 'h2', html: '<h2 id="' + sId + '" class="expl-h2">' + joined + '</h2>' };
       }
     }
 
-    // Explicit markdown headings (### ## #)
     if (block.startsWith('### ')) return { type: 'h3', html: '<h3 class="expl-h3">' + block.slice(4) + '</h3>' };
     if (block.startsWith('## '))  return { type: 'h2', html: '<h2 class="expl-h2">' + block.slice(3) + '</h2>' };
     if (block.startsWith('# '))   return { type: 'h1', html: '<h1 class="expl-h1">' + block.slice(2) + '</h1>' };
 
-    // Bullet item (block starts with • possibly after whitespace)
     if (/^\s*•\s/.test(block)) {
       var bulletText = block.replace(/^\s*•\s*/, '').replace(/\n\s*/g, ' ');
       return { type: 'li', html: '<li class="expl-li">' + bulletText + '</li>' };
     }
 
-    // Table (2+ lines containing |)
     if (lines.filter(function(l) { return l.includes('|'); }).length >= 2) {
       return { type: 'table', html: renderTable(lines) };
     }
 
-    // Regular paragraph
     return { type: 'p', html: '<p class="expl-p">' + contentLines.join('\n').replace(/\n/g, '<br>') + '</p>' };
   }).filter(Boolean);
 
-  // Build final HTML — wrap consecutive <li> items in <ul>
   var out = '';
   var inList = false;
   parsed.forEach(function(item) {
@@ -1580,20 +1589,41 @@ function buildExplHtml(text) {
     }
   });
   if (inList) out += '</ul>';
-  return out;
+  return { html: out, sections: sections };
+}
+
+// Builds the right-side section navigator HTML
+function buildExplNavHtml(sections) {
+  var html = '<button class="expl-nav-btn expl-nav-top" onclick="explJumpTo(\'expl-top\')" title="Teteje">⬆</button>';
+  sections.forEach(function(s) {
+    html += '<button class="expl-nav-btn" data-sid="' + s.id + '" onclick="explJumpTo(\'' + s.id + '\')" title="' + s.title + '">' + s.label + '</button>';
+  });
+  return html;
+}
+
+// Scrolls the expl-view to bring the target element into view
+function explJumpTo(id) {
+  var view = document.querySelector('.expl-view');
+  if (!view) return;
+  if (id === 'expl-top') { view.scrollTop = 0; return; }
+  var el = document.getElementById(id);
+  if (!el) return;
+  var elRect   = el.getBoundingClientRect();
+  var viewRect = view.getBoundingClientRect();
+  view.scrollTop += elRect.top - viewRect.top - 14;
 }
 
 function applyExplanationHeight() {
   var c  = document.getElementById('content');
-  var ev = document.querySelector('.expl-view');
-  if (!ev) return;
+  var ew = document.querySelector('.expl-wrap');
+  if (!ew) return;
   c.classList.add('expl-mode');
   var headerH    = (document.getElementById('site-header')      || {}).offsetHeight || 0;
   var bottomNavH = (document.getElementById('mobile-bottom-nav') || {}).offsetHeight || 0;
   var vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
   if (vh > window.screen.height) vh = window.screen.height;
   var available = Math.floor(vh - headerH - bottomNavH) - 4;
-  ev.style.height = Math.max(200, available) + 'px';
+  ew.style.height = Math.max(200, available) + 'px';
 }
 
 // =====================
