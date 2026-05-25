@@ -47,7 +47,7 @@ function parseLang(text, qPrefix, aPrefix) {
 
 var svArr = parseLang(QUESTIONS_SV_TEXT, 'SV',  'Svenska');
 var huArr = parseLang(QUESTIONS_HU_TEXT, 'HU',  'Magyar');
-var enArr = parseLang(QUESTIONS_EN_TEXT, 'EN',  'English');
+var enArr = parseLang(QUESTIONS_EN_TEXT, 'GB',  'English');
 var esArr = parseLang(QUESTIONS_ES_TEXT, 'ES',  'Español');
 
 var QA = svArr.map(function(sv, i) {

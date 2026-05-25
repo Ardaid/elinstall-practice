@@ -110,7 +110,7 @@ function buildLangPicker() {
   var dd  = document.getElementById('lang-dropdown');
   var html = '';
 
-  var LANG_SOON = { en: true, es: true };
+  var LANG_SOON = { es: true };
 
   html += '<span class="picker-section-label">Primary language</span>';
   LANGUAGES.forEach(function(l) {
