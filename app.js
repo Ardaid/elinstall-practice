@@ -15,6 +15,7 @@ var quizMaxCount     = 0;    // 0 = összes, egyéb = limit
 var sidebarCollapsed = {};    // { groupIndex: true/false }
 var activeTopic = 0;          // currently selected topic index
 var activePart  = 0;          // currently selected part index within topic
+var pendingExplTarget = null; // scroll target after explanation renders
 
 // =====================
 // NYELVEK
@@ -1338,6 +1339,11 @@ function renderList() {
               '<p class="ans-hu">'   + formatAnswer(sec.a) + '</p>'
             : '') +
         '</div>' +
+        (langPrimary === 'hu'
+          ? '<div class="list-expl-row">' +
+              '<button class="list-expl-btn" onclick="goToExplanation(' + q.n + ')">📖 Magyarázat</button>' +
+            '</div>'
+          : '') +
       '</div>' +
       '<div class="list-nav">' +
         '<button class="arrow-btn" onclick="prevQ()" ' + (listQ === 0 ? 'disabled' : '') + '>&larr; Previous</button>' +
@@ -1473,6 +1479,11 @@ function renderExplanation() {
           '<nav class="expl-section-nav">' + buildExplNavHtml(result.sections) + '</nav>' +
         '</div>';
       requestAnimationFrame(applyExplanationHeight);
+      if (pendingExplTarget) {
+        var _target = pendingExplTarget;
+        pendingExplTarget = null;
+        setTimeout(function() { explJumpTo(_target); }, 120);
+      }
     })
     .catch(function() {
       c.innerHTML = '<div class="expl-view"><div class="expl-body"><p class="expl-empty">Nem sikerült betölteni a fájlt.</p></div></div>';
@@ -1532,7 +1543,11 @@ function buildExplHtml(text) {
         var m = joined.match(/^(\d+)\.\s+([\s\S]*)/);
         if (m) {
           return { type: 'h3', html:
-            '<h3 class="expl-h3"><span class="expl-qnum">' + m[1] + '</span>' + m[2] + '</h3>'
+            '<h3 id="expl-q-' + m[1] + '" class="expl-h3">' +
+              '<span class="expl-qnum">' + m[1] + '</span>' +
+              '<span class="expl-h3-text">' + m[2] + '</span>' +
+              '<button class="expl-back-btn" onclick="goToListQuestion(' + m[1] + ')">← Kérdés</button>' +
+            '</h3>'
           };
         }
         return { type: 'h3', html: '<h3 class="expl-h3">' + joined + '</h3>' };
@@ -1612,6 +1627,20 @@ function explJumpTo(id) {
   var elRect   = el.getBoundingClientRect();
   var viewRect = view.getBoundingClientRect();
   view.scrollTop += elRect.top - viewRect.top - 14;
+}
+
+// List → Explanation: switch to explanation and scroll to the given question number
+function goToExplanation(qNum) {
+  pendingExplTarget = 'expl-q-' + qNum;
+  setMode('explanation');
+}
+
+// Explanation → List: switch to list and show the given question number
+function goToListQuestion(qNum) {
+  for (var i = 0; i < QA.length; i++) {
+    if (QA[i].n === qNum) { listQ = i; break; }
+  }
+  setMode('list');
 }
 
 function applyExplanationHeight() {
