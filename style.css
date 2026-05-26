@@ -336,6 +336,10 @@ button {
   width: 210px;
   z-index: 999;
   box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  /* ne lógjon a bottom nav alá mobilon */
+  max-height: calc(100vh - 150px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .color-dropdown.open {
