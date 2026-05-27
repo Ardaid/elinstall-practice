@@ -1,4 +1,4 @@
-const CACHE_NAME = 'elinstall-v34';
+const CACHE_NAME = 'elinstall-v35';
 
 // Képek és ikonok — ritkán változnak, cache-first
 const STATIC_ASSETS = [

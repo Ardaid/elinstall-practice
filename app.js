@@ -1460,7 +1460,7 @@ function renderExplanation() {
   c.innerHTML = '<div class="expl-view"><div class="expl-body"><p class="expl-loading">Betöltés…</p></div></div>';
   requestAnimationFrame(applyExplanationHeight);
 
-  fetch('./explanation-hu.txt?nocache=' + Date.now())
+  fetch('./explanation-hu.txt')
     .then(function(r) { return r.text(); })
     .then(function(text) {
       text = text.trim();
